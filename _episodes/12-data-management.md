@@ -1,5 +1,5 @@
 ---
-title: "Data management & best practices"
+title: "Hands on: Working with GBIF"
 start: true
 teaching: 30
 exercises: 15
@@ -20,6 +20,7 @@ keypoints:
 - "Organize your Data and Metadata"
 ---
 
+# Hands on: Working with GBIF
 
 ### Presentation
 

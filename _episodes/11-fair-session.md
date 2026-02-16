@@ -1,5 +1,5 @@
 ---
-title: "FAIR and Open Science"
+title: "Intro to R & GBIF-Related R packages ((rgbif, finch,..)"
 start: true
 teaching: 45
 exercises: 0
@@ -14,6 +14,9 @@ objectives:
 keypoints:
 - "Open Science & FAIR data"
 ---
+
+# Intro to R & GBIF-Related R packages ((rgbif, finch,..)
+
 
 ## Presentation
 

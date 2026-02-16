@@ -1,5 +1,5 @@
 ---
-title: "Openrefine"
+title: "Introduction to GBIF data cubes (SQL option)"
 start: true
 teaching: 0
 exercises: 90
@@ -13,7 +13,9 @@ keypoints:
 - "Openrefine saves time"
 ---
 
-# Openrefine
+# Introduction to GBIF data cubes (SQL option)
+
+
 
 ## Presentation
 

@@ -1,16 +1,8 @@
 ---
 title: "Introduction to GBIF data cubes (SQL option)"
 start: true
-teaching: 0
-exercises: 90
-questions:
-- "What is Openrefine? an introduction"
-- "Data cleaning with open refine?"
-- "Name matching with Openrefine"
-objectives:
-- "Understand the purpose of Openrefine"
 keypoints:
-- "Openrefine saves time"
+- "Hip to Be Cubed"
 ---
 
 # Introduction to GBIF data cubes (SQL option)

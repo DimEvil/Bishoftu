@@ -126,7 +126,7 @@ The goal is that by the end of the workshop you will have a set of tools in your
 
 <p class="d-flex justify-content-around align-items-center">
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/img6.jpg' | relative_url }}" alt="Hands on" width="200">
+    <img src="{{ '/fig/bishoftu1.png' | relative_url }}" alt="Hands on" width="200">
   </a>
   <a href="https://mingor.gov.hr/">
     <img src="{{ '/fig/img8.jpg' | relative_url }}" alt="Hands on" width="200">

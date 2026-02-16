@@ -1,5 +1,5 @@
 ---
-title: "IPT Administration"
+title: "Mini project presentation"
 start: true
 teaching: 30
 exercises: 30
@@ -10,6 +10,9 @@ objectives:
 keypoints:
 - "The GBIF portal is the place to find biodiversity data"
 ---
+
+# Mini project presentation
+
 # presentation IPT admin
 
 <a href="https://docs.google.com/presentation/d/13o6PLmh8zFNT7hR8XtMCorazx--KJxPXiykG8xB4TDc/edit?usp=sharing">

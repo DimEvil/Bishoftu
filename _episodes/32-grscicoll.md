@@ -1,5 +1,5 @@
 ---
-title: "GBIF GRSciColl"
+title: "Feedback, summary and certificates"
 start: true
 teaching: 60
 exercises: 0
@@ -13,6 +13,9 @@ keypoints:
 - "GRSciColl a central registry maintained by GBIF"
 - "GRSciColl a community effort"
 ---
+
+
+# Feedback, summary and certificates
 
 ## GRSciColl
 The [**G**lobal **R**egistry of **Sci**entific **Coll**ections](https://scientific-collections.gbif.org) is a comprehensive, community-curated repository of information about scientific collections that extends work initially started by the Consortium of the Barcode of Life (CBOL).

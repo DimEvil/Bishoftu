@@ -6,7 +6,7 @@ exercises: 90
 objectives:
 - "Understand the purpose of Cubes"
 keypoints:
-- "Openrefine saves time"
+- "Hip to be Cubed"
 ---
 
 # Introduction to GBIF data cubes (SQL option)

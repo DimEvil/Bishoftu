@@ -1,19 +1,19 @@
 ---
-title: "Living Atlasses & Croatian GBIF node"
+title: "Data Quality and Download filters"
 start: true
 teaching: 60
 exercises: 0
 questions:
-- "Introduction to Living Atlas Croatia"
+- "Data Quality and Download Filters"
 
 objectives:
-- "Introduction to Living Atlas Croatia & Croatinan GBIF node "
+
 - "Introduction to Living Atlas Flanders (Belgium)"
 keypoints:
 - "Main concepts of a living Atlas project"
 ---
 
-### Presentation Living Atlas Croatia
+### Data Quality and Download filters
 
 
 <a href="https://docs.google.com/presentation/d/1A56JdP0Bu2aD94ixwHYuyHwWwAJmIf4xIYQRlK-CRAQ/edit?usp=sharing">

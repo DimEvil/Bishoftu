@@ -52,7 +52,7 @@ pilot: false
 # Most workshops don't use extra pages. More information about extra
 # pages are included in the README:
 # https://github.com/carpentries/workshop-template#creating-extra-pages
-title: "CROMENT Workshop on biodiversity data and the GBIF network 2024"
+title: "Bishoftu Workshop on biodiversity data, data use and the GBIF network 2026"
 
 #------------------------------------------------------------
 # Incubator workshop settings (only relevant for workshops teaching a lesson
@@ -84,7 +84,7 @@ repository: <USERNAME>/<PROJECT>
 # Email address, no mailto:
 # (Don't change this -- the contact address for your workshop will be set
 # in the index.md file)
-email: "d.brosens@biodiversity.be"
+email: "dimitri.brosens@inbo.be"
 
 # Sites.
 amy_site: "https://amy.carpentries.org/"

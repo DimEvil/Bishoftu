@@ -16,6 +16,8 @@ keypoints:
 - "Latitude and longitudes are like dates, they can be messy to deal with. Take a similar approach."
 ---
 
+# Hands on on Data cleaning
+
 Some usefull links:
 
 * [INBO/tutorials/](https://inbo.github.io/tutorials/tutorials/)

@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Darwin Core"
+title: "Data cleaning and exploration using R"
 start: true
 teaching: 30
 exercises: 40
@@ -18,6 +18,9 @@ keypoints:
 - "Applying certain general principles to the data will make it easier to map to Darwin Core."
 - "Implementing Darwin Core makes data FAIR-er and means becoming part of a community of people working together to understand species no matter where they work or are based."
 ---
+
+# Data cleaning and exploration using R
+
 ### Presentation
 
 

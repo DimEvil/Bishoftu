@@ -61,14 +61,14 @@ GBIF updates a set of [overview slides](https://www.gbif.org/document/81771/gbif
 > 2. Is a list of introduced and invasive alien species available for your country?
 > 3. How well does the information available on GBIF reflect what you know about the biodiversity of your country?
 > 4. Do you see publications from/about your country?
-> 5. Download the Croatia Activity report
+> 5. Download the Ethiopia Activity report
 > 
 > > ## Solution
-> > 1. [Find Croatia on this map](https://www.gbif.org/the-gbif-network)
-> > 2. [Global Register of Introduced and Invasive Species- Croatia] (https://www.gbif.org/dataset/f82a4f7f-6f84-4b58-82e6-6b41ec9a1f49)
+> > 1. [Find Ethiopia on this map](https://www.gbif.org/the-gbif-network)
+> > 2. [Global Register of Introduced and Invasive Species- Ethiopia] (https://www.gbif.org/dataset/52ac9be8-150d-42a9-a480-65d023c51b76)
 > > 3. Note your idea about this
-> > 4. [publications](https://www.gbif.org/country/HR/publications/about)
-> > 5. [activity report](https://www.gbif.org/sites/default/files/gbif_analytics/country/HR/GBIF_CountryReport_HR.pdf)
+> > 4. [publications](https://www.gbif.org/country/ET/publications/about)
+> > 5. [activity report](https://analytics-files.gbif.org/country/ET/GBIF_CountryReport_ET.pdf)
 > {: .solution}
 {: .challenge}
 
@@ -127,6 +127,56 @@ GBIF updates a set of [overview slides](https://www.gbif.org/document/81771/gbif
 > {: .solution}
 {: .challenge}
 
+# 1: [GBIF participation](https://docs.google.com/presentation/d/1LpvVyCKgghbAvn8yIMoCCYEr7E2nF0-53eSBjr-ckV4/edit?usp=sharing)
+
+![GBIF participation](../assets/img/GBIF_MoU.png)
+
+> ## Exercise 1: Investigate Ethiopian participation in GBIF
+> 
+> - Find out information on Ethiopia on GBIF.org
+> - In which regional network is Ethiopia?
+> - Explore [Ethiopia Country page](https://www.gbif.org/country/ET/summary)
+> 
+> > ## Solution
+> > -  Africa
+> {: .solution}
+{: .challenge}
+
+# 2: [The Nodes](https://docs.google.com/presentation/d/1w-JcMmh6PTuum81Qr0q3SeHBgy7yF0FjjbVX_9bSgH0/edit?usp=sharing)
+A [node](https://www.gbif.org/nodes) is a team designated by a Participant to coordinate a network of people and institutions that produce, manage and use biodiversity data, collectively building an infrastructure for delivering biodiversity information.
+
+Nodes meets every year either globally or regionlly. 
+
+![ECA Nodes meeting](../assets/img/ECA2023_Warshaw.png)
+
+
+> ## Exercise 2: Seek information on the Ethiopian Node
+> 
+> - When did Ethiopia joined the GBIF network?
+> - Who is the contact person for the Ethiopian Node?
+> - How much data publishers from Ethiopia?
+> 
+> > ## Solution
+> > 1. 2025 Associated participant
+> > 2. No contact details
+> > 3. Three data publishers
+> {: .solution}
+{: .challenge}
+
+# 3: [GBIF Governance](https://docs.google.com/presentation/d/1Sce89pOXwkPOCp6oTE9GgQaYyey0KHs8db0DlI2dWd0/edit?usp=sharing)
+
+![GBIF Governance](../assets/img/GB29Brussels.JPG)
+
+> ## Exercise 3: Governing Board and Standing Committee
+> 
+> - Which country did host the two last Governing Bards?
+> - Who is the Chair of the Science Committee?
+> 
+> > ## Solution
+> > 1. Colombia in 2025 , Portugal in 2024 
+> > 2. Birgit Gemeinholzer is Science Committee Chair
+> {: .solution}
+{: .challenge}
 
 
 

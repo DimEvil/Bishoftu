@@ -20,6 +20,11 @@ keypoints:
   </a>
 
 
+<a href="https://docs.google.com/presentation/d/1P3Wt1udes5581cH0gcEj2ANpcr0hZcemQQrTCvAizM8/edit?usp=sharing">
+    <img src="{{ '/assets/img/cubes3.png' | relative_url }}">
+  </a>
+
+
 ## Presentation
 
 <a href="https://docs.google.com/presentation/d/1wtvqjm8XxbfYOzmkE03yTux42KmN2c-sDyK-EgH_q5M/edit?usp=sharing">

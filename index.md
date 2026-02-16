@@ -95,28 +95,16 @@ the pitch.
 
 This workshop is a part of the GBIF Capacity Enhancement Support Programme titled Building capacity within biodiversity data between Ethiopia and GBIF nodes in Sweden and Finland
 
-This three-day workshop aims to provide an understanding of GBIF, data management, data standards, and data mobilization. The sessions will include presentations, hands-on exercises, and discussions tailored to Ethiopian biodiversity data needs. Participants will gain insights into how to set up a national GBIF node, the importance of data ethics, and practical skills for data publishing and validation. For more information on the Croment procject, [visit](https://www.gbif.org/project/CESP2024-013/building-capacity-within-biodiversity-data-between-ethiopia-and-gbif-nodes-in-sweden-and-finland) this website
+This three-day workshop aims to provide an understanding of GBIF, data management, data standards, and data mobilization. The sessions will include presentations, hands-on exercises, and discussions tailored to Ethiopian biodiversity data needs. Participants will gain insights into how to set up a national GBIF node, the importance of data ethics, and practical skills for data publishing and validation. For more information on the procject, [visit](https://www.gbif.org/project/CESP2024-013/building-capacity-within-biodiversity-data-between-ethiopia-and-gbif-nodes-in-sweden-and-finland) this website
 
 <p class="d-flex justify-content-around align-items-center">
-  <a href="https://mingor.gov.hr/">
-    <img src="{{ '/assets/img/croatia.png' | relative_url }}" alt="Croatia" width="200">
-  </a>
-  <a href="https://biodiversity.be/">
-    <img src="{{ '/assets/img/bbpf.jpg' | relative_url }}" alt="Belgian GBIF node" width="130">
-  </a>
   <a href="https://www.gbif.org/programme/82219/capacity-enhancement-support-programme">
     <img src="{{ '/assets/img/cesp.PNG' | relative_url }}" alt="CESP" width="180">
   </a>
   <a href="https://www.gbif.org/">
     <img src="{{ '/assets/img/gbif.png' | relative_url }}" alt="GBIF" width="200">
   </a>
-  <a href="https://www.thehabitatfoundation.org/">
-    <img src="{{ '/assets/img/thf.PNG' | relative_url }}" alt="THF" width="160">
-  </a>
-  <a href="https://www.belspo.be">
-    <img src="{{ '/assets/img/belspo.png' | relative_url }}" alt="Belspo" width="200">
-  </a>
-</p>
+ </p>
 
 #### *Hands on Data Workshop*
 What the data workshop will cover:
@@ -185,7 +173,7 @@ In this workshop we will talk about how GBIF is organized globally as an infrast
 
 <p class="d-flex justify-content-around align-items-center">
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/workshop1.jpg' | relative_url }}" alt="Croatia" width="300">
+    <img src="{{ '/fig/workshop1.jpg' | relative_url }}" alt="atia" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
     <img src="{{ '/fig/workshop2.jpg' | relative_url }}" alt="Belgian GBIF node" width="300">
@@ -194,7 +182,7 @@ In this workshop we will talk about how GBIF is organized globally as an infrast
     <img src="{{ '/fig/workshop3.jpg' | relative_url }}" alt="CESP" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/workshop4.jpg' | relative_url }}" alt="Croatia" width="300">
+    <img src="{{ '/fig/workshop4.jpg' | relative_url }}" alt="atia" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
     <img src="{{ '/fig/workshop5.jpg' | relative_url }}" alt="Belgian GBIF node" width="300">
@@ -206,7 +194,7 @@ In this workshop we will talk about how GBIF is organized globally as an infrast
 The hands-on workshop is open for researchers, data curaters, data managers who have an interest in the publication and use of data on <a href="https://gbif.org/"> the Global Biodiversity Information Facility (GBIF)</a> 
 The GBIF community workshop is on invitation only. However the material available on this website could be of interest for anyone who is developping a GBIF Node and community.
 
-The workshop is organized in the CESP project CROMENT, a GBIF funded project on capacity building.
+The workshop is organized in the CESP project Building capacity within biodiversity data between Ethiopia and GBIF nodes in Sweden and Finland, a GBIF funded project on capacity building.
 
 {% if site.carpentry == "swc" %}
 {% include swc/who.html %}

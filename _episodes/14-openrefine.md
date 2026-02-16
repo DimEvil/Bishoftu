@@ -15,6 +15,9 @@ keypoints:
 
 # Introduction to GBIF data cubes (SQL option)
 
+<a href="https://docs.google.com/presentation/d/1gSXkpcZthO6EDHNWfVOsiNSugpjuo5DPOLzHUIkKhvQ/edit?usp=sharing">
+    <img src="{{ '/assets/img/cubes2.PNG' | relative_url }}">
+  </a>
 
 
 ## Presentation

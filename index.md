@@ -121,7 +121,7 @@ The goal is that by the end of the workshop you will have a set of tools in your
 #### *some pictures*
 
 <a href="https://www.biodiversity.be/">
-    <img src="{{ '/fig/img7.JPG' | relative_url }}" alt="Group picture" width="800">
+    <img src="{{ '/fig/bishoftu1.png' | relative_url }}" alt="Group picture" width="800">
   </a>
 
 <p class="d-flex justify-content-around align-items-center">

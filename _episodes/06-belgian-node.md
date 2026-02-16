@@ -1,20 +1,20 @@
 ---
-title: "Belgian Node"
+title: "Hands on Exploring GBIF Biodiversity Data"
 start: true
 teaching: 30
 questions:
-- "How is the Belgian node organized?"
-- "Belgium in the world of Biodiversity data"
+- "How exploring GBIF?"
+- "Exploring the world of Biodiversity data"
 
 objectives:
-- "History of the Belgian Node"
-- "How the Belgian node is organized."
+- "History of GBIF"
+- "How GBIF is organized."
 
 keypoints:
 - "The GBIF portal is the place to find biodiversity data"
 ---
 
-### Presentation  Belgium in the world of Biodiversity data 
+# Hands on Exploring GBIF Biodiversity Data
 
 <a href="https://docs.google.com/presentation/d/1M9VWVUgmBFdlk7ZQkA-sO3qxkoTTx6fKzV-jZNzEF9Y/edit?usp=sharing">
     <img src="{{ '/assets/img/gbif_belgium.PNG' | relative_url }}">

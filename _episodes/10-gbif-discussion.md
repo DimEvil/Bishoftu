@@ -1,5 +1,5 @@
 ---
-title: "GBIF Discussion"
+title: "Hands-on: Downloading via GBIF.org, wrap-up and discussions"
 start: true
 teaching: 0
 exercises: 60
@@ -9,9 +9,9 @@ keypoints:
 - "How GBIF works"
 ---
 
-# Discussion
+# Hands-on: Downloading via GBIF.org, wrap-up and discussions
 
-
+# GBIF Discussion (optional)
 
 <a href="www.gbif.org">
     <img src="{{ '/assets/img/gbif_discussion.PNG' | relative_url }}">

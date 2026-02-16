@@ -1,8 +1,12 @@
 ---
 title: "Introduction to GBIF data cubes (SQL option)"
 start: true
+teaching: 90
+exercises: 90
+objectives:
+- "Understand the purpose of Cubes"
 keypoints:
-- "Hip to Be Cubed"
+- "Openrefine saves time"
 ---
 
 # Introduction to GBIF data cubes (SQL option)

@@ -1,5 +1,5 @@
 ---
-title: "Data Quality and Download filters"
+title: "Data Quality, Data management and Download filters"
 start: true
 teaching: 60
 exercises: 0
@@ -8,22 +8,24 @@ questions:
 
 objectives:
 
-- "Introduction to Living Atlas Flanders (Belgium)"
+- "Data management basics, data quality basics and download filters"
 keypoints:
-- "Main concepts of a living Atlas project"
+- "Data managemnt Rules"
 ---
+
+# Data Quality, Data management and Download filters
+
+
+
+### Data Managemnt Tips and TRicks
+
+
+<a href="https://docs.google.com/presentation/d/1Y02ve4iFx4vXFKfX-iv9kvJHOVr-1zyad5apAu9xxEE/edit?usp=sharing">
+    <img src="{{ '/assets/img/data_management1.png' | relative_url }}">
+  </a>
 
 ### Data Quality and Download filters
 
 
-<a href="https://docs.google.com/presentation/d/1A56JdP0Bu2aD94ixwHYuyHwWwAJmIf4xIYQRlK-CRAQ/edit?usp=sharing">
-    <img src="{{ '/assets/img/croatia_atlas.png' | relative_url }}">
-  </a>
 
-
-### Presentation Living Atlas Flanders (Belgium)
-
-<a href="https://docs.google.com/presentation/d/15My8B-UP24Ol-MrgsEhnUWN69zVmZQkPfiYeh303IvE/edit?usp=sharing">
-    <img src="{{ '/assets/img/atlas_flanders.PNG' | relative_url }}">
-  </a>
 

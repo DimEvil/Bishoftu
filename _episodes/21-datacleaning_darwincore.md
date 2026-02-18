@@ -1,5 +1,5 @@
 ---
-title: "Data Cleaning for Darwin Core"
+title: "Hands on: Data Cleaning in R"
 teaching: 0
 exercises: 120
 questions:
@@ -16,7 +16,414 @@ keypoints:
 - "Latitude and longitudes are like dates, they can be messy to deal with. Take a similar approach."
 ---
 
-# Hands on on Data cleaning
+# Hands on Data CLeaning in R
+
+Hands-on: Cleaning Ethiopia’s Data in R
+
+In these exercises, we will use the CoordinateCleaner and bdc packages to turn "raw" records into "research-ready" data.
+
+###Exercise 1: The "Visual Audit"
+Goal: Detect obvious errors before running any automated tools.
+Task: Map the raw occurrences and look for "out-of-place" points.
+
+
+# Load libraries
+```r
+library(rgbif)
+library(ggplot2)
+library(dplyr)
+```
+
+# Download raw data for the Ethiopian Wolf
+
+```r
+raw_data <- occ_search(scientificName = "Canis simensis", limit = 1000)$data
+```
+
+
+# Simple Map
+
+```r
+ggplot(raw_data, aes(x = decimalLongitude, y = decimalLatitude)) +
+  borders("world", regions = "Ethiopia") +
+  geom_point(color = "red") +
+  theme_minimal() +
+  labs(title = "Raw Observations: Canis simensis")
+```
+*Challenge: Zoom out. Are there any wolves in the middle of the ocean or in Europe? Why might they be there?*
+
+###Exercise 2: Automated Scrubbing
+Goal: Use CoordinateCleaner to flag multiple issues at once.
+Task: Run the standard suite of tests.
+
+```r
+library(CoordinateCleaner)
+```
+
+# Clean the data
+```r
+flags <- clean_coordinates(
+  x = raw_data,
+  lon = "decimalLongitude", 
+  lat = "decimalLatitude",
+  countries = "countryCode",
+  tests = c("capitals", "centroids", "equal", "zeros", "institutions")
+)
+```
+
+# See the summary of what was caught
+```r
+summary(flags)
+```
+
+*Challenge: How many records were flagged as "Centroids"? These are often hidden errors that look fine on a map until you zoom in.*
+
+
+### Exercise 3: The "Biological Filter"
+Goal: Ensure the data is relevant to modern wild populations.
+Task: Remove fossils and introduced species.
+
+
+
+# Filter by basis of record and establishment means
+```r
+clean_research_data <- raw_data %>%
+  filter(!basisOfRecord %in% c("FOSSIL_SPECIMEN", "LIVING_SPECIMEN")) %>%
+  filter(!establishmentMeans %in% c("INTRODUCED", "MANAGED", "INVASIVE")) %>%
+  filter(year >= 1970) # Keeping only 'recent' history
+
+print(paste("Records remaining:", nrow(clean_research_data)))
+```
+
+### Exercise 4: Taxonomic Harmonization
+Goal: Group synonyms so you don't miss half your data.
+Task: Compare the scientificName (what the observer wrote) with species (GBIF’s interpreted name).
+
+# Check for multiple names for the same species
+
+```r
+unique_names <- raw_data %>% 
+  group_by(scientificName, species) %>% 
+  tally()
+```
+
+```r
+print(unique_names)
+```
+
+*Challenge: Did GBIF correctly group misspelled names under the same speciesKey?*
+
+### Summary Table: Your Cleaning Checklist
+
+| Step | R Function / Filter | Purpose |
+| :--- | :--- | :--- |
+| **Coordinate Check** | `clean_coordinates()` | Flags points at 0,0, capitals, or museums. |
+| **Modern Only** | `filter(year > 1970)` | Removes historical records that may no longer be valid. |
+| **Wild Only** | `filter(basisOfRecord == "HUMAN_OBSERVATION")` | Excludes fossils and zoo animals. |
+| **De-duplication** | `distinct(lon, lat, species, .keep_all = TRUE)` | Removes multiple records at the exact same spot. |
+
+
+
+Some more excercise
+
+In these exercises, we will move from a "messy" raw download to a "publication-ready" dataset using the CoordinateCleaner and tidyverse packages.
+
+### Exercise 1: Visualizing the "Noise"
+Before cleaning, we need to see what we are dealing with. Run this code to see the raw data for an Ethiopian species.
+
+```r
+library(rgbif)
+library(ggplot2)
+```
+
+# Download 500 records of a common Ethiopian bird (e.g., Wattled Ibis)
+```r
+raw_obs <- occ_search(scientificName = "Bostrychia carunculata", limit = 500)$data
+```
+
+# Map the raw data
+
+```r
+ggplot(raw_obs, aes(x = decimalLongitude, y = decimalLatitude)) +
+  borders("world", regions = "Ethiopia") +
+  geom_point(color = "red", alpha = 0.5) +
+  theme_minimal() +
+  labs(title = "Raw (Uncleaned) Observations")
+```
+
+
+### Exercise 2: The Automated Scrub
+Now, let's use R to automatically flag points that fall on the capital city (Addis Ababa), museum headquarters, or at the 0,0 coordinate.
+
+```r
+library(CoordinateCleaner)
+```
+
+# Run the cleaning tests
+```r
+results <- clean_coordinates(
+  x = raw_obs, 
+  lon = "decimalLongitude", 
+  lat = "decimalLatitude",
+  tests = c("capitals", "centroids", "equal", "zeros", "institutions")
+)
+```
+
+# See how many records failed each test
+
+```r
+summary(results)
+```
+
+### Exercise 3: The Final Filter
+Finally, we remove the flagged records and filter for modern, wild observations.
+
+```r
+library(dplyr)
+```
+
+# Keep only the clean records and filter for the last 30 years
+
+```r
+clean_obs <- raw_obs[results$.summary, ] %>%
+  filter(year >= 1995) %>%
+  filter(basisOfRecord == "HUMAN_OBSERVATION") %>%
+  distinct(decimalLongitude, decimalLatitude, .keep_all = TRUE)
+```
+
+# Map the clean data to compare!
+```r
+ggplot(clean_obs, aes(x = decimalLongitude, y = decimalLatitude)) +
+  borders("world", regions = "Ethiopia") +
+  geom_point(color = "blue", alpha = 0.5) +
+  theme_minimal() +
+  labs(title = "Cleaned Research-Ready Data")
+```
+
+rmarkdown
+---
+title: "Biodiversity Data Cleaning Report"
+subtitle: "Target Species: Tragelaphus buxtoni (Mountain Nyala)"
+author: "Workshop Participant"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: flatly
+    toc: true
+    toc_float: true
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+**1. Setup & Configuration**
+First, we load the essential libraries for accessing GBIF, handling spatial data, and automated cleaning.
+
+```{r setup, include=FALSE}
+# Install packages if missing:
+# install.packages(c("rgbif", "CoordinateCleaner", "dplyr", "ggplot2", "sf", "rnaturalearth", "rnaturalearthdata"))
+
+library(rgbif)              # To download data from GBIF
+library(CoordinateCleaner)  # To automatically flag spatial errors
+library(dplyr)              # For data manipulation
+library(ggplot2)            # For mapping
+library(sf)                 # For handling spatial polygons
+library(rnaturalearth)      # For base maps
+```
+
+**2. Data Access (Download)**
+We will download occurrence records for the Mountain Nyala (Tragelaphus buxtoni), an endangered antelope endemic to the Ethiopian Highlands.
+
+
+# Define the species and country
+
+```{r setup, include=FALSE}
+target_species <- "Tragelaphus buxtoni"
+target_country <- "ET" # ISO code for Ethiopia
+```
+# Download data using occ_data (fast synchronous download)
+# We limit to 2000 records for this exercise
+
+```{r setup, include=FALSE}
+gbif_download <- occ_data(
+  scientificName = target_species, 
+  country = target_country, 
+  hasCoordinate = TRUE, 
+  limit = 2000
+)
+```
+# Extract the data frame
+
+```{r setup, include=FALSE}
+raw_data <- gbif_download$data
+```
+
+```{r setup, include=FALSE}
+print(paste("Downloaded", nrow(raw_data), "records of", target_species))
+```
+
+**3. Visual Inspection (The "Messy" Map)**
+Before cleaning, we visualize the raw data. Note any points that seem "too perfect" (grid-like) or fall outside the expected range.
+
+
+# Get a base map of Ethiopia
+```{r setup, include=FALSE}
+ethiopia_map <- ne_countries(country = "Ethiopia", scale = "medium", returnclass = "sf")
+```
+
+# Plot raw data
+```{r setup, include=FALSE}
+ggplot() +
+  geom_sf(data = ethiopia_map, fill = "gray95", color = "gray50") +
+  geom_point(data = raw_data, aes(x = decimalLongitude, y = decimalLatitude), 
+             color = "red", alpha = 0.5, size = 2) +
+  ggtitle(paste("Raw Data:", target_species)) +
+  theme_minimal()
+```
+
+**4. Automated Cleaning (CoordinateCleaner)**
+We use the clean_coordinates() function to automatically flag common errors:
+
+Centroids: Points mapped to the exact center of the country or provinces.
+
+Equal: Points where Lat = Lon (often a data entry error).
+
+Institutions: Points mapped to the zoo or museum instead of the wild.
+
+Zeros: Points at 0,0.
+
+# Run the automated tests
+```{r setup, include=FALSE}
+flags <- clean_coordinates(
+  x = raw_data, 
+  lon = "decimalLongitude", 
+  lat = "decimalLatitude",
+  countries = "countryCode",
+  tests = c("capitals", "centroids", "equal", "zeros", "institutions"),
+  verbose = FALSE
+)
+```
+
+# Summary of flagged records
+```{r setup, include=FALSE}
+summary(flags)
+```
+
+# Create an intermediate dataset excluding the flagged errors
+```{r setup, include=FALSE}
+data_step1 <- raw_data[flags$.summary, ]
+```
+
+### 5. Biological & Research Filtering
+Automated tools catch spatial errors, but we need biological logic to ensure fitness for use.
+
+Filter Criteria:
+Precision: Keep records with uncertainty < 10,000m (10km) or where uncertainty is unknown (NA).
+
+Basis of Record: Remove fossils and captive organisms.
+
+Time: Keep records from 1980 onwards (Modern Era).
+
+```{r setup, include=FALSE}
+clean_data <- data_step1 %>%
+  # 1. Filter by Uncertainty (Remove very vague points)
+  filter(coordinateUncertaintyInMeters < 10000 | is.na(coordinateUncertaintyInMeters)) %>%
+  
+  # 2. Filter by Basis of Record (Wild observations only)
+  filter(!basisOfRecord %in% c("FOSSIL_SPECIMEN", "LIVING_SPECIMEN")) %>%
+  
+  # 3. Filter by Year (Modern records only)
+  filter(year >= 1980) %>%
+  
+  # 4. Remove Duplicates (Exact same location, species, and date)
+  distinct(decimalLongitude, decimalLatitude, eventDate, .keep_all = TRUE)
+
+# Calculate how many records we removed
+records_removed <- nrow(raw_data) - nrow(clean_data)
+print(paste("Total records removed:", records_removed))
+print(paste("Final clean records:", nrow(clean_data)))
+```
+
+### 6. Final Visualization (The "Clean" Map)
+
+Now we plot the final "Research-Ready" dataset. Compare this to the red map above.
+
+```{r setup, include=FALSE}
+ggplot() +
+  geom_sf(data = ethiopia_map, fill = "antiquewhite", color = "gray50") +
+  geom_point(data = clean_data, aes(x = decimalLongitude, y = decimalLatitude), 
+             color = "darkgreen", alpha = 0.7, size = 2) +
+  ggtitle(paste("Cleaned Data:", target_species, "(n =", nrow(clean_data), ")")) +
+  labs(subtitle = "Filtered for: Centroids, Institutions, Fossils, & Historical data < 1980") +
+  theme_minimal()
+```
+
+### 7. Saving the Data
+Finally, we save the cleaned dataset to a CSV file for use in Species Distribution Modeling (SDM) or other analysis.
+
+```{r setup, include=FALSE}
+write.csv(clean_data, "Tragelaphus_buxtoni_cleaned.csv", row.names = FALSE)
+```
+
+### **How to Use This Script in the Workshop**
+1.  **Copy-Paste:** Have participants copy the code block above into a new R Markdown file in RStudio.
+2.  **Knit:** Ask them to click the **"Knit"** button.
+3.  **Review:** The output will be a professional HTML report showing the map "before" and "after" cleaning.
+
+---
+
+# 8. Challenge: The "Bleeding Heart" Monkey
+
+Now it is your turn! 
+
+The **Gelada** (*Theropithecus gelada*) is another iconic Ethiopian endemic, often found grazing in large herds in the Simien Mountains. Your task is to adapt the script above to create a cleaning report for this species.
+
+### **Your Mission:**
+1.  Change the `target_species` to `"Theropithecus gelada"`.
+2.  Run the full cleaning workflow.
+3.  **Question:** Compare the final map of the Gelada to the Mountain Nyala. The Nyala is mostly in the Bale Mountains (Southeast). Where are the Gelada populations concentrated?
+4.  **Bonus:** Can you identify any records that `clean_coordinates` flagged as "Institutions"? (Hint: Look at the `flags` summary).
+
+### **Solution Code (Try it yourself first!)**
+
+```{r challenge_solution, eval=FALSE, class.source = 'fold-hide'}
+# 1. Define Species
+target_species <- "Theropithecus gelada"
+
+# 2. Download
+gelada_data <- occ_data(
+  scientificName = target_species, 
+  country = "ET", 
+  hasCoordinate = TRUE, 
+  limit = 2000
+)$data
+
+# 3. Clean
+gelada_flags <- clean_coordinates(
+  x = gelada_data, 
+  lon = "decimalLongitude", 
+  lat = "decimalLatitude",
+  countries = "countryCode",
+  tests = c("capitals", "centroids", "equal", "zeros", "institutions")
+)
+
+# 4. Filter
+gelada_clean <- gelada_data[gelada_flags$.summary, ] %>%
+  filter(!basisOfRecord %in% c("FOSSIL_SPECIMEN", "LIVING_SPECIMEN")) %>%
+  filter(year >= 1980)
+
+# 5. Map
+ggplot() +
+  geom_sf(data = ethiopia_map, fill = "antiquewhite") +
+  geom_point(data = gelada_clean, aes(x = decimalLongitude, y = decimalLatitude), 
+             color = "purple", alpha = 0.6) +
+  ggtitle("Distribution of Theropithecus gelada (Cleaned)") +
+  theme_minimal()
+```
+
+# Hands on on Data cleaning  (OPtional)
 
 Some usefull links:
 

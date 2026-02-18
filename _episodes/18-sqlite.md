@@ -223,7 +223,7 @@ select eventdate, strftime('%d',eventdate) as day, strftime('%m',eventdate) as m
 
 ## Exercice 6 : Annotate data
 ### Instructions
-- IndividualCound is not a mandatory field, set it to 1 when null
+- IndividualCount is not a mandatory field, set it to 1 when null
 - Add a **withMedia** field,  set it to True when mediaType is not null
 - Add these two fields to your **trusted** view
 - Export the **trusted** view results in a CSV file

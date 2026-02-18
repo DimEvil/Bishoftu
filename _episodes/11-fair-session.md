@@ -88,8 +88,8 @@ library(ggplot2)
 library(dplyr)
 ```
 
-## --- EXERCISE 1: The "Hello GBIF" Script ---
-### Finding the unique Taxon Key for the Mountain Nyala
+### --- EXERCISE 1: The "Hello GBIF" Script ---
+#### Finding the unique Taxon Key for the Mountain Nyala
 
 ```r
 nyala_lookup <- name_backbone(name = "Tragelaphus buxtoni")
@@ -100,11 +100,11 @@ nyala_key <- nyala_lookup$usageKey
 print(paste("The usageKey for Mountain Nyala is:", nyala_key))
 ```
 
-## Discovery: The usageKey is a unique ID that prevents issues with synonyms or common names.
+Discovery: The usageKey is a unique ID that prevents issues with synonyms or common names.
 
 
-## --- EXERCISE 2: Rapid Mapping with occ_data ---
-### Pull the last 500 records of Coffee (Coffea arabica) in Ethiopia
+### --- EXERCISE 2: Rapid Mapping with occ_data ---
+#### Pull the last 500 records of Coffee (Coffea arabica) in Ethiopia
 
 ```r
 coffee_data <- occ_data(
@@ -114,13 +114,13 @@ coffee_data <- occ_data(
   limit = 500
 )
 ```
-## Extract the data frame
+#### Extract the data frame
 
 ```r
 coffee_df <- coffee_data$data
 ```
 
-## Quick visualization
+#### Quick visualization
 
 ```r
 ggplot(coffee_df, aes(x = decimalLongitude, y = decimalLatitude)) +
@@ -129,19 +129,22 @@ ggplot(coffee_df, aes(x = decimalLongitude, y = decimalLatitude)) +
   labs(title = "Coffea arabica Occurrences in Ethiopia")
 ```
 
-## --- EXERCISE 3: Parsing the Archive with finch ---
+### --- EXERCISE 3: Parsing the Archive with finch ---
 
-### Replace 'path/to/your/bioblitz.zip' with the actual file path
-### bioblitz_archive <- dwca_read("path/to/your/bioblitz.zip", read = TRUE)
+Replace 'path/to/your/bioblitz.zip' with the actual file path
 
-## Explore the contents
+```r
+bioblitz_archive <- dwca_read("path/to/your/bioblitz.zip", read = TRUE)
+```
+
+### Explore the contents
 
 ```r
 View(bioblitz_archive$data[[1]]) # View the main occurrence table
 ```
 
-## --- EXERCISE 4: The "Cleaner" Challenge ---
-### Clean the coffee data using automated tests
+### --- EXERCISE 4: The "Cleaner" Challenge ---
+#### Clean the coffee data using automated tests
 
 ```r
 cleaned_coffee <- clean_coordinates(
@@ -153,20 +156,20 @@ cleaned_coffee <- clean_coordinates(
 )
 ```
 
-## summary of flags found
+### summary of flags found
 
 ```r
 summary(cleaned_coffee)
 ```
 
-## Keep only the 'clean' records
+### Keep only the 'clean' records
 
 ```r
 coffee_final <- coffee_df[cleaned_coffee$.summary, ]
 ```
 
 
-## Presentation (optional Extra informatio)
+### Presentation (optional Extra informatio)
 
 <a href="https://docs.google.com/presentation/d/1HR6RyRdKEuOZoGXaUw193Ka6oxsSYWv6e3Mjqvwa7X8/edit?usp=sharing">
     <img src="{{ '/assets/img/openscience.PNG' | relative_url }}">

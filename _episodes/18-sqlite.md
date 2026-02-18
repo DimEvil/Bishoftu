@@ -1,20 +1,127 @@
 ---
-title: "SQLite"
+title: "Hands-on: SQL queries"
 start: true
 teaching: 0
 exercises: 90
 questions:
 - "Data cleaning with SQLite"
+- "Hands on GBIF SQL"
 
 objectives:
 - "Understand how SQLite can help cleaning data"
+- "Understand how GBIF SQL works"
 
 keypoints:
 - SQL can be very useful to clean your data
 - Views are great to filter the records and fields you want to keep without changing your original data
 - Store your SQL statements under Git
 - SQL statements are easy to understand, sustainable and reusable
+- GBIF cubes and SQL are very powerful
 ---
+
+#Hands on: GBIF Data Cubes and SQL
+
+In this session, we stop treating data as a list of individual sightings and start treating it as a statistical grid. By using SQL, we can summarize billions of records into a small, "analysis-ready" table before we even download it.
+
+## Getting Started
+Go to GBIF.org.
+
+Apply a filter (e.g., Country: Ethiopia).
+
+Click Download and select the Data Cube format.
+
+Click "Edit as SQL" at the bottom of the pop-up.
+
+Session Exercises
+### 1. The "Temporal Trend" Cube
+Goal: Track the recording history of Mammals in Ethiopia.
+Task: Edit the SQL to count mammal sightings per year.
+
+
+```sql
+SELECT
+  year,
+  COUNT(*) AS occurrenceCount
+FROM occurrence
+WHERE
+  countryCode = 'ET'
+  AND classKey = 359 -- The taxonKey for Mammalia
+  AND year >= 1950
+GROUP BY
+  year
+ORDER BY
+  year DESC
+```
+Discovery: Look at the resulting table. Is there a specific decade where the number of mammal records in Ethiopia suddenly spikes? Why do you think that is?
+
+```sql
+SELECT
+  kingdom,
+  kingdomkey,
+  phylum,
+  phylumkey,
+  class,
+  classkey,
+  "order",
+  orderkey,
+  family,
+  familykey,
+  genus,
+  genuskey,
+  species,
+  specieskey,
+  "year",
+  -- Window functions to calculate counts at higher taxonomic levels
+  IF(ISNULL(kingdomkey), NULL, SUM(COUNT(*)) OVER (PARTITION BY kingdomkey, "year")) kingdomcount,
+  IF(ISNULL(familykey), NULL, SUM(COUNT(*)) OVER (PARTITION BY familykey, "year")) familycount,
+  COUNT(*) occurrences,
+  MIN(COALESCE(coordinateuncertaintyinmeters, 1000)) mincoordinateuncertaintyinmeters
+FROM
+  occurrence
+WHERE
+  occurrence.countrycode = 'ET'
+  AND occurrence.coordinateuncertaintyinmeters <= 58.0 -- Strict spatial filter
+  AND occurrence.occurrencestatus = 'PRESENT'
+  AND occurrence.hasgeospatialissues = FALSE -- Clean data only
+  AND NOT GBIF_STRINGARRAYCONTAINS(occurrence.issue, 'TAXON_MATCH_FUZZY', TRUE) -- High taxonomic certainty
+  AND (occurrence.distancefromcentroidinmeters >= 2000.0 OR occurrence.distancefromcentroidinmeters IS NULL) -- Avoid country centroids
+  AND NOT occurrence.basisofrecord IN ('FOSSIL_SPECIMEN', 'LIVING_SPECIMEN') -- Wild observations only
+GROUP BY
+  occurrence.kingdom,
+  occurrence.kingdomkey,
+  occurrence.phylum,
+  occurrence.phylumkey,
+  occurrence.class,
+  occurrence.classkey,
+  occurrence."order",
+  occurrence.orderkey,
+  occurrence.family,
+  occurrence.familykey,
+  occurrence.genus,
+  occurrence.genuskey,
+  occurrence.species,
+  occurrence.specieskey,
+  occurrence."year"
+```
+
+1. Window Functions (OVER PARTITION BY)
+This is the "magic" of Data Cubes. While the query groups data by Species, the SUM(COUNT(*)) OVER (PARTITION BY familykey, "year") allows you to see the total count for the entire Family on the same row. This is incredibly useful for calculating the proportion of a specific species relative to its family.
+
+2. Centroid Exclusion
+The line occurrence.distancefromcentroidinmeters >= 2000.0 is a professional touch. Many old records are mapped to the exact center of a country or province when specific coordinates are missing. This filter removes those "artificial" clusters.
+
+3. The "Fuzzy" Taxon Filter
+Using NOT GBIF_STRINGARRAYCONTAINS(..., 'TAXON_MATCH_FUZZY') ensures that you only include records where the name in the original data was a perfect match to the GBIF backbone. This removes identification uncertainties.
+
+```
+Participant Challenge
+Task: Identify the spatial uncertainty limit in this query. (Answer: 58 meters).
+
+Modify: Can you change the query to include only data from the year 2000 onwards?
+
+Think: Why are FOSSIL_SPECIMEN and LIVING_SPECIMEN excluded for an Ethiopian biodiversity trend analysis?
+```
+
 
 ## Presentation: [SQLite](https://docs.google.com/presentation/d/1oMPNqm4tU9BwnUo1zJxI0nlXMPfIljYeAqh4vEdJZ_0/edit?usp=sharing)
 
@@ -30,7 +137,7 @@ keypoints:
     - D.[Trawl survey data from the Jabuka Pit area](https://www.gbif.org/dataset/29719761-2d0e-4fef-bfcb-764b20c07d40)
 - Click on the **occurrences** button
 - On the left panel, filter by **CountryOrArea**
-- How many occurrences to you see for **Croatia**?
+- How many occurrences to you see for **Ethiopia**?
 - ⬇️ Download in **simple CSV** format
 - Open the downloaded file with a text editor
 

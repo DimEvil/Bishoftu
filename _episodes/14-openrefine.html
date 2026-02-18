@@ -356,12 +356,164 @@ option)</h1>
 
 <div id="introduction-to-gbif-data-cubes-sql-option" class="section level1">
 <h1>Introduction to GBIF data cubes (SQL option)</h1>
+<p>Traditional downloads give you every single column for every single
+record. Data Cubes are different: they are multi-dimensional summaries.
+They are perfect for answering questions like: “How has the number of
+recorded bird species in Ethiopia changed per year since 1970?”</p>
+<p>In this session, we explore the SQL Download API, which allows you to
+write custom queries to “slice and dice” the GBIF database before you
+even hit the download button.</p>
+<p>Gemini zei The next logical step in your workshop is the GBIF Data
+Cube. This is a relatively new and powerful feature that moves away from
+raw record lists toward “Analysis-Ready” summarized data.</p>
+<p>Instead of downloading 1 million individual dots (records) and
+aggregating them yourself, a Data Cube allows you to ask GBIF’s servers
+to do the math for you—returning a neat table of counts based on time,
+space, and taxonomy.</p>
+<p>Introduction to GBIF Data Cubes (SQL Option) Traditional downloads
+give you every single column for every single record. Data Cubes are
+different: they are multi-dimensional summaries. They are perfect for
+answering questions like: “How has the number of recorded bird species
+in Ethiopia changed per year since 1970?”</p>
+<p>In this session, we explore the SQL Download API, which allows you to
+write custom queries to “slice and dice” the GBIF database before you
+even hit the download button.</p>
+<div id="why-use-data-cubes" class="section level2">
+<h2>Why use Data Cubes?</h2>
+<p>Performance: Smaller file sizes (KBs instead of GBs).</p>
+<p>Speed: The aggregation happens on GBIF’s high-performance
+servers.</p>
+<p>Flexibility: You choose exactly which “dimensions” (columns) you
+want.</p>
+<p>FAIR Data: Each cube gets its own DOI, making your summarized
+analysis fully citable.</p>
+<p>The “Golden Rules” of GBIF SQLRuleConstraintOnly One TableYou can
+only query the occurrence table. You cannot use JOIN to combine it with
+other tables (like checklists or environmental layers).No SELECT *You
+must explicitly list the columns you want (e.g., SELECT scientificName,
+decimalLatitude). This keeps the download size manageable.Single
+QuerySub-queries (queries inside other queries) are generally not
+supported.Read-OnlyYou can only use SELECT commands. You cannot INSERT,
+UPDATE, or DELETE anything.</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Rule</strong></th>
+<th align="left"><strong>Constraint</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Only One Table</strong></td>
+<td align="left">You can only query the <code>occurrence</code> table.
+You cannot use <code>JOIN</code> to combine it with other tables (like
+checklists or environmental layers).</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>No <code>SELECT *</code></strong></td>
+<td align="left">You must explicitly list the columns you want (e.g.,
+<code>SELECT scientificName, decimalLatitude</code>). This keeps the
+download size manageable.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Single Query</strong></td>
+<td align="left">Sub-queries (queries inside other queries) are
+generally not supported.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Read-Only</strong></td>
+<td align="left">You can only use <code>SELECT</code> commands. You
+cannot <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>
+anything.</td>
+</tr>
+</tbody>
+</table>
+<p>Session Exercises: Thinking in SQL 1. The “Simple Summary” Cube Goal:
+Create a cube that counts species per year for a specific group. Task:
+Use the “Cube” tab on the GBIF download page. Select Taxonomic (Species)
+and Temporal (Year) as your dimensions. Exercise: Run this for Mammals
+in Ethiopia. Result: You will get a table with three columns: species,
+year, and occurrenceCount.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Grid-Based Exploration (The Spatial Dimension) Goal: Summarize
+data into standardized geographic grids. Task: Create a cube using a
+Spatial Dimension (e.g., the EEA 1km grid or the Military Grid Reference
+System). Exercise: Pick a specific region in Ethiopia (like the Simien
+Mountains) and see how many observations exist per grid cell.</p></li>
+<li><p>Customizing with SQL (The “Edit as SQL” Challenge) Goal: Use SQL
+to add complex filters like “Life Stage” or “IUCN Category.” Task:
+Switch to the Edit as SQL view in the GBIF portal. Exercise: Modify the
+query to count only records where lifeStage = ‘ADULT’.</p></li>
+</ol>
+<p>SQL</p>
+<pre class="sql"><code>SELECT 
+  speciesKey, 
+  year, 
+  COUNT(*) AS occurrenceCount
+FROM occurrence
+WHERE 
+  countryCode = &#39;ET&#39; AND 
+  lifeStage = &#39;ADULT&#39; AND
+  year &gt;= 2000
+GROUP BY speciesKey, year</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>The “Uncertainty” Filter Goal: Create a high-quality data cube by
+filtering for precision. Task: Add a constraint to your SQL query to
+only include records with a coordinateUncertaintyInMeters less than
+100m.</li>
+</ol>
+<pre class="sql"><code>SELECT 
+  speciesKey, 
+  year, 
+  COUNT(*) AS occurrenceCount
+FROM occurrence
+WHERE 
+  countryCode = &#39;ET&#39; AND 
+  coordinateUncertaintyInMeters &lt; 100
+GROUP BY speciesKey, year</code></pre>
 <p><a href="https://docs.google.com/presentation/d/1gSXkpcZthO6EDHNWfVOsiNSugpjuo5DPOLzHUIkKhvQ/edit?usp=sharing">
 <img role="img" src="{{ &#39;/assets/img/cubes2.png&#39; | relative_url }}"> </a></p>
 <p><a href="https://docs.google.com/presentation/d/1P3Wt1udes5581cH0gcEj2ANpcr0hZcemQQrTCvAizM8/edit?usp=sharing">
 <img role="img" src="{{ &#39;/assets/img/cubes3.png&#39; | relative_url }}"> </a></p>
-<div id="presentation" class="section level2">
-<h2>Presentation</h2>
+</div>
+<div id="gbif-sql-cheat-sheet" class="section level2">
+<h2>GBIF SQL Cheat Sheet</h2>
+<div id="essential-columns" class="section level3">
+<h3>1. Essential Columns</h3>
+<ul>
+<li><code>occurrence</code>: The main table containing all data.</li>
+<li><code>speciesKey</code>: The unique ID for the species.</li>
+<li><code>basisOfRecord</code>: How the data was collected
+(HUMAN_OBSERVATION, etc).</li>
+</ul>
+</div>
+<div id="useful-sql-functions" class="section level3">
+<h3>2. Useful SQL Functions</h3>
+<ul>
+<li><code>COUNT(*)</code>: Counts the number of records in each
+group.</li>
+<li><code>COUNT(DISTINCT speciesKey)</code>: Counts how many
+<em>unique</em> species are in that group.</li>
+<li><code>GBIF_MGRSCode(gridSize, lat, lon)</code>: Groups points into
+military grid cells.</li>
+</ul>
+</div>
+<div id="basic-query-structure" class="section level3">
+<h3>3. Basic Query Structure</h3>
+<pre class="sql"><code>SELECT 
+  dimensions (e.g., year, speciesKey), 
+  measure (e.g., COUNT(*))
+FROM occurrence
+WHERE filters (e.g., countryCode = &#39;ET&#39;)
+GROUP BY dimensions</code></pre>
+</div>
+</div>
+<div id="presentation-open-refine-optional" class="section level2">
+<h2>Presentation Open REfine (optional)</h2>
 <p><a href="https://docs.google.com/presentation/d/1wtvqjm8XxbfYOzmkE03yTux42KmN2c-sDyK-EgH_q5M/edit?usp=sharing">
 <img role="img" src="{{ &#39;/assets/img/openrefine.PNG&#39; | relative_url }}"> </a></p>
 <p>You can find the complete user manual <a href="https://openrefine.org/docs/manual/starting">here</a></p>

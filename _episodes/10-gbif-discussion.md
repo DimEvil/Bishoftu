@@ -2,14 +2,76 @@
 title: "Hands-on: Downloading via GBIF.org, wrap-up and discussions"
 start: true
 teaching: 0
-exercises: 60
+exercises: 9à
 objectives:
-- "Group discussion"
+- "Hands on with GBIF"
 keypoints:
-- "How GBIF works"
+- "Download your data from GBIF"
 ---
 
 # Hands-on: Downloading via GBIF.org, wrap-up and discussions
+By Lena and Dimitri
+
+In this session, we transition from the field to the digital laboratory. Participants will learn how to navigate the **GBIF.org** portal to locate, filter, and download the data that underpins global conservation efforts.
+
+To make the learning process engaging, we have designed a series of exercises centered on the unique ecosystems of **Ethiopia** and the wider **African continent**.
+
+---
+
+### **Session Exercises: Hands-on with GBIF**
+
+#### **1. The "Endemic Hunter" Challenge**
+
+* **Goal:** Learn basic taxonomic and geographic filtering.
+* **Task:** Search for the **Ethiopian Wolf** (*Canis simensis*) or the **Gelada Monkey** (*Theropithecus gelada*).
+* **Exercise:** Filter the results to include only observations from **Ethiopia** that have **coordinates** and **images**.
+* **Bonus:** Compare the "Observation" records (citizen science) vs. "Preserved Specimen" records (museums) for these species. Which dataset is larger?
+
+#### **2. Mapping the "Bishoftu Blueprint"**
+
+* **Goal:** Use the "Search by Polygon" tool for localized data.
+* **Task:** Using the map interface on GBIF.org, draw a custom polygon around the **Bishoftu Crater Lakes** area.
+* **Exercise:** Download a **Species List** (CSV) of all organisms recorded within that specific shape.
+* **Discussion:** How many of these records originated from the iNaturalist Bioblitz we just conducted?
+
+#### **3. The "Invasive Alert" (Regional Focus)**
+
+* **Goal:** Understand temporal trends and data flags.
+* **Task:** Search for the **Parthenium weed** (*Parthenium hysterophorus*), a major invasive species in East Africa.
+* **Exercise:** Use the **Year** slider to see how the number of records in Africa has grown over the last 20 years.
+* **Quality Check:** Identify how many records are "flagged" for geospatial issues (e.g., coordinates that fall in the ocean instead of on land).
+
+#### **4. The "Great Download"**
+
+* **Goal:** Master download formats and citations.
+* **Task:** Perform a "Simple" download for all **Avian (Bird)** records in Ethiopia from the last 5 years.
+* **Exercise:** Once the download is ready, locate the **DOI (Digital Object Identifier)**.
+* **Importance:** We will practice citing this DOI—this is the most critical step for ensuring data providers get credit for their work!
+
+---
+
+## GBIF Search Filter Cheat Sheet
+
+### 1. Basis of Record
+* **Human Observation:** Citizen science and field sightings (e.g., iNaturalist).
+* **Preserved Specimen:** Physical samples from museums or herbaria.
+* **Living Specimen:** Botanical gardens or zoos.
+* **Machine Observation:** Camera traps or sensors.
+
+### 2. Location & Coordinates
+* **Has Coordinate:** Always check this if you plan to map the data.
+* **Has Geospatial Issue:** If checked, it shows records where coordinates might be wrong (e.g., in the ocean). *Usually best to exclude these.*
+
+### 3. Data Quality
+* **Occurrence Status:** Choose **Present** to see where things were found.
+* **Identification Qualifier:** Look for "Confirmed" or "Research Grade" for higher reliability.
+
+### 4. Licenses (Usage Rights)
+* **CC0 / CC-BY:** Open data. Most scientific use requires **CC-BY** (you must cite the DOI).
+
+### 5. Taxonomic Backbone
+* **Scientific Name:** Use the Latin name for accuracy.
+* **Taxon Key:** A unique ID GBIF uses to track species regardless of name changes.
 
 # GBIF Discussion (optional)
 

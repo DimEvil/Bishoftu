@@ -14,10 +14,11 @@ keypoints:
 ---
 
 # Data Quality, Data management and Download filters
-
+By Lena Thöle
 
 
 ### Data Managemnt Tips and TRicks
+By Dimitri Brosens
 
 
 <a href="https://docs.google.com/presentation/d/1Y02ve4iFx4vXFKfX-iv9kvJHOVr-1zyad5apAu9xxEE/edit?usp=sharing">

@@ -1,7 +1,7 @@
 ---
 title: "Hands on Exploring GBIF Biodiversity Data"
 start: true
-teaching: 30
+teaching: 45
 questions:
 - "How exploring GBIF?"
 - "Exploring the world of Biodiversity data"

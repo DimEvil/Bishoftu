@@ -1,8 +1,8 @@
 ---
-title: "GBIF Policy & science"
+title: "Break Optional reading GBIF Policy & science"
 start: true
-teaching: 45
-exercises: 15
+teaching: 30
+exercises:
 questions:
 - "GBIF Science & Policy"
 
@@ -17,7 +17,9 @@ keypoints:
 - "Delivering relevant data"
 - "Science Policy Interface"
 ---
+# Break
 
+![ ](https://png.pngtree.com/png-clipart/20190516/original/pngtree-aromatic-fragrant-aromatic-coffee-coffee-png-image_3921443.jpg)
 
 ## 1: [GBIF & Science](https://docs.google.com/presentation/d/1JpGe0ZPnt8i2Mdw7un1MgdO8_JhSl6WOQwAClvK5KYE/edit?usp=sharing)
 

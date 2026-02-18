@@ -1,15 +1,14 @@
 ---
 title: "From data mobilization to data utilization in GBIF"
 start: true
-teaching: 45
+teaching: 30
 exercises: 0
 questions:
-- "How is GBIF organized"
+- "Overview of data mobilization and utilization"
 objectives:
-- "Understanding the GBIF governance and bodies"
+- "Understanding data mobilization and utilization"
 keypoints:
-- "The GBIF Participants"
-- "The GBIF Nodes network"
-- "The GBIF Governance"
+- "Don't underestimate the power of GBIF"
+
 ---
 

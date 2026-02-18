@@ -36,6 +36,16 @@ Flexibility: You choose exactly which "dimensions" (columns) you want.
 
 FAIR Data: Each cube gets its own DOI, making your summarized analysis fully citable.
 
+## The "Golden Rules" of GBIF SQL
+
+| **Rule** | **Constraint** |
+| :--- | :--- |
+| **Only One Table** | You can only query the `occurrence` table. You cannot use `JOIN` to combine it with other tables (like checklists or environmental layers). |
+| **No `SELECT *`** | You must explicitly list the columns you want (e.g., `SELECT scientificName, decimalLatitude`). This keeps the download size manageable. |
+| **Single Query** | Sub-queries (queries inside other queries) are generally not supported. |
+| **Read-Only** | You can only use `SELECT` commands. You cannot `INSERT`, `UPDATE`, or `DELETE` anything. |
+
+
 
 Session Exercises: Thinking in SQL
 1. The "Simple Summary" Cube

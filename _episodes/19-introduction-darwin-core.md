@@ -1,9 +1,10 @@
 ---
 title: "Data cleaning and exploration using R"
 start: true
-teaching: 30
-exercises: 40
+teaching: 60
+exercises: 30
 questions:
+- "Exploring Data in R?"
 - "What is Darwin Core?"
 objectives:
 - "Understand the purpose of Darwin Core."
@@ -45,6 +46,199 @@ Temporal Decays: Observations from the 1800s being used to predict 2024 habitat 
 Basis of Record: Should a fossil specimen (extinct) or a zoo animal (managed) be used to model a wild species' niche? Usually, the answer is no.
 
 Establishment Means: Distinguishing between a native population and an invasive/introduced one in Ethiopia.
+
+## Presentation GBIF Data Exploration & downloading in R
+
+
+## 1. Setup and Authentication
+Before diving into the data, you need the right tools. While many GBIF functions work without an account, downloading data requires your GBIF credentials.
+
+Key Package: install.packages("rgbif")
+
+Best Practice: Use .Renviron to store your GBIF_USER, GBIF_PWD, and GBIF_EMAIL so you don't hardcode them into your script.
+
+
+## 2. Data Exploration (The "Discovery" Phase)
+Before downloading millions of rows, you want to "shop around." GBIF uses a backbone taxonomy, so you need to match your species name to their specific usageKey.
+
+Finding the Taxon Key
+```r
+library(rgbif)
+```
+```r
+# Find the unique ID for Monarch Butterflies
+species_info <- name_backbone(name = "Danaus plexippus")
+taxon_key <- species_info$usageKey
+```
+Quick Metadata Check
+You can check how many records exist before committing to a download:
+
+```r
+occ_count(taxonKey = taxon_key) — Gives you the total record count.
+```
+
+```r
+occ_search(taxonKey = taxon_key, limit = 10) — Returns a small preview of the data.
+```
+
+3. Requesting a Download
+For scientific reproducibility, you should use occ_download(). This triggers a request to GBIF’s servers, which prepare a .zip file for you.
+
+The Download Trigger
+
+```r
+download_request <- occ_download(
+  pred("taxonKey", taxon_key),
+  pred("hasCoordinate", TRUE),
+  pred("occurrenceStatus", "PRESENT"),
+  pred_in("basisOfRecord", c("OBSERVATION", "HUMAN_OBSERVATION")),
+  format = "SIMPLE_CSV"
+)
+
+```
+**Note: The pred() functions act as filters (e.g., only records with coordinates).**
+
+4. Monitoring and Importing
+Since large downloads take time, your script needs to wait for the server to finish "cooking" the data.
+
+Check Status: 
+
+```r
+occ_download_wait(download_request)
+```
+
+Download to Disk: 
+
+```r
+occ_download_get(download_request)
+```
+
+Load into R: 
+
+```r
+my_data <- occ_download_import()
+```
+
+5. Data Cleaning (The "Don't Skip" Step)
+GBIF data is massive but often "noisy." Common issues include:
+
+Coordinates at (0,0): Often used as a placeholder for missing data.
+
+Country Centroids: Coordinates that point to the exact center of a country rather than an observation.
+
+Duplicate Records: Multiple entries for the same event.
+
+Pro-tip: Mention the CoordinateCleaner package in your presentation. It’s the industry standard for automated cleaning of GBIF records.
+
+| Function | Purpose |
+| :--- | :--- |
+| `name_backbone()` | Matches your species name to the GBIF ID. |
+| `occ_count()` | Checks how many records are available. |
+| `occ_download()` | Starts the server-side data preparation. |
+| `occ_download_get()` | Downloads the prepared file to your computer. |
+| `occ_download_import()` | Reads the .csv or .parquet into your R environment. |
+
+In these examples, we will use the CoordinateCleaner and bdc packages to turn "raw" records into "research-ready" data.
+
+###Exercise 1: The "Visual Audit"
+Goal: Detect obvious errors before running any automated tools.
+Task: Map the raw occurrences and look for "out-of-place" points.
+
+
+# Load libraries
+```r
+library(rgbif)
+library(ggplot2)
+library(dplyr)
+```
+
+# Download raw data for the Ethiopian Wolf
+
+```r
+raw_data <- occ_search(scientificName = "Canis simensis", limit = 1000)$data
+```
+
+
+# Simple Map
+
+```r
+ggplot(raw_data, aes(x = decimalLongitude, y = decimalLatitude)) +
+  borders("world", regions = "Ethiopia") +
+  geom_point(color = "red") +
+  theme_minimal() +
+  labs(title = "Raw Observations: Canis simensis")
+```
+*Challenge: Zoom out. Are there any wolves in the middle of the ocean or in Europe? Why might they be there?*
+
+###Exercise 2: Automated Scrubbing
+Goal: Use CoordinateCleaner to flag multiple issues at once.
+Task: Run the standard suite of tests.
+
+```r
+library(CoordinateCleaner)
+```
+
+# Clean the data
+```r
+flags <- clean_coordinates(
+  x = raw_data,
+  lon = "decimalLongitude", 
+  lat = "decimalLatitude",
+  countries = "countryCode",
+  tests = c("capitals", "centroids", "equal", "zeros", "institutions")
+)
+```
+
+# See the summary of what was caught
+```r
+summary(flags)
+```
+
+*Challenge: How many records were flagged as "Centroids"? These are often hidden errors that look fine on a map until you zoom in.*
+
+
+### Exercise 3: The "Biological Filter"
+Goal: Ensure the data is relevant to modern wild populations.
+Task: Remove fossils and introduced species.
+
+
+
+# Filter by basis of record and establishment means
+```r
+clean_research_data <- raw_data %>%
+  filter(!basisOfRecord %in% c("FOSSIL_SPECIMEN", "LIVING_SPECIMEN")) %>%
+  filter(!establishmentMeans %in% c("INTRODUCED", "MANAGED", "INVASIVE")) %>%
+  filter(year >= 1970) # Keeping only 'recent' history
+
+print(paste("Records remaining:", nrow(clean_research_data)))
+```
+
+### Exercise 4: Taxonomic Harmonization
+Goal: Group synonyms so you don't miss half your data.
+Task: Compare the scientificName (what the observer wrote) with species (GBIF’s interpreted name).
+
+# Check for multiple names for the same species
+
+```r
+unique_names <- raw_data %>% 
+  group_by(scientificName, species) %>% 
+  tally()
+```
+
+```r
+print(unique_names)
+```
+
+*Challenge: Did GBIF correctly group misspelled names under the same speciesKey?*
+
+### Summary Table: Your Cleaning Checklist
+
+| Step | R Function / Filter | Purpose |
+| :--- | :--- | :--- |
+| **Coordinate Check** | `clean_coordinates()` | Flags points at 0,0, capitals, or museums. |
+| **Modern Only** | `filter(year > 1970)` | Removes historical records that may no longer be valid. |
+| **Wild Only** | `filter(basisOfRecord == "HUMAN_OBSERVATION")` | Excludes fossils and zoo animals. |
+| **De-duplication** | `distinct(lon, lat, species, .keep_all = TRUE)` | Removes multiple records at the exact same spot. |
 
 
 

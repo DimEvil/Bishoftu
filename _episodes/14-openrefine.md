@@ -126,24 +126,27 @@ FROM
 WHERE
   occurrence.countrycode = 'ET'
   AND occurrence.coordinateuncertaintyinmeters < 100
+  AND specieskey = 1
 GROUP BY
   occurrence.specieskey,
   occurrence."year"
 ```
-or 
+will become
+
 ```SQL
 SELECT
-  speciesKey,
+  specieskey,
   "year",
-  COUNT(*) AS occurrenceCount
+  COUNT(*) occurrencecount
 FROM
   occurrence
 WHERE
-  countryCode = 'ET' AND 
-  coordinateUncertaintyInMeters < 100
+  occurrence.countrycode = 'ET'
+  AND occurrence.coordinateuncertaintyinmeters < 100
+  AND CAST(occurrence.specieskey AS INTEGER) = 1
 GROUP BY
-  speciesKey,
-  "year"
+  occurrence.specieskey,
+  occurrence."year"
 ```
 
 Which GBIF will transform correctly

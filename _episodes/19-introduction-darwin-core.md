@@ -128,7 +128,7 @@ Country Centroids: Coordinates that point to the exact center of a country rathe
 
 Duplicate Records: Multiple entries for the same event.
 
-Pro-tip: Mention the CoordinateCleaner package in your presentation. It’s the industry standard for automated cleaning of GBIF records.
+Pro-tip: The CoordinateCleaner package. It’s the industry standard for automated cleaning of GBIF records.
 
 | Function | Purpose |
 | :--- | :--- |

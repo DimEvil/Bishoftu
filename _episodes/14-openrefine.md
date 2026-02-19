@@ -105,6 +105,39 @@ WHERE
   coordinateUncertaintyInMeters < 100
 GROUP BY speciesKey, year
 ```
+TRansforming into SQLgbif
+
+```sqlGBIF
+SELECT
+  specieskey,
+  "year",
+  COUNT(*) occurrencecount
+FROM
+  occurrence
+WHERE
+  occurrence.countrycode = 'ET'
+  AND occurrence.coordinateuncertaintyinmeters < 100
+GROUP BY
+  occurrence.specieskey,
+  occurrence."year"
+```
+or 
+```SQLgbif
+SELECT
+  speciesKey,
+  "year",
+  COUNT(*) AS occurrenceCount
+FROM
+  occurrence
+WHERE
+  countryCode = 'ET' AND 
+  coordinateUncertaintyInMeters < 100
+GROUP BY
+  speciesKey,
+  "year"
+```
+
+Which GBIF will transform correctly
 
 
 <a href="https://docs.google.com/presentation/d/1gSXkpcZthO6EDHNWfVOsiNSugpjuo5DPOLzHUIkKhvQ/edit?usp=sharing">
@@ -139,7 +172,36 @@ WHERE filters (e.g., countryCode = 'ET')
 GROUP BY dimensions
 ```
 
+Let's break down that exact template and highlight the major differences between standard relational SQL and GBIF's specific flavor of SQL.
 
+### 1. FROM occurrence (The Single Source of Truth)
+Normal SQL: You usually have dozens of smaller, connected tables. You might have one table for locations, one for species_names, and one for observations.
+
+GBIF SQL: The GBIF database is heavily denormalized into one massively wide, flat table called **occurrence**. For 99% of your GBIF queries, FROM occurrence is **practically hardcoded**.
+
+### 2. No JOIN Clauses Allowed
+Normal SQL: If you want to connect a species ID to its actual scientific name, you would write something like JOIN taxa ON taxa.id = occurrence.speciesKey.
+
+GBIF SQL: GBIF SQL does not support JOINs. Because it is querying a dataset of billions of rows across a distributed "Big Data" cluster, joining tables is too computationally expensive. Instead, GBIF has already pre-packed all the information (kingdom, phylum, species name, etc.) directly into the occurrence table.
+
+### 3. Complex Data Types (Structs & Arrays)
+Normal SQL: Columns usually hold simple data types: a text string, an integer, a date, or a boolean (true/false).
+
+GBIF SQL: As we saw with lifeStage.concept, GBIF uses advanced data types to handle complex biological standards. Many fields are "Structs" (records containing multiple sub-fields) or Arrays (lists of items). You have to use dot notation (like media.type or issue.concept) to filter them, which isn't standard in basic SQL.
+
+### 4. Strict Case Sensitivity and Reserved Words
+Normal SQL: Many SQL engines are completely case-insensitive. SELECT specieskey and SELECT speciesKey would work identically.
+
+GBIF SQL: The GBIF SQL parser is notoriously strict. Column names must match their official camelCase format exactly. Furthermore, standard terms like "year", "month", and "day" are strictly reserved and will instantly break the query if not wrapped in double quotes.
+
+### 5. Read-Only and Aggregation-Heavy
+Normal SQL: You use SQL to manage the database (INSERT new rows, UPDATE records, DELETE mistakes).
+
+GBIF SQL: You are operating in a strict, read-only environment. The portal is specifically designed for data extraction, usually via aggregations (like COUNT(*)). While you can run a query without a GROUP BY to just download raw rows, using dimensions and measures is highly encouraged to summarize the data before you download a massive, multi-gigabyte file.
+
+In short, GBIF SQL strips away the relational complexity of normal SQL (no joins, no managing tables) but adds Big Data quirks (complex structs, strict casing, flat architecture) to handle billions of biological records efficiently.
+
+----------------
 
 
 ## Presentation Open REfine (optional)

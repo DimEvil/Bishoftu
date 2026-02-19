@@ -44,9 +44,50 @@ FAIR Data: Each cube gets its own DOI, making your summarized analysis fully cit
   </a>
 
 
-<a href="https://docs.google.com/presentation/d/1P3Wt1udes5581cH0gcEj2ANpcr0hZcemQQrTCvAizM8/edit?usp=sharing">
-    <img src="{{ '/assets/img/cubes3.png' | relative_url }}">
-  </a>
+> ## Extra Exercise 1: The "Simple Summary" Cube
+>
+> Goal: Create a cube that counts species per year for a specific group.
+> Task: Use the "Cube" tab on the GBIF download page. Select Taxonomic (Species) and Temporal (Year) as your dimensions.
+> Exercise: Run this for Mammals in Ethiopia.
+> Result: You will get a table with three columns: species, year, and occurrenceCount.
+>
+>
+> > ## SOLUTION
+> > ```sql
+> > 
+> > ```
+> >
+> {: .solution}
+
+
+> ## Extra Exercise 2: Grid-Based Exploration (The Spatial Dimension)
+>
+> Goal: Summarize data into standardized geographic grids.
+> Task: Create a cube using a Spatial Dimension (e.g., the EEA 1km grid or the Military Grid Reference System).
+> Exercise: Pick a specific region in Ethiopia (like the Simien Mountains) and see how many observations exist per grid cell.
+>
+>
+> > ## SOLUTION
+> > ```sql
+> > 
+> > ```
+> >
+> {: .solution}
+
+
+> ## Extra Exercise 3: Customizing with SQL (The "Edit as SQL" Challenge)
+>
+> Goal: Use SQL to add complex filters like "Life Stage" or "IUCN Category."
+> Task: Switch to the Edit as SQL view in the GBIF portal.
+> Exercise: Modify the query to count only records where lifeStage = 'ADULT'.
+>
+>
+> > ## SOLUTION
+> > ```sql
+> > 
+> > ```
+> >
+> {: .solution}
 
 Extra Session Exercises: Thinking in SQL
 

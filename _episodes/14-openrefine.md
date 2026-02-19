@@ -140,6 +140,19 @@ GROUP BY
   occurrence."year"
 ```
 
+> ## Extra Exercise 4: The "Uncertainty" Filter
+>
+> Goal: Create a high-quality data cube by filtering for precision.
+> Task: Add a constraint to your SQL query to only include records with a coordinateUncertaintyInMeters less than 100m.
+>
+>
+> > ## SOLUTION
+> > ```sql
+> > 
+> > ```
+> >
+> {: .solution}
+
 4. The "Uncertainty" Filter
 *Goal:* Create a high-quality data cube by filtering for precision.
 *Task:* Add a constraint to your SQL query to only include records with a coordinateUncertaintyInMeters less than 100m.

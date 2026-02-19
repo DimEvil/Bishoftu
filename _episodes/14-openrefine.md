@@ -17,15 +17,9 @@ Traditional downloads give you every single column for every single record. Data
 
 In this session, we explore the SQL Download API, which allows you to write custom queries to "slice and dice" the GBIF database before you even hit the download button.
 
-Gemini zei
 The next logical step in your workshop is the GBIF Data Cube. This is a relatively new and powerful feature that moves away from raw record lists toward "Analysis-Ready" summarized data.
 
 Instead of downloading 1 million individual dots (records) and aggregating them yourself, a Data Cube allows you to ask GBIF's servers to do the math for you—returning a neat table of counts based on time, space, and taxonomy.
-
-Introduction to GBIF Data Cubes (SQL Option)
-Traditional downloads give you every single column for every single record. Data Cubes are different: they are multi-dimensional summaries. They are perfect for answering questions like: "How has the number of recorded bird species in Ethiopia changed per year since 1970?"
-
-In this session, we explore the SQL Download API, which allows you to write custom queries to "slice and dice" the GBIF database before you even hit the download button.
 
 ## Why use Data Cubes?
 Performance: Smaller file sizes (KBs instead of GBs).
@@ -48,21 +42,22 @@ FAIR Data: Each cube gets its own DOI, making your summarized analysis fully cit
 
 
 Session Exercises: Thinking in SQL
+
 1. The "Simple Summary" Cube
-Goal: Create a cube that counts species per year for a specific group.
-Task: Use the "Cube" tab on the GBIF download page. Select Taxonomic (Species) and Temporal (Year) as your dimensions.
-Exercise: Run this for Mammals in Ethiopia.
+*Goal:* Create a cube that counts species per year for a specific group.
+*Task:* Use the "Cube" tab on the GBIF download page. Select Taxonomic (Species) and Temporal (Year) as your dimensions.
+*Exercise:* Run this for Mammals in Ethiopia.
 Result: You will get a table with three columns: species, year, and occurrenceCount.
 
 2. Grid-Based Exploration (The Spatial Dimension)
-Goal: Summarize data into standardized geographic grids.
-Task: Create a cube using a Spatial Dimension (e.g., the EEA 1km grid or the Military Grid Reference System).
-Exercise: Pick a specific region in Ethiopia (like the Simien Mountains) and see how many observations exist per grid cell.
+*Goal:* Summarize data into standardized geographic grids.
+*Task:* Create a cube using a Spatial Dimension (e.g., the EEA 1km grid or the Military Grid Reference System).
+*Exercise:* Pick a specific region in Ethiopia (like the Simien Mountains) and see how many observations exist per grid cell.
 
 3. Customizing with SQL (The "Edit as SQL" Challenge)
-Goal: Use SQL to add complex filters like "Life Stage" or "IUCN Category."
-Task: Switch to the Edit as SQL view in the GBIF portal.
-Exercise: Modify the query to count only records where lifeStage = 'ADULT'.
+*Goal:* Use SQL to add complex filters like "Life Stage" or "IUCN Category."
+*Task:* Switch to the Edit as SQL view in the GBIF portal.
+*Exercise:* Modify the query to count only records where lifeStage = 'ADULT'.
 
 SQL
 
@@ -77,6 +72,22 @@ WHERE
   lifeStage = 'ADULT' AND
   year >= 2000
 GROUP BY speciesKey, year
+
+```
+```sqlGBIF
+SELECT
+  specieskey,
+  "year",
+  COUNT(*) occurrencecount
+FROM
+  occurrence
+WHERE
+  occurrence.countrycode = 'ET'
+  AND occurrence.lifestage.concept = 'ADULT'
+  AND occurrence."year" >= 2000
+GROUP BY
+  occurrence.specieskey,
+  occurrence."year"
 ```
 
 4. The "Uncertainty" Filter

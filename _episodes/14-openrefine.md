@@ -39,9 +39,16 @@ FAIR Data: Each cube gets its own DOI, making your summarized analysis fully cit
 | **Single Query** | Sub-queries (queries inside other queries) are generally not supported. |
 | **Read-Only** | You can only use `SELECT` commands. You cannot `INSERT`, `UPDATE`, or `DELETE` anything. |
 
+<a href="https://docs.google.com/presentation/d/1gSXkpcZthO6EDHNWfVOsiNSugpjuo5DPOLzHUIkKhvQ/edit?usp=sharing">
+    <img src="{{ '/assets/img/cubes2.png' | relative_url }}">
+  </a>
 
 
-Session Exercises: Thinking in SQL
+<a href="https://docs.google.com/presentation/d/1P3Wt1udes5581cH0gcEj2ANpcr0hZcemQQrTCvAizM8/edit?usp=sharing">
+    <img src="{{ '/assets/img/cubes3.png' | relative_url }}">
+  </a>
+
+Extra Session Exercises: Thinking in SQL
 
 1. The "Simple Summary" Cube
 *Goal:* Create a cube that counts species per year for a specific group.
@@ -74,7 +81,9 @@ WHERE
 GROUP BY speciesKey, year
 
 ```
-```sqlGBIF
+GBIF SQL
+
+```sql
 SELECT
   specieskey,
   "year",
@@ -107,7 +116,7 @@ GROUP BY speciesKey, year
 ```
 TRansforming into SQLgbif
 
-```sqlGBIF
+```sql
 SELECT
   specieskey,
   "year",
@@ -122,7 +131,7 @@ GROUP BY
   occurrence."year"
 ```
 or 
-```SQLgbif
+```SQL
 SELECT
   speciesKey,
   "year",
@@ -138,16 +147,6 @@ GROUP BY
 ```
 
 Which GBIF will transform correctly
-
-
-<a href="https://docs.google.com/presentation/d/1gSXkpcZthO6EDHNWfVOsiNSugpjuo5DPOLzHUIkKhvQ/edit?usp=sharing">
-    <img src="{{ '/assets/img/cubes2.png' | relative_url }}">
-  </a>
-
-
-<a href="https://docs.google.com/presentation/d/1P3Wt1udes5581cH0gcEj2ANpcr0hZcemQQrTCvAizM8/edit?usp=sharing">
-    <img src="{{ '/assets/img/cubes3.png' | relative_url }}">
-  </a>
 
 
 ## GBIF SQL Cheat Sheet

@@ -100,8 +100,8 @@ GROUP BY
 ```
 
 4. The "Uncertainty" Filter
-Goal: Create a high-quality data cube by filtering for precision.
-Task: Add a constraint to your SQL query to only include records with a coordinateUncertaintyInMeters less than 100m.
+*Goal:* Create a high-quality data cube by filtering for precision.
+*Task:* Add a constraint to your SQL query to only include records with a coordinateUncertaintyInMeters less than 100m.
 
 ```sql
 SELECT 
@@ -114,7 +114,7 @@ WHERE
   coordinateUncertaintyInMeters < 100
 GROUP BY speciesKey, year
 ```
-TRansforming into SQLgbif
+Transformed into SQLgbif
 
 ```sql
 SELECT
@@ -133,7 +133,7 @@ GROUP BY
 ```
 will become
 
-```SQL
+```sql
 SELECT
   specieskey,
   "year",
@@ -206,7 +206,7 @@ In short, GBIF SQL strips away the relational complexity of normal SQL (no joins
 ----------------
 
 
-## Presentation Open REfine (optional)
+## Presentation Open Refine (optional)
 
 <a href="https://docs.google.com/presentation/d/1wtvqjm8XxbfYOzmkE03yTux42KmN2c-sDyK-EgH_q5M/edit?usp=sharing">
     <img src="{{ '/assets/img/openrefine.PNG' | relative_url }}">

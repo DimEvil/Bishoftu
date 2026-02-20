@@ -47,8 +47,9 @@ Establishment Means: Distinguishing between a native population and an invasive/
 ## Presentation GBIF Data Exploration & downloading in R
 
 ## Exercise 1: The "Data Integrity" Check
-Before looking at the animals or plants, you need to see how "messy" the dataset is. In Exploratory, this is the "Summary" view.
+Before looking at the animals or plants, you need to see how "messy" the dataset is. This is the "Summary" view.
 
+```
 **The Goal:** Identify missing values and coordinate validity.
 
 **Task A:** Use the skimr package or summary() to identify which columns have the most NA values.
@@ -56,12 +57,13 @@ Before looking at the animals or plants, you need to see how "messy" the dataset
 **Task B:** GBIF data often has "0,0" coordinates (the "Null Island" effect). Filter your data to find rows where decimalLatitude or decimalLongitude are exactly 0.
 
 **Task C:** Create a frequency table of the basisOfRecord column (e.g., Human Observation vs. Preserved Specimen).
+```
 
 Pro Tip: Use library(naniar) to visualize where your data is missing. It’s much more intuitive than a raw table.
 
 
 
-### --- 1. LOAD LIBRARIES ---
+#### --- 1. LOAD LIBRARIES ---
 ```r
 library(tidyverse)  # For data manipulation and plotting
 library(skimr)      # For the "Exploratory" style summary
@@ -69,8 +71,8 @@ library(maps)       # For map backgrounds
 library(viridis)    # For color-blind friendly palettes
 ```
 
-### --- 2. GENERATE MOCK GBIF DATA (Skip this if you have your own data) ---
-### name your previously downloaded dataset gbif_data if you have your own dataset already downloaded
+#### --- 2. GENERATE MOCK GBIF DATA (Skip this if you have your own data) ---
+name your previously downloaded dataset gbif_data if you have your own dataset already downloaded
 ```r
 set.seed(123)
 gbif_data <- tibble(
@@ -83,13 +85,19 @@ gbif_data <- tibble(
   countryCode = sample(c("US", "ZA", "DE", "BR"), 500, replace = TRUE)
 )
 ```
-### --- 3. EXPLORATORY SUMMARY ---
-#### This mimics the "Summary" tab in the Exploratory tool
+OR
+
+```r
+gbif_data <- yourDAtaSet
+```
+
+#### --- 3. EXPLORATORY SUMMARY ---
+This mimics the "Summary" tab in the Exploratory tool
 ```r
 gbif_data %>% skim()
 ```
-### --- 4. DATA CLEANING & INTEGRITY CHECK ---
-#### Checking for missing coordinates or the "Null Island" (0,0) effect
+#### --- 4. DATA CLEANING & INTEGRITY CHECK ---
+Checking for missing coordinates or the "Null Island" (0,0) effect
 ```r
 clean_data <- gbif_data %>%
   filter(!is.na(decimalLatitude) & !is.na(decimalLongitude)) %>%
@@ -99,8 +107,8 @@ clean_data <- gbif_data %>%
 print(paste("Original rows:", nrow(gbif_data)))
 print(paste("Cleaned rows:", nrow(clean_data)))
 ```
-### --- 5. VISUALIZING TEMPORAL TRENDS ---
-#### Count observations per year and phylum
+#### --- 5. VISUALIZING TEMPORAL TRENDS ---
+Count observations per year and phylum
 ```r
 temporal_plot <- clean_data %>%
   count(year, phylum) %>%
@@ -116,8 +124,8 @@ temporal_plot <- clean_data %>%
 print(temporal_plot)
 ```
 
-### --- 6. SPATIAL EXPLORATION (HEXBIN MAP) ---
-#### This prevents points from overlapping so you can see density
+#### --- 6. SPATIAL EXPLORATION (HEXBIN MAP) ---
+This prevents points from overlapping so you can see density
 ```r
 world_map <- map_data("world")
 ```
@@ -138,8 +146,8 @@ spatial_plot <- ggplot() +
 print(spatial_plot)
 ```
 
-### --- 7. THE PIVOT TABLE (ANALYSIS) ---
-#### See which recording methods are used across different phyla
+#### --- 7. THE PIVOT TABLE (ANALYSIS) ---
+See which recording methods are used across different phyla
 ```r
 recording_pivot <- clean_data %>%
   group_by(phylum, basisOfRecord) %>%
@@ -149,21 +157,21 @@ recording_pivot <- clean_data %>%
 print(recording_pivot)
 ```
 Quick Tips for your Document:
-The Pipe (%>%): Remember that this "passes" the data from one function to the next. It’s exactly like the steps listed in the right-hand sidebar of the Exploratory UI.
+**The Pipe (%>%):** Remember that this "passes" the data from one function to the next. It’s exactly like the steps listed in the right-hand sidebar of the Exploratory UI.
 
-geom_hex(): If you get an error saying hexbin package required, just run install.packages("hexbin") in your console.
+**geom_hex():** If you get an error saying hexbin package required, just run install.packages("hexbin") in your console.
 
-coord_fixed(1.3): This is a small trick for world maps to ensure the Earth doesn't look too "flat" or "tall" in your RStudio plot pane.
+**coord_fixed(1.3):** This is a small trick for world maps to ensure the Earth doesn't look too "flat" or "tall" in your RStudio plot pane.
 
-### --- 1. FILTER FOR AFRICA ---
-#### We define the bounding box for the African continent
+#### --- 1. FILTER FOR AFRICA ---
+We define the bounding box for the African continent
 ```r
 africa_data <- clean_data %>%
   filter(decimalLongitude >= -20 & decimalLongitude <= 55,
          decimalLatitude >= -35 & decimalLatitude <= 40)
 ```
-### --- 2. SUMMARY OF AFRICAN RECORDS ---
-#### See which countries in Africa have the most records in your dataset
+#### --- 2. SUMMARY OF AFRICAN RECORDS ---
+See which countries in Africa have the most records in your dataset
 ```r
 africa_summary <- africa_data %>%
   group_by(countryCode) %>%
@@ -173,8 +181,8 @@ africa_summary <- africa_data %>%
 print(africa_summary)
 ```
 
-### --- 3. SPATIAL PLOT: AFRICA ONLY ---
-#### We use the same 'world_map' data but zoom the plot
+#### --- 3. SPATIAL PLOT: AFRICA ONLY ---
+We use the same 'world_map' data but zoom the plot
 ```r
 africa_map_plot <- ggplot() +
   # Background map (filtered for Africa-related regions for performance)
@@ -193,6 +201,115 @@ africa_map_plot <- ggplot() +
 
 print(africa_map_plot)
 ```
+
+#### Install if you haven't already: install.packages("naniar")
+```r
+library(naniar)
+```
+#### 1. Visualize the overall "missingness" 
+This shows you which columns are the 'emptiest'
+```r
+gg_miss_var(africa_data) + 
+  labs(title = "Missing Values per Column (Africa GBIF)")
+```
+#### 2. Look for intersections (The "Upset" Plot)
+Do records that miss 'eventDate' also miss 'scientificName'?
+(Note: Requires 'UpSetR' package usually)
+```r
+gg_miss_upset(africa_data, nsets = 5)
+```
+#### 3. Visualizing missingness in a scatterplot
+This is brilliant: it plots points with missing values on the margins so you can see if missing data is clustered in specific areas.
+```r
+ggplot(africa_data, 
+       aes(x = decimalLongitude, y = decimalLatitude)) + 
+  geom_miss_point() + 
+  coord_fixed(1.3) +
+  theme_minimal() +
+  labs(title = "Map of Valid vs. Missing Coordinates")
+```
+
+| Function | What it does | "Exploratory" Equivalent |
+| :--- | :--- | :--- |
+| `gg_miss_var()` | Creates a bar chart of $NA$ counts per column. | The red/grey bar at the top of Exploratory columns. |
+| `gg_miss_upset()` | Shows how missing values "overlap" between columns. | Advanced data profiling (UpSet plot). |
+| `geom_miss_point()` | A ggplot "layer" that plots $NA$ values at 10% below the minimum value so you can still see them. | N/A (Unique to R). |
+| `miss_scan_count()` | Searches for "hidden" missing values like "Unknown", "N/A", or "-999". | Data Cleaning / "Replace values". |
+
+
+## Exercise 2: Temporal Trends (Time Series)
+Exploring data is great for quickly seeing if data is "old" or "new." Let’s do that in R.
+
+**The Goal:** Visualize when these observations were recorded.
+
+**Task A:** Convert your eventDate or year column into a proper Date format.
+
+**Task B:** Create a histogram of observations per year. Use ggplot2:
+
+Bonus: Map the fill aesthetic to phylum or class to see if certain groups were recorded more in specific decades.
+
+**Task C:** Filter for the last 20 years and calculate the growth rate of observations year-over-year.
+
+#### --- TASK A: CONVERT TO DATE FORMAT ---
+We use lubridate (part of tidyverse) to handle dates easily
+
+```r
+library(tidyverse)
+library(lubridate)
+```
+Ensure eventDate is a Date and extract the Year
+
+```r
+temporal_data <- africa_data %>%
+  mutate(eventDate = as.Date(eventDate),
+         year = year(eventDate)) %>%
+  filter(!is.na(year)) # Remove records with no date info
+```
+
+#### --- TASK B: HISTOGRAM OF OBSERVATIONS ---
+In Exploratory, this is a 'Chart' with 'Year' on the X-axis
+
+```r
+ggplot(temporal_data, aes(x = year, fill = phylum)) +
+  geom_histogram(binwidth = 1, color = "white") +
+  scale_fill_brewer(palette = "Set3") +
+  theme_minimal() +
+  labs(title = "Temporal Distribution of African GBIF Records",
+       subtitle = "Observations by Year and Taxonomic Phylum",
+       x = "Year",
+       y = "Number of Records",
+       fill = "Phylum")
+```
+#### --- TASK C: GROWTH RATE (LAST 20 YEARS) ---
+1. Filter for the last 20 years
+```r
+growth_analysis <- temporal_data %>%
+  filter(year >= (year(Sys.Date()) - 20)) %>%
+  count(year) %>%
+  # 2. Calculate the year-over-year change
+  mutate(diff_records = n - lag(n),
+         growth_rate = (diff_records / lag(n)) * 100)
+```
+#### View the growth table
+
+```r
+print(growth_analysis)
+```
+#### Plotting the Growth Rate
+
+```r
+ggplot(growth_analysis, aes(x = year, y = growth_rate)) +
+  geom_line(color = "steelblue", size = 1) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  theme_minimal() +
+  labs(title = "Year-over-Year Growth Rate (%)",
+       subtitle = "African Observations (Last 20 Years)",
+       y = "Percentage Change",
+       x = "Year")
+```
+
+
+
 
 ## 1. Setup and Authentication
 Before diving into the data, you need the right tools. While many GBIF functions work without an account, downloading data requires your GBIF credentials.

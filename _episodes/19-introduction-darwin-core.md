@@ -240,6 +240,7 @@ ggplot(africa_data,
 ## Exercise 2: Temporal Trends (Time Series)
 Exploring data is great for quickly seeing if data is "old" or "new." Let’s do that in R.
 
+```assignment
 **The Goal:** Visualize when these observations were recorded.
 
 **Task A:** Convert your eventDate or year column into a proper Date format.
@@ -249,6 +250,8 @@ Exploring data is great for quickly seeing if data is "old" or "new." Let’s do
 Bonus: Map the fill aesthetic to phylum or class to see if certain groups were recorded more in specific decades.
 
 **Task C:** Filter for the last 20 years and calculate the growth rate of observations year-over-year.
+```
+
 
 #### --- TASK A: CONVERT TO DATE FORMAT ---
 We use lubridate (part of tidyverse) to handle dates easily
@@ -308,7 +311,189 @@ ggplot(growth_analysis, aes(x = year, y = growth_rate)) +
        x = "Year")
 ```
 
+Exercise 3: Geographic Distribution
+GBIF data is inherently spatial. This is where you find "outliers" (like a polar bear recorded in the Sahara).
 
+The Goal: Plot the occurrences and find spatial anomalies.
+
+```assignment
+Task A: Use ggplot2 and borders("world") to create a quick scatter plot of your coordinates.
+
+Task B: Identify "Points on Land." If you have marine data, use a spatial join to see if any points accidentally fall on land (and vice versa for terrestrial data).
+
+Task C: Create a "Hexbin" map (geom_hex()) instead of a scatter plot. This handles "overplotting" much better when you have thousands of GBIF points.
+```
+
+#### --- TASK A: QUICK SCATTER PLOT ---
+```r
+library(tidyverse)
+library(maps)
+```
+
+#### Basic scatter plot to see the 'spread'
+This helps identify extreme outliers immediately
+
+```r
+ggplot() +
+  borders("world", colour = "gray85", fill = "gray90") +
+  geom_point(data = africa_data, 
+             aes(x = decimalLongitude, y = decimalLatitude), 
+             color = "red", alpha = 0.3, size = 0.5) +
+  theme_minimal() +
+  labs(title = "Initial Spatial Check (Scatter Plot)",
+       subtitle = "Looking for points outside expected ranges")
+```
+
+#### --- TASK B: IDENTIFYING SPATIAL ANOMALIES ---
+To check if points fall on land/sea, we usually use the 'sf' package
+Here is a logic-based check for common GBIF coordinate swaps:
+
+```r
+anomalies <- africa_data %>%
+  mutate(is_outlier = case_when(
+    decimalLatitude > 40 | decimalLatitude < -35 ~ "Outside Africa Lat",
+    decimalLongitude > 55 | decimalLongitude < -20 ~ "Outside Africa Long",
+    decimalLatitude == 0 & decimalLongitude == 0 ~ "Null Island",
+    TRUE ~ "Likely OK"
+  ))
+```
+Summary of anomalies
+
+```r
+anomalies %>% count(is_outlier)
+```
+#### --- TASK C: HEXBIN MAP (FOR DENSITY) ---
+Exploratory uses Heatmaps; in R, geom_hex is the best for big data
+
+```r
+ggplot() +
+  borders("world", fill = "gray95", colour = "white") +
+  geom_hex(data = africa_data, 
+           aes(x = decimalLongitude, y = decimalLatitude), 
+           bins = 40) +
+  scale_fill_viridis_c(option = "magma") +
+  # Zooming into Africa specifically
+  coord_quickmap(xlim = c(-20, 55), ylim = c(-35, 40)) +
+  theme_void() +
+  labs(title = "Observation Density (Hexbin Map)",
+       fill = "Record Count")
+
+```
+
+Here is the formatted Markdown table for Exercise 3. You can copy this directly into your report or documentation.
+
+Markdown
+| Function | What it does | "Exploratory" Equivalent |
+| :--- | :--- | :--- |
+| `borders("world")` | Draws a basic world map outline. | The default Map background. |
+| `geom_hex()` | Groups points into hexagons to show density. | Heatmap / Hexbin Map. |
+| `coord_quickmap()` | Ensures the map ratio is correct (not stretched). | Map Projection settings. |
+| `case_when()` | A multi-condition "If-Then" for labeling data. | "Create Calculation" (IF/ELSE). |
+| `alpha = 0.3` | Makes points transparent to reveal overlapping. | Layer Opacity. |
+
+
+Pro-Tip: The Power of case_when()
+In GBIF data, case_when() is a lifesaver for data cleaning. Instead of writing five nested if_else() statements to categorize your data, you can do it in one block.
+
+For example, if you want to create a "Quality" flag based on the coordinates:
+
+```r
+africa_data <- africa_data %>%
+  mutate(quality_flag = case_when(
+    is.na(decimalLatitude) ~ "Missing Coord",
+    decimalLatitude == 0 & decimalLongitude == 0 ~ "Null Island",
+    decimalLatitude > 38 ~ "North of Africa",
+    TRUE ~ "Pass"
+  ))
+```
+
+#### --- FACETED MAP BY PHYLUM ---
+Faceting is one of the most powerful "Exploratory" features in R. Instead of looking at one crowded map, it creates a "small multiple" grid, allowing you to compare the distribution of different groups (like Birds vs. Mammals) instantly.
+
+```r
+facet_map <- ggplot() +
+  # Background map
+  borders("world", fill = "grey95", colour = "white") +
+  # Use a simple point plot for small multiples
+  geom_point(data = africa_data, 
+             aes(x = decimalLongitude, y = decimalLatitude), 
+             color = "darkgreen", alpha = 0.4, size = 0.3) +
+  # THE MAGIC STEP: Create a separate map for each Phylum
+  # 'nrow = 2' organizes them into two rows
+  facet_wrap(~phylum, nrow = 2) + 
+  # Zooming into Africa
+  coord_quickmap(xlim = c(-20, 55), ylim = c(-35, 40)) +
+  theme_minimal() +
+  labs(title = "Species Distribution by Phylum in Africa",
+       subtitle = "Comparing spatial coverage across taxonomic groups",
+       x = "Longitude", y = "Latitude")
+
+print(facet_map)
+```
+
+| Function | Usage | When to use it |
+| :--- | :--- | :--- |
+| `facet_wrap(~category)` | `facet_wrap(~phylum)` | When you have one variable to split by. |
+| `facet_grid(row ~ col)` | `facet_grid(basisOfRecord ~ phylum)` | When you want a matrix (e.g., Source vs. Type). |
+
+1. Save the last plot you displayed
+
+```r
+ggsave("Africa_Phylum_Distribution.png", 
+       width = 10, 
+       height = 8, 
+       dpi = 300) # 300 dpi is "Print Quality"
+```
+2. Save a specific plot object (recommended)
+```r
+ggsave("Africa_Density_Map.pdf", 
+       plot = spatial_plot, 
+       width = 12, 
+       height = 10)
+```
+
+
+Adding an interactive map is the way to go. In the Exploratory tool, maps are often interactive by default; in R, we use the leaflet library to achieve this.
+
+This allows your readers to zoom into specific African national parks and click on points to see the species name.
+
+```r
+library(leaflet)
+```
+# We will take a sample of 500 points to keep the HTML file light and fast
+```r
+map_sample <- africa_data %>% 
+  filter(!is.na(decimalLatitude)) %>% 
+  sample_n(500)
+
+leaflet(data = map_sample) %>%
+  addTiles() %>%  # Adds the standard OpenStreetMap background
+  addMarkers(
+    lng = ~decimalLongitude, 
+    lat = ~decimalLatitude,
+    popup = ~paste("Species:", species, "<br>", "Year:", year),
+    clusterOptions = markerClusterOptions() # Automatically groups points when zooming out
+  )
+```
+
+Why use Leaflet for GBIF data?
+Clustering: markerClusterOptions() prevents the map from becoming a mess by grouping nearby points into a single circle with a number.
+
+Context: Unlike a static plot, you can switch between satellite imagery and street maps.
+
+Popups: You can show the catalogNumber, recordedBy, or even a link to the GBIF page for that specific record.
+
+
+| Function | What it does | "Exploratory" Equivalent |
+| :--- | :--- | :--- |
+| `leaflet()` | Initializes an interactive map widget. | Map View (Interactive). |
+| `addTiles()` | Adds the base map layer (roads, borders). | Map Provider / Base Layer. |
+| `addMarkers()` | Places points on the map with popups. | Map Markers / Pins. |
+| `markerClusterOptions()` | Groups dense points into clickable clusters. | "Cluster" toggle in Map settings. |
+| `addProviderTiles()` | Allows switching to Satellite or Terrain views. | Background Map Styles. |
+
+
+# GBIF Cleanng and Dowloading
 
 
 ## 1. Setup and Authentication

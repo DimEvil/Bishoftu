@@ -49,7 +49,7 @@ Establishment Means: Distinguishing between a native population and an invasive/
 ## Exercise 1: The "Data Integrity" Check
 Before looking at the animals or plants, you need to see how "messy" the dataset is. This is the "Summary" view.
 
-```
+```Assignment
 **The Goal:** Identify missing values and coordinate validity.
 
 **Task A:** Use the skimr package or summary() to identify which columns have the most NA values.

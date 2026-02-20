@@ -61,7 +61,7 @@ Pro Tip: Use library(naniar) to visualize where your data is missing. It’s muc
 
 
 
-# --- 1. LOAD LIBRARIES ---
+### --- 1. LOAD LIBRARIES ---
 ```r
 library(tidyverse)  # For data manipulation and plotting
 library(skimr)      # For the "Exploratory" style summary
@@ -69,7 +69,8 @@ library(maps)       # For map backgrounds
 library(viridis)    # For color-blind friendly palettes
 ```
 
-# --- 2. GENERATE MOCK GBIF DATA (Skip this if you have your own data) ---
+### --- 2. GENERATE MOCK GBIF DATA (Skip this if you have your own data) ---
+### name your previously downloaded dataset gbif_data if you have your own dataset already downloaded
 ```r
 set.seed(123)
 gbif_data <- tibble(
@@ -82,13 +83,13 @@ gbif_data <- tibble(
   countryCode = sample(c("US", "ZA", "DE", "BR"), 500, replace = TRUE)
 )
 ```
-# --- 3. EXPLORATORY SUMMARY ---
-# This mimics the "Summary" tab in the Exploratory tool
+### --- 3. EXPLORATORY SUMMARY ---
+#### This mimics the "Summary" tab in the Exploratory tool
 ```r
 gbif_data %>% skim()
 ```
-# --- 4. DATA CLEANING & INTEGRITY CHECK ---
-# Checking for missing coordinates or the "Null Island" (0,0) effect
+### --- 4. DATA CLEANING & INTEGRITY CHECK ---
+#### Checking for missing coordinates or the "Null Island" (0,0) effect
 ```r
 clean_data <- gbif_data %>%
   filter(!is.na(decimalLatitude) & !is.na(decimalLongitude)) %>%
@@ -98,8 +99,8 @@ clean_data <- gbif_data %>%
 print(paste("Original rows:", nrow(gbif_data)))
 print(paste("Cleaned rows:", nrow(clean_data)))
 ```
-# --- 5. VISUALIZING TEMPORAL TRENDS ---
-# Count observations per year and phylum
+### --- 5. VISUALIZING TEMPORAL TRENDS ---
+#### Count observations per year and phylum
 ```r
 temporal_plot <- clean_data %>%
   count(year, phylum) %>%
@@ -115,8 +116,8 @@ temporal_plot <- clean_data %>%
 print(temporal_plot)
 ```
 
-# --- 6. SPATIAL EXPLORATION (HEXBIN MAP) ---
-# This prevents points from overlapping so you can see density
+### --- 6. SPATIAL EXPLORATION (HEXBIN MAP) ---
+#### This prevents points from overlapping so you can see density
 ```r
 world_map <- map_data("world")
 ```
@@ -137,8 +138,8 @@ spatial_plot <- ggplot() +
 print(spatial_plot)
 ```
 
-# --- 7. THE PIVOT TABLE (ANALYSIS) ---
-# See which recording methods are used across different phyla
+### --- 7. THE PIVOT TABLE (ANALYSIS) ---
+#### See which recording methods are used across different phyla
 ```r
 recording_pivot <- clean_data %>%
   group_by(phylum, basisOfRecord) %>%
@@ -147,7 +148,51 @@ recording_pivot <- clean_data %>%
 
 print(recording_pivot)
 ```
+Quick Tips for your Document:
+The Pipe (%>%): Remember that this "passes" the data from one function to the next. It’s exactly like the steps listed in the right-hand sidebar of the Exploratory UI.
 
+geom_hex(): If you get an error saying hexbin package required, just run install.packages("hexbin") in your console.
+
+coord_fixed(1.3): This is a small trick for world maps to ensure the Earth doesn't look too "flat" or "tall" in your RStudio plot pane.
+
+### --- 1. FILTER FOR AFRICA ---
+#### We define the bounding box for the African continent
+```r
+africa_data <- clean_data %>%
+  filter(decimalLongitude >= -20 & decimalLongitude <= 55,
+         decimalLatitude >= -35 & decimalLatitude <= 40)
+```
+### --- 2. SUMMARY OF AFRICAN RECORDS ---
+#### See which countries in Africa have the most records in your dataset
+```r
+africa_summary <- africa_data %>%
+  group_by(countryCode) %>%
+  summarise(total_records = n()) %>%
+  arrange(desc(total_records))
+
+print(africa_summary)
+```
+
+### --- 3. SPATIAL PLOT: AFRICA ONLY ---
+#### We use the same 'world_map' data but zoom the plot
+```r
+africa_map_plot <- ggplot() +
+  # Background map (filtered for Africa-related regions for performance)
+  geom_polygon(data = world_map, aes(x = long, y = lat, group = group), 
+               fill = "grey95", color = "grey80") +
+  # Hexbins for observation density
+  geom_hex(data = africa_data, aes(x = decimalLongitude, y = decimalLatitude), bins = 25) +
+  scale_fill_viridis_c(option = "mako", direction = -1) +
+  # Zooming the view to Africa's coordinates
+  coord_fixed(xlim = c(-20, 55), ylim = c(-35, 40), ratio = 1.3) +
+  theme_minimal() +
+  labs(title = "Biodiversity Hotspots in Africa",
+       subtitle = "Based on GBIF Occurrence Density",
+       fill = "Record Count",
+       x = "Longitude", y = "Latitude")
+
+print(africa_map_plot)
+```
 
 ## 1. Setup and Authentication
 Before diving into the data, you need the right tools. While many GBIF functions work without an account, downloading data requires your GBIF credentials.

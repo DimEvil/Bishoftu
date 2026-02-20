@@ -8,13 +8,10 @@ questions:
 - "What is Darwin Core?"
 objectives:
 - "Understand the purpose of Darwin Core."
-- "Understand how to map data to Darwin Core."
-- "Plan for mapping to Darwin Core."
+- "How to explore your data in R"
 keypoints:
-- "Darwin Core isn't difficult to apply, it just takes a little bit of time."
-- "Using Darwin Core allows datasets from across projects, organizations, and countries to be integrated together."
-- "Applying certain general principles to the data will make it easier to map to Darwin Core."
-- "Implementing Darwin Core makes data FAIR-er and means becoming part of a community of people working together to understand species no matter where they work or are based."
+- "Exploring data in R is never boring"
+
 ---
 
 # Data cleaning and exploration using R
@@ -48,6 +45,108 @@ Basis of Record: Should a fossil specimen (extinct) or a zoo animal (managed) be
 Establishment Means: Distinguishing between a native population and an invasive/introduced one in Ethiopia.
 
 ## Presentation GBIF Data Exploration & downloading in R
+
+## Exercise 1: The "Data Integrity" Check
+Before looking at the animals or plants, you need to see how "messy" the dataset is. In Exploratory, this is the "Summary" view.
+
+**The Goal:** Identify missing values and coordinate validity.
+
+**Task A:** Use the skimr package or summary() to identify which columns have the most NA values.
+
+**Task B:** GBIF data often has "0,0" coordinates (the "Null Island" effect). Filter your data to find rows where decimalLatitude or decimalLongitude are exactly 0.
+
+**Task C:** Create a frequency table of the basisOfRecord column (e.g., Human Observation vs. Preserved Specimen).
+
+Pro Tip: Use library(naniar) to visualize where your data is missing. It’s much more intuitive than a raw table.
+
+
+
+# --- 1. LOAD LIBRARIES ---
+```r
+library(tidyverse)  # For data manipulation and plotting
+library(skimr)      # For the "Exploratory" style summary
+library(maps)       # For map backgrounds
+library(viridis)    # For color-blind friendly palettes
+```
+
+# --- 2. GENERATE MOCK GBIF DATA (Skip this if you have your own data) ---
+```r
+set.seed(123)
+gbif_data <- tibble(
+  species = sample(c("Panthera leo", "Quercus robur", "Danaus plexippus"), 500, replace = TRUE),
+  phylum = sample(c("Chordata", "Tracheophyta", "Arthropoda"), 500, replace = TRUE),
+  decimalLatitude = runif(500, -40, 60),
+  decimalLongitude = runif(500, -120, 140),
+  eventDate = seq(as.Date('2010/01/01'), as.Date('2023/01/01'), length.out = 500),
+  basisOfRecord = sample(c("HUMAN_OBSERVATION", "PRESERVED_SPECIMEN"), 500, replace = TRUE),
+  countryCode = sample(c("US", "ZA", "DE", "BR"), 500, replace = TRUE)
+)
+```
+# --- 3. EXPLORATORY SUMMARY ---
+# This mimics the "Summary" tab in the Exploratory tool
+```r
+gbif_data %>% skim()
+```
+# --- 4. DATA CLEANING & INTEGRITY CHECK ---
+# Checking for missing coordinates or the "Null Island" (0,0) effect
+```r
+clean_data <- gbif_data %>%
+  filter(!is.na(decimalLatitude) & !is.na(decimalLongitude)) %>%
+  filter(decimalLatitude != 0 | decimalLongitude != 0) %>%
+  mutate(year = as.numeric(format(eventDate, "%Y")))
+
+print(paste("Original rows:", nrow(gbif_data)))
+print(paste("Cleaned rows:", nrow(clean_data)))
+```
+# --- 5. VISUALIZING TEMPORAL TRENDS ---
+# Count observations per year and phylum
+```r
+temporal_plot <- clean_data %>%
+  count(year, phylum) %>%
+  ggplot(aes(x = year, y = n, color = phylum)) +
+  geom_line(size = 1) +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "GBIF Observations Over Time",
+       subtitle = "Grouped by Phylum",
+       x = "Year of Observation",
+       y = "Number of Records")
+
+print(temporal_plot)
+```
+
+# --- 6. SPATIAL EXPLORATION (HEXBIN MAP) ---
+# This prevents points from overlapping so you can see density
+```r
+world_map <- map_data("world")
+```
+
+```r
+spatial_plot <- ggplot() +
+  # Background world map
+  geom_polygon(data = world_map, aes(x = long, y = lat, group = group), 
+               fill = "grey95", color = "grey80") +
+  # Hexagonal bins for density
+  geom_hex(data = clean_data, aes(x = decimalLongitude, y = decimalLatitude), bins = 30) +
+  scale_fill_viridis_c(option = "plasma") +
+  theme_void() +
+  labs(title = "Geographic Density of Observations",
+       fill = "Record Count") +
+  coord_fixed(1.3) # Keeps the map from looking "stretched"
+
+print(spatial_plot)
+```
+
+# --- 7. THE PIVOT TABLE (ANALYSIS) ---
+# See which recording methods are used across different phyla
+```r
+recording_pivot <- clean_data %>%
+  group_by(phylum, basisOfRecord) %>%
+  summarise(count = n(), .groups = "drop") %>%
+  pivot_wider(names_from = basisOfRecord, values_from = count, values_fill = 0)
+
+print(recording_pivot)
+```
 
 
 ## 1. Setup and Authentication
@@ -140,7 +239,8 @@ Pro-tip: The CoordinateCleaner package. It’s the industry standard for automat
 
 In these examples, we will use the CoordinateCleaner and bdc packages to turn "raw" records into "research-ready" data.
 
-###Exercise 1: The "Visual Audit"
+
+### Exercise 1: The "Visual Audit"
 Goal: Detect obvious errors before running any automated tools.
 Task: Map the raw occurrences and look for "out-of-place" points.
 
@@ -253,7 +353,7 @@ print(unique_names)
 
 
 
-### Presentation Darwin Core
+### Presentation Darwin Core (Optional)
 
 
 <a href="https://docs.google.com/presentation/d/12BeC_M63xG6PCl4bVmOW0YE8etWt2lTfGXBjjG5JeJQ/edit?usp=sharing">

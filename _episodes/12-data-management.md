@@ -177,7 +177,7 @@ gbif_citation(advanced_search)
 
 
 
-### Presentation
+### Presentation (optional)
 
 <a href="https://docs.google.com/presentation/d/1xgCBYw0HCd2RHagOH4cL4xxK8fMSTyIPbqEQ8smULyo/edit?usp=sharing">
     <img src="{{ '/assets/img/data_management.PNG' | relative_url }}">

@@ -260,6 +260,10 @@ In short, GBIF SQL strips away the relational complexity of normal SQL (no joins
 ----------------
 
 
+<img src="{{ '/assets/img/session_over4.png' | relative_url }}">
+
+
+
 ## Presentation Open Refine (optional)
 
 <a href="https://docs.google.com/presentation/d/1wtvqjm8XxbfYOzmkE03yTux42KmN2c-sDyK-EgH_q5M/edit?usp=sharing">

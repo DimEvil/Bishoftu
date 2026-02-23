@@ -109,12 +109,13 @@ This three-day workshop aims to provide an understanding of GBIF, data managemen
 #### *Hands on Data Workshop*
 What the data workshop will cover:
 
-* Darwin Core and the required terms for GBIF.
-* Typical data cleaning tasks needed to use the data.
-* Getting your data into a final Darwin Core format.
-* Common QA/QC steps, data enhancement, and validation tools.
-* Required metadata information.
-* Tools that will help in all of the above processes.
+* Applied biodiversity data use: Tools, workflows, and use cases from Ethiopia
+* From data mobilization to data utilization in GBIF
+* Exploring gbif.org
+* Working in R environment in relation to GBIF data use
+* GBIF cubes and SQL in GBIF
+* Data visualization & analysis
+* Mini projects on data use
 
 The goal is that by the end of the workshop you will have a set of tools in your hands for data use.
 
@@ -129,21 +130,21 @@ The goal is that by the end of the workshop you will have a set of tools in your
     <img src="{{ '/fig/bishoftu1.png' | relative_url }}" alt="Hands on" width="200">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/img8.jpg' | relative_url }}" alt="Hands on" width="200">
+    <img src="{{ '/fig/img81.jpg' | relative_url }}" alt="Hands on" width="200">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/img9.jpg' | relative_url }}" alt="Stakeholder exercise" width="200">
+    <img src="{{ '/fig/82.jpg' | relative_url }}" alt="Stakeholder exercise" width="200">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/img10.jpg' | relative_url }}" alt="Nodes meeting" width="200">
+    <img src="{{ '/fig/83.jpg' | relative_url }}" alt="Nodes meeting" width="200">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/img11.jpg' | relative_url }}" alt="Hands on" width="200">
+    <img src="{{ '/fig/84.jpg' | relative_url }}" alt="Hands on" width="200">
   </a>
 </p>
 
 
-We have a short time together therefore our focus will be hands-on work in breakout rooms using the dataset you bring to the workshop. We will not have many presentations and they will be relatively short. Instead we will have large portions of time for you to work on your data and ask questions when you hit a stumbling block. Therefore, if you do not have a dataset to work on you may not find this workshop a good use of your time.
+We will have large portions of time for you to work on your data and ask questions when you hit a stumbling block. Therefore, if you do not have a dataset to work on you may not find this workshop a good use of your time.
 
 If you would like to learn more about GBIF and a short rationale for sharing data to it, please watch this [three minute video](https://www.youtube.com/watch?v=HvS6sRVZbHo) and share them with those you want to work with to share data.
 {% if site.carpentry == "swc" %}
@@ -161,10 +162,9 @@ This is a pilot workshop, testing out a lesson that is still under development. 
 #### *GBIF community workshop*
 What the GBIF community workshop will cover
 
-* The GBIF governance
 * GBIF Data use
 
-In this workshop we will talk about how GBIF is organized globally as an infrastructure and how we can translate this in local practices. How a GBIF node is organized and how to setup a community around GBIF. How to communicate to stakeholders
+In this workshop we will talk about how GBIF is organized globally as an infrastructure and how we can translate this in local practices.
 
 #### *Hands on technical workshop*
 
@@ -172,20 +172,20 @@ In this workshop we will talk about how GBIF is organized globally as an infrast
 #### Some more pictures
 
 <p class="d-flex justify-content-around align-items-center">
-  <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/workshop1.jpg' | relative_url }}" alt="atia" width="300">
+  <a href="https://gbif.org/">
+    <img src="{{ '/fig/82.jpg' | relative_url }}" alt="atia" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/workshop2.jpg' | relative_url }}" alt="Belgian GBIF node" width="300">
+    <img src="{{ '/fig/83.jpg' | relative_url }}" alt="Belgian GBIF node" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/workshop3.jpg' | relative_url }}" alt="CESP" width="300">
+    <img src="{{ '/fig/84.jpg' | relative_url }}" alt="CESP" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/workshop4.jpg' | relative_url }}" alt="atia" width="300">
+    <img src="{{ '/fig/82.jpg' | relative_url }}" alt="atia" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/workshop5.jpg' | relative_url }}" alt="Belgian GBIF node" width="300">
+    <img src="{{ '/fig/83.jpg' | relative_url }}" alt="Belgian GBIF node" width="300">
   </a>
 </p>
 

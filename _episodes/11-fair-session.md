@@ -169,7 +169,7 @@ coffee_final <- coffee_df[cleaned_coffee$.summary, ]
 ```
 
 
-<img src="{{ '/assets/img/session_over.png' | relative_url }}">
+<img src="{{ '/assets/img/session_over2.png' | relative_url }}">
 
 
 

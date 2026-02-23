@@ -21,6 +21,15 @@ This session is designed for researchers who need to scale their data collection
 
 Session Exercises: Scaling Your Research
 
+### 1. Installation & Setup
+
+
+```r
+install.packages("rgbif")
+install.packages("finch")
+library(rgbif)
+```
+
 ### 1. The "Batch Search" (Multi-Species Loop)
 
 Goal: Automate the retrieval of data for a list of species.
@@ -59,6 +68,8 @@ Task: Define a polygon for a specific region (like the Ethiopian Highlands) and 
 
 # Define a simple polygon around the northern highlands (WKT format)
 # Note: WKT must close the loop by repeating the first coordinate at the end.
+
+You can draw WKT polygons here: [https://wktmap.com/](https://wktmap.com/)
 
 ```r
 highlands_wkt <- "POLYGON((36 10, 40 10, 40 14, 36 14, 36 10))"
@@ -159,6 +170,10 @@ Every research project must cite the data correctly.
 ```{r}
 gbif_citation(advanced_search)
 ```
+
+
+<img src="{{ '/assets/img/session_over3.png' | relative_url }}">
+
 
 
 

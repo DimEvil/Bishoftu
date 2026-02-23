@@ -21,8 +21,6 @@ keypoints:
 Hands-on: Cleaning Ethiopia’s Data in R
 
 
-
-
 Some more excercises
 
 In these exercises, we will move from a "messy" raw download to a "publication-ready" dataset using the CoordinateCleaner and tidyverse packages.

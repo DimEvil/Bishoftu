@@ -26,30 +26,6 @@ Data cleaning in R, getting downloaded data ready for analysis
     <img src="{{ '/assets/img/whydatacleaning.png' | relative_url }}">
   </a>
 
-**1. The "Garbage In, Garbage Out" Principle**
-The Problem: GBIF is an aggregator, not a primary source. It hosts data from museum records, citizen science apps, and literature.
-
-The Risk: If you feed "dirty" data (wrong coordinates, misspelled names) into an ecological model, your results will be misleading or scientifically invalid.
-
-**2. Common Data "Nightmares"**
-Taxonomic Noise: Synonyms, misspellings, and "fuzzy" matches.
-
-Spatial Artifacts:
-
-Centroids: Points mapped to the exact geometric center of a country or province because specific locality was missing.
-
-Zero-Zero: GPS errors placing land animals in the middle of the Atlantic Ocean (0°, 0°).
-
-Institutional Locations: Observations mapped to the headquarters of the museum rather than the field site.
-
-Temporal Decays: Observations from the 1800s being used to predict 2024 habitat suitability.
-
-**3. Biological Relevance**
-Basis of Record: Should a fossil specimen (extinct) or a zoo animal (managed) be used to model a wild species' niche? Usually, the answer is no.
-
-Establishment Means: Distinguishing between a native population and an invasive/introduced one in Ethiopia.
-
-## Presentation GBIF Data Exploration & downloading in R
 
 ## Exercise 1: The "Data Integrity" Check
 Before looking at the animals or plants, you need to see how "messy" the dataset is. This is the "Summary" view.

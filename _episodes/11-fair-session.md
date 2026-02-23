@@ -169,6 +169,10 @@ coffee_final <- coffee_df[cleaned_coffee$.summary, ]
 ```
 
 
+<img src="{{ '/assets/img/openscience.PNG' | relative_url }}">
+
+
+
 ### Presentation (optional Extra informatio)
 
 <a href="https://docs.google.com/presentation/d/1HR6RyRdKEuOZoGXaUw193Ka6oxsSYWv6e3Mjqvwa7X8/edit?usp=sharing">

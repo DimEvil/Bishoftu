@@ -15,15 +15,14 @@ keypoints:
 - "Organize your Data and Metadata"
 ---
 
-
-
-##Hands-on: Advanced Workflows with rgbif
+## Hands-on: Advanced Workflows with rgbif
 
 This session is designed for researchers who need to scale their data collection. We will explore how to automate repetitive tasks and how to interact with GBIF's server-side download system, which is required for datasets larger than 100,000 records.
 
 Session Exercises: Scaling Your Research
 
 ### 1. The "Batch Search" (Multi-Species Loop)
+
 Goal: Automate the retrieval of data for a list of species.
 Task: Create a vector of scientific names for three Ethiopian endemics. Use a loop or lapply to fetch coordinates for all of them at once.
 

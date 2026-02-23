@@ -21,6 +21,11 @@ Data cleaning in R, getting downloaded data ready for analysis
 
 ## Presentation: Why Clean Biodiversity Data?
 
+
+<a href="https://docs.google.com/presentation/d/1vsP8RikGGS6K_dMk9m9pga4tuvwb-rcgRCbU4cSvHNc/edit?usp=sharing">
+    <img src="{{ '/assets/img/whydatacleaning.png' | relative_url }}">
+  </a>
+
 **1. The "Garbage In, Garbage Out" Principle**
 The Problem: GBIF is an aggregator, not a primary source. It hosts data from museum records, citizen science apps, and literature.
 
@@ -49,7 +54,7 @@ Establishment Means: Distinguishing between a native population and an invasive/
 ## Exercise 1: The "Data Integrity" Check
 Before looking at the animals or plants, you need to see how "messy" the dataset is. This is the "Summary" view.
 
-```Assignment
+
 **The Goal:** Identify missing values and coordinate validity.
 
 **Task A:** Use the skimr package or summary() to identify which columns have the most NA values.
@@ -57,7 +62,7 @@ Before looking at the animals or plants, you need to see how "messy" the dataset
 **Task B:** GBIF data often has "0,0" coordinates (the "Null Island" effect). Filter your data to find rows where decimalLatitude or decimalLongitude are exactly 0.
 
 **Task C:** Create a frequency table of the basisOfRecord column (e.g., Human Observation vs. Preserved Specimen).
-```
+
 
 Pro Tip: Use library(naniar) to visualize where your data is missing. It’s much more intuitive than a raw table.
 
@@ -69,10 +74,13 @@ library(tidyverse)  # For data manipulation and plotting
 library(skimr)      # For the "Exploratory" style summary
 library(maps)       # For map backgrounds
 library(viridis)    # For color-blind friendly palettes
+library(finch)      # Get your Darwin Core Archive in R
 ```
 
 #### --- 2. GENERATE MOCK GBIF DATA (Skip this if you have your own data) ---
-name your previously downloaded dataset gbif_data if you have your own dataset already downloaded
+name your previously downloaded dataset gbif_data if you have your own dataset already downloaded and accessible in R
+
+
 ```r
 set.seed(123)
 gbif_data <- tibble(
@@ -85,14 +93,39 @@ gbif_data <- tibble(
   countryCode = sample(c("US", "ZA", "DE", "BR"), 500, replace = TRUE)
 )
 ```
-OR
+**OR**
 
 ```r
 gbif_data <- yourDAtaSet
+
 ```
+**OR use FINCH**
+
+```r
+# Path to your .zip file
+my_archive <- dwca_read("path/to/your/archive.zip")
+
+# Or from a direct URL
+# my_archive <- dwca_read("https://example.com/dwca-file.zip")
+```
+
+```r
+# Access the core data
+occurrence_df <- my_archive$data[[1]]
+
+# View the first few rows
+head(occurrence_df)
+```
+Tips for DwC-A in R:
+Extensions: If your archive has extensions (e.g., multimedia.txt), they will be stored in subsequent elements of the list: my_archive$data[[2]], etc.
+
+Metadata: To see the EML metadata (the "who, what, where" of the dataset), you can call my_archive$eml.
+
+Large Files: If the archive is massive, finch uses read.table or fread under the hood, but it still loads the data into RAM. If you run into memory issues, you might need to unzip it manually and use dtplyr or arrow.
 
 #### --- 3. EXPLORATORY SUMMARY ---
 This mimics the "Summary" tab in the Exploratory tool
+
 ```r
 gbif_data %>% skim()
 ```
@@ -520,11 +553,11 @@ Quick Metadata Check
 You can check how many records exist before committing to a download:
 
 ```r
-occ_count(taxonKey = taxon_key) — Gives you the total record count.
+occ_count(taxonKey = taxon_key) #Gives you the total record count.
 ```
 
 ```r
-occ_search(taxonKey = taxon_key, limit = 10) — Returns a small preview of the data.
+occ_search(taxonKey = taxon_key, limit = 10) #Returns a small preview of the data.
 ```
 
 3. Requesting a Download

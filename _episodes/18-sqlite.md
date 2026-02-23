@@ -123,6 +123,8 @@ Think: Why are FOSSIL_SPECIMEN and LIVING_SPECIMEN excluded for an Ethiopian bio
 ```
 
 
+<img src="{{ '/assets/img/session_over7.png' | relative_url }}">
+
 ## Presentation: [SQLite](https://docs.google.com/presentation/d/1oMPNqm4tU9BwnUo1zJxI0nlXMPfIljYeAqh4vEdJZ_0/edit?usp=sharing)
 
 ![SQLite](../assets/img/SQLite.png)

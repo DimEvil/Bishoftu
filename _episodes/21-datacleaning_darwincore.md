@@ -320,6 +320,9 @@ ggplot() +
   theme_minimal()
 ```
 
+<img src="{{ '/assets/img/session_over8.png' | relative_url }}">
+
+
 # Hands on on Data cleaning  (OPtional)
 
 Some usefull links:

@@ -131,8 +131,6 @@ GBIF updates a set of [overview slides](https://www.gbif.org/document/81771/gbif
 > {: .solution}
 {: .challenge}
 
-# 1: [GBIF participation](https://docs.google.com/presentation/d/1LpvVyCKgghbAvn8yIMoCCYEr7E2nF0-53eSBjr-ckV4/edit?usp=sharing)
-
 ![GBIF participation](../assets/img/GBIF_MoU.png)
 
 > ## Exercise 1: Investigate Ethiopian participation in GBIF
@@ -149,7 +147,7 @@ GBIF updates a set of [overview slides](https://www.gbif.org/document/81771/gbif
 # 2: [The Nodes](https://docs.google.com/presentation/d/1w-JcMmh6PTuum81Qr0q3SeHBgy7yF0FjjbVX_9bSgH0/edit?usp=sharing)
 A [node](https://www.gbif.org/nodes) is a team designated by a Participant to coordinate a network of people and institutions that produce, manage and use biodiversity data, collectively building an infrastructure for delivering biodiversity information.
 
-Nodes meets every year either globally or regionlly. 
+Nodes meets every year either globally or regionally. 
 
 ![ECA Nodes meeting](../assets/img/ECA2023_Warshaw.png)
 

@@ -17,7 +17,7 @@ keypoints:
 By Lena Thöle
 
 
-### Data Managemnt Tips and TRicks
+### Data Managemant Tips and TRicks (optional)
 By Dimitri Brosens
 
 
@@ -25,7 +25,7 @@ By Dimitri Brosens
     <img src="{{ '/assets/img/data_management1.png' | relative_url }}">
   </a>
 
-### Data Quality and Download filters
+
 
 
 

@@ -89,7 +89,7 @@ library(dplyr)
 ```
 
 ### --- EXERCISE 1: The "Hello GBIF" Script ---
-#### Finding the unique Taxon Key for the Mountain Nyala
+#### Finding the unique Taxon Key for the Mountain Nyala or Gedemsa
 
 ```r
 nyala_lookup <- name_backbone(name = "Tragelaphus buxtoni")
@@ -169,7 +169,10 @@ coffee_final <- coffee_df[cleaned_coffee$.summary, ]
 ```
 
 
-<img src="{{ '/assets/img/openscience.PNG' | relative_url }}">
+<img src="{{ '/assets/img/session_over.png' | relative_url }}">
+
+
+
 
 
 

@@ -69,9 +69,7 @@ By Lena Thöle & Dimitri Brosens
 * **Map Tab:** Best for identifying "Outliers" (e.g., a mountain bird recorded in the middle of the ocean).
 
 
-<a href="https://docs.google.com/presentation/d/1M9VWVUgmBFdlk7ZQkA-sO3qxkoTTx6fKzV-jZNzEF9Y/edit?usp=sharing">
-    <img src="{{ '/assets/img/gbif_belgium.PNG' | relative_url }}">
-  </a>
+
 ## Cheat Sheet: The Ethiopia Country Dashboard
 
 ### 1. Key Metrics to Watch
@@ -86,6 +84,16 @@ By Lena Thöle & Dimitri Brosens
 ### 3. Usage Statistics
 * **Download Activity:** See how many researchers globally are downloading data from Ethiopia. This shows the global importance of the Rift Valley’s biodiversity.
 * **Research Links:** Every publication listed on this page is linked to the specific datasets it used via DOIs.
+
+
+
+<img src="/assets/img/session_over.png">
+
+
+<a href="https://docs.google.com/presentation/d/1M9VWVUgmBFdlk7ZQkA-sO3qxkoTTx6fKzV-jZNzEF9Y/edit?usp=sharing">
+    <img src="{{ '/assets/img/gbif_belgium.PNG' | relative_url }}">
+  </a>
+
 
 > ## Excercise:
 > 

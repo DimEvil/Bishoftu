@@ -454,7 +454,6 @@ of code below the Schedule `<h2>` header below with
 {% endcomment %}
 
 <h2 id="schedule">Schedule</h2>
-__Times are in CET.__
 
 
 {% include custom-schedule.html %}

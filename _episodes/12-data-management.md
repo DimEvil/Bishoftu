@@ -25,9 +25,12 @@ Session Exercises: Scaling Your Research
 
 
 ```r
-install.packages("rgbif")
-install.packages("finch")
 library(rgbif)
+library(dplyr)
+library(ggplot2)
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
 ```
 
 ### 1. The "Batch Search" (Multi-Species Loop)
@@ -70,6 +73,26 @@ Task: Define a polygon for a specific region (like the Ethiopian Highlands) and 
 # Note: WKT must close the loop by repeating the first coordinate at the end.
 
 You can draw WKT polygons here: [https://wktmap.com/](https://wktmap.com/)
+
+# 1. Define a broader WKT for the Highlands (approx 34-42E, 6-15N)
+```{r}
+wkt_highlands <- "POLYGON((34 6, 42 6, 42 15, 34 15, 34 6))"
+```
+
+# 2. Fetch all data in one go and convert to sf
+```r
+data_sf <- occ_data(geometry = wkt_highlands, limit = 200, hasCoordinate = TRUE)$data %>%
+  st_as_sf(coords = c("decimalLongitude", "decimalLatitude"), crs = 4326)
+```
+# 3. Quick Plot
+```r
+ggplot() +
+  geom_sf(data = ne_countries(scale = 110, country = "ethiopia", returnclass = "sf")) +
+  geom_sf(data = data_sf, aes(color = scientificName), size = 1.5) +
+  theme_minimal() +
+  guides(color = "none") # Hide legend for speed/clutter
+```
+
 
 ```r
 highlands_wkt <- "POLYGON((36 10, 40 10, 40 14, 36 14, 36 10))"

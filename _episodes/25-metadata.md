@@ -22,6 +22,7 @@ keypoints:
 
 
 
+
 # Integrated Publishing Toolkit
 
 The [Integrated Publishing Toolkit (IPT)](https://www.gbif.org/ipt) is an open-source web application developed and maintained by the Global Biodiversity Information Facility (GBIF) for publishing biodiversity data. The IPT makes it easy to share four types of biodiversity-related information:

@@ -16,6 +16,11 @@ keypoints:
 # Data Quality, Data management and Download filters
 By Lena Thöle
 
+<a href="https://docs.google.com/presentation/d/1GrI0ffNaUMjkpwP6iM_XLWD2hhPSfaKy/edit?usp=sharing&ouid=106540432290122943029&rtpof=true&sd=true">
+    <img src="{{ '/assets/img/Session2_dataQualit.png' | relative_url }}">
+  </a>
+
+
 
 ### Data Managemant Tips and TRicks (optional)
 By Dimitri Brosens

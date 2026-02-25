@@ -15,7 +15,9 @@ keypoints:
 # Intro to R & GBIF-Related R packages ((rgbif, finch,..)
 By Lena Thöle
 
-
+<a href="https://docs.google.com/presentation/d/1fJCqzndVCB2RLgglIKrb0QsEBecNrI1h/edit?usp=sharing&ouid=106540432290122943029&rtpof=true&sd=true">
+    <img src="{{ '/assets/img/Session3_introR.png' | relative_url }}">
+  </a>
 
 ## R Biodiversity Cheat Sheet
 

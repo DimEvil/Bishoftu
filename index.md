@@ -456,7 +456,6 @@ of code below the Schedule `<h2>` header below with
 <h2 id="schedule">Schedule</h2>
 __Times are in CET.__
 
-Overview recordings of each lesson can be found in [this playlist](https://youtube.com/playlist?list=PLlgUwSvpCFS7zytaWbZ6f4Szm3PnpFj_J).
 
 {% include custom-schedule.html %}
 

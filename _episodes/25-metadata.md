@@ -1,20 +1,25 @@
 ---
-title: "Metadata"
+title: "Hands-on: Data visualization & Analysis"
 teaching: 0
-exercises: 30
+exercises: 90
 questions:
-- "How are my data published?"
-- "What metadata are required for publishing?"
+- "How to visualize data"
 objectives:
-- "Showing data publishing pipeline"
-- "Introducing the IPT"
-- "Introduction to EML"
+- "Showing data visualisations"
+
 
 keypoints:
-- "The IPT is a well-documented and flexible system for publishing data to GBIF (and OBIS)"
-- "Some Darwin Core and Ecological Metadata Language fields are required for publishing to GBIF (and OBIS)."
-- "Strive to write more than the minimal metadata"
+- "Data Visualisation is beautifull"
+
 ---
+
+
+<img src="{{ '/assets/img/data_visualisation.png' | relative_url }}">
+
+
+
+
+
 
 
 # Integrated Publishing Toolkit

@@ -11,6 +11,8 @@ keypoints:
 - "Mini projects are cool""
 ---
 
+<img src="{{ '/assets/img/miniProject.png' | relative_url }}">
+
 ## Mini project
 
 ### The Mini Project: Biodiversity Data Use in Ethiopia

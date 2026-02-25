@@ -4,17 +4,74 @@ start: true
 teaching: 30
 exercises: 30
 questions:
-- "What is IPT for the GBIF node"
-- "How is IPT organized"
+- "What Mini project will you do"
 objectives:
-- "Understand how IPT works."
+- "Comple a GBIf Mini project on Ethiopia."
 keypoints:
-- "IPT is the main tool to publish your data to GBIF"
+- "Mini projects are cool""
 ---
 
-GBIF—the Global Biodiversity Information Facility—is an international network and data infrastructure funded by the world's governments and aimed at providing anyone, anywhere, open access to data about all types of life on Earth.
+## Mini project
 
-# Mini project
+### The Mini Project: Biodiversity Data Use in Ethiopia
+
+#### Workshop Session: Defining Your Project Scope
+
+A Mini Project is a focused, hands-on application of the GBIF tools and data you have explored. The goal isn't to write a full thesis, but to produce a "Data Insight"—a specific, evidence-based look at Ethiopia’s biodiversity.
+
+*1. What makes a good Mini Project?*
+To keep your project manageable within the workshop timeframe, follow the "Rule of One":
+
+One Taxon: Pick one species (e.g., Ethiopian Wolf) or one genus (e.g., Aloe).
+
+One Region: Focus on a specific area (e.g., Simien Mountains or The Great Rift Valley).
+
+One Question: Ask one clear thing (e.g., "Are there enough recent records for this species to assess its conservation status?").
+
+
+*2. Mini Project PathwaysChoose a track that matches your interest:*
+
+Track,Description,Key Task
+Data Cleaning,Improve the quality of existing data.,"Find records with ""Zero coordinates"" or ""Country mismatch"" and fix them using OpenRefine."
+Spatial Analysis,Visualize where life exists.,Map the distribution of endemic species against Protected Area boundaries.
+Inventory/Gap Analysis,Identify what we don't know.,"Identify ""data holes""—areas in Ethiopia with high biodiversity but zero GBIF records."
+
+
+*3. Your Project Canvas*
+Every student/group should fill this out before starting:
+
+Project Title: (e.g., Mapping the Diversity of Medicinal Plants in the Bale Mountains)
+
+The Problem: What is the gap in our current knowledge?
+
+The Data Source: How many records are currently available on GBIF for your search?
+
+Tools Used: (e.g., GBIF portal, Excel, QGIS, or R).
+
+Impact: How does this data help the Ethiopian Biodiversity Institute (EBI) or local conservationists?
+
+*4. Ethiopia-Specific Inspiration*
+The Coffee Frontier: Map the occurrence of wild Coffea arabica and check the "coordinate uncertainty" to see how reliable the data is for climate modeling.
+
+Invasive Species Tracking: Use GBIF data to visualize the spread of Prosopis juliflora in the Afar region over the last 10 years.
+
+The Digital Herbarium: Compare historical records (pre-1950) with modern observations (post-2010) to see if species ranges appear to be shrinking.
+
+*5. Success Criteria*
+A successful Mini Project ends with:
+
+A cleaned dataset (free of major errors).
+
+One compelling map or chart.
+
+A citation of the data using the GBIF DOI.
+
+Note to Students: In biodiversity informatics, a "small" project that fixes data errors is often more valuable than a "large" project that uses incorrect data!
+
+
+
+
+
 
 # Presentation: Data Publication workflow 'generic'
 

@@ -76,41 +76,23 @@ You can draw WKT polygons here: [https://wktmap.com/](https://wktmap.com/)
 
 # 1. Define a broader WKT for the Highlands (approx 34-42E, 6-15N)
 ```{r}
-wkt_highlands <- "POLYGON((34 6, 42 6, 42 15, 34 15, 34 6))"
+wkt_text <- "POLYGON((36 10, 40 10, 40 14, 36 14, 36 10))"
+wkt_sf <- st_as_sfc(wkt_text, crs = 4326)
 ```
 
 # 2. Fetch all data in one go and convert to sf
 ```r
-data_sf <- occ_data(geometry = wkt_highlands, limit = 200, hasCoordinate = TRUE)$data %>%
+pts_sf <- occ_data(geometry = wkt_text, limit = 50)$data %>%
   st_as_sf(coords = c("decimalLongitude", "decimalLatitude"), crs = 4326)
 ```
 # 3. Quick Plot
 ```r
 ggplot() +
-  geom_sf(data = ne_countries(scale = 110, country = "ethiopia", returnclass = "sf")) +
-  geom_sf(data = data_sf, aes(color = scientificName), size = 1.5) +
-  theme_minimal() +
-  guides(color = "none") # Hide legend for speed/clutter
+  geom_sf(data = wkt_sf, fill = "lightblue", alpha = 0.3) +
+  geom_sf(data = pts_sf, aes(color = species)) +
+  theme_minimal()
 ```
 
-
-```r
-highlands_wkt <- "POLYGON((36 10, 40 10, 40 14, 36 14, 36 10))"
-
-highland_records <- occ_data(
-  geometry = highlands_wkt,
-  limit = 200,
-  hasCoordinate = TRUE
-)$data
-```
-# Plot to verify sightings are within your custom shape
-
-```r
-ggplot(highland_records, aes(x = decimalLongitude, y = decimalLatitude)) +
-  borders("world", regions = "Ethiopia") +
-  geom_point(aes(color = species)) +
-  coord_quickmap(xlim = c(34, 42), ylim = c(8, 16))
-```
 
 ### 3. Asynchronous Downloads for "Big Data"
 Goal: Learn the official way to request massive datasets for publication.

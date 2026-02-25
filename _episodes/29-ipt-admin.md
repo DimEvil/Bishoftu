@@ -13,6 +13,19 @@ keypoints:
 
 # Mini project presentation
 
+
+
+
+<img src="{{ '/assets/img/miniProject.png' | relative_url }}">
+
+
+
+
+
+
+
+
+
 # presentation IPT admin
 
 <a href="https://docs.google.com/presentation/d/13o6PLmh8zFNT7hR8XtMCorazx--KJxPXiykG8xB4TDc/edit?usp=sharing">

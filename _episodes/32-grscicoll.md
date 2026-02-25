@@ -14,6 +14,8 @@ keypoints:
 - "GRSciColl a community effort"
 ---
 
+<img src="{{ '/assets/img/miniProject.png' | relative_url }}">
+
 
 # Feedback, summary and certificates
 

@@ -102,7 +102,7 @@ ggplot() +
   geom_sf(data = wkt_sf, fill = "lightblue", alpha = 0.3) +
   geom_sf(data = pts_sf, aes(color = species)) +
   theme_minimal()
-
+```
 
 ### 3. Asynchronous Downloads for "Big Data"
 Goal: Learn the official way to request massive datasets for publication.
@@ -253,7 +253,76 @@ citation_table <- data.frame(
 print(citation_table)
 ```
 
+## Finch Exploring a Local Archive
+In this exercise, we will use a sample file included with the package to understand the structure of a finch object.
+
+Task: Load an example zip file and identify how many data sources it contains without reading the full data into memory.
+
+```r
+library(finch)
+
+# 1. Locate the example zip file within the package
+zip_path <- system.file("examples", "0000154-150116162929234.zip", package = "finch")
+
+# 2. Read the archive (metadata only)
+# Setting read = FALSE is much faster for large files
+out <- dwca_read(zip_path, read = FALSE)
+
+# 3. Inspect the object
+print(out)
+
+# YOUR TURN: 
+# Can you find the path to the 'occurrence.txt' file inside this object?
+# Hint: Look at out$files$txt_files
+```
+Reading Data & Metadata
+Once you know an archive is what you want, you need to actually pull the data into a data frame.
+
+Task: Read the full contents of the archive and extract the taxonomic information from the first dataset.
+
+```{r}
+# 1. Read the archive including the actual data
+out_full <- dwca_read(zip_path, read = TRUE)
+
+# 2. Access the main data table (usually the first element in the data list)
+occ_data <- out_full$data[[1]]
+
+# 3. View the first few rows
+head(occ_data)
+
+# 4. Check the EML (Ecological Metadata Language) for the citation
+cat(out_full$emlmeta$additionalMetadata$metadata$gbif$citation)
+
+# YOUR TURN:
+# Identify the column names of the occurrence data. 
+# How many records (rows) are in this specific dataset?
+```
+
+Validating an Archive
+Before merging external data into your all_data table, it’s good practice to ensure the archive is valid according to GBIF standards.
+
+Task: Use finch to validate a remote archive.
+
+```{r}
+# 1. Define a URL to a Darwin Core Archive (this is a sample from GBIF)
+dwca_url <- "http://rs.gbif.org/datasets/german_sl.zip"
+
+# 2. Validate the archive
+# Note: This sends the URL to the GBIF validator tool
+validation <- dwca_validate(dwca_url)
+
+# 3. Check the results
+print(validation)
+
+# YOUR TURN:
+# Set 'browse = TRUE' in the dwca_validate function. 
+# What happens in your web browser?
+```
+
+
+
 <img src="{{ '/assets/img/session_over3.png' | relative_url }}">
+
 
 
 

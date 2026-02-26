@@ -25,23 +25,33 @@ Session Exercises: Scaling Your Research
 
 
 ```r
-install.packages("rgbif")
-install.packages("finch")
 library(rgbif)
+library(dplyr)
+library(ggplot2)
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
 ```
+
+```{r}
+library(httr)
+set_config(config(http_version = 1.1))
+```
+
 
 ### 1. The "Batch Search" (Multi-Species Loop)
 
 Goal: Automate the retrieval of data for a list of species.
 Task: Create a vector of scientific names for three Ethiopian endemics. Use a loop or lapply to fetch coordinates for all of them at once.
+Change the species names to the one you have an interest in!
 
-# Define your target species
+## Define your target species
 
 ```r
 target_species <- c("Canis simensis", "Theropithecus gelada", "Tragelaphus buxtoni")
 ```
 
-# Map over the list to get data for each
+## Map over the list to get data for each
 
 ```r
 multi_species_data <- lapply(target_species, function(sp) {
@@ -49,13 +59,13 @@ multi_species_data <- lapply(target_species, function(sp) {
 })
 ```
 
-# Combine into one large data frame
+## Combine into one large data frame
 
 ```r
 all_obs <- bind_rows(multi_species_data)
 ```
 
-# Result: One table containing data for all three species
+## Result: One table containing data for all three species
 
 ```r
 table(all_obs$species)
@@ -66,27 +76,37 @@ Goal: Filter records using a precise geographic shape rather than just a country
 Task: Define a polygon for a specific region (like the Ethiopian Highlands) and use it as a filter in occ_data.
 
 
-# Define a simple polygon around the northern highlands (WKT format)
-# Note: WKT must close the loop by repeating the first coordinate at the end.
+Define a simple polygon around the northern highlands (WKT format)
+Note: WKT must close the loop by repeating the first coordinate at the end.
 
 You can draw WKT polygons here: [https://wktmap.com/](https://wktmap.com/)
 
-```r
-highlands_wkt <- "POLYGON((36 10, 40 10, 40 14, 36 14, 36 10))"
+### Spatial Filtering with WKT (Well-Known Text)
 
-highland_records <- occ_data(
-  geometry = highlands_wkt,
-  limit = 200,
-  hasCoordinate = TRUE
-)$data
+Define your polygon in WKT
+You can draw WKT polygons here: https://wktmap.com/
+
+### a. Define WKT and convert to spatial object
+
+```{r}
+wkt_text <- "POLYGON((35.599152 8.667918, 36.346321 7.449624, 37.313245 7.623887, 37.92856 8.494105, 37.005587 9.535749, 35.599152 8.667918))"
+wkt_sf <- st_as_sfc(wkt_text, crs = 4326)
 ```
-# Plot to verify sightings are within your custom shape
 
-```r
-ggplot(highland_records, aes(x = decimalLongitude, y = decimalLatitude)) +
-  borders("world", regions = "Ethiopia") +
-  geom_point(aes(color = species)) +
-  coord_quickmap(xlim = c(34, 42), ylim = c(8, 16))
+### b. Get data and convert to spatial points
+
+```{r}
+pts_sf <- occ_data(geometry = wkt_text, limit = 50)$data %>%
+  st_as_sf(coords = c("decimalLongitude", "decimalLatitude"), crs = 4326)
+```
+
+### c. Plot (The WKT acts as the background/container)
+
+```{r}
+ggplot() +
+  geom_sf(data = wkt_sf, fill = "lightblue", alpha = 0.3) +
+  geom_sf(data = pts_sf, aes(color = species)) +
+  theme_minimal()
 ```
 
 ### 3. Asynchronous Downloads for "Big Data"
@@ -95,7 +115,7 @@ Task: Use occ_download() to request data. Unlike occ_data, this sends a request 
 
 Note: This exercise requires your GBIF.org username and password.
 
-# Request a large download (requires GBIF credentials)
+### Request a large download (requires GBIF credentials)
  
 ```r 
  my_download <- occ_download(
@@ -108,28 +128,44 @@ Note: This exercise requires your GBIF.org username and password.
  )
 ```
 
-# Check the status (it takes time to process)
+```{r}
+ my_download <- occ_download(
+   pred("taxonKey", 2433257),        # Key for Canis simensis
+   pred("country", "ET")
+    )
+```
+
+OR 
+
+```{r}
+my_download2 <- occ_download(
+  pred("scientificName", "Canis simensis"),
+  pred("hasCoordinate", TRUE)
+)
+```
+
+### Check the status (it takes time to process)
 ```r
 occ_download_wait(my_download)
 ```
 
-# Download and load the resulting file
+### Download and load the resulting file
 
 ```r 
-d <- occ_download_get(my_download) %>% occ_download_import()
+my_dataset <- occ_download_get(my_download) %>% occ_download_import()
 ```
 
 ### 4. Metadata & Citation Extraction
 Goal: Ensure your work is citable and transparent.
 Task: Extract the dataset metadata from your R object to see which original institutions provided the data.
 
-# Get citation information for your search results
+#### Get citation information for your search results
 
 ```r
 citation_info <- gbif_citation(coffee_data)
 ```
 
-# Print the DOIs and provider names
+#### Print the DOIs and provider names
 
 ```r
 print(citation_info)
@@ -166,11 +202,61 @@ advanced_search <- occ_data(
 ### Step 3: Global Data Citation
 Every research project must cite the data correctly.
 
-# This returns the individual citations for each dataset contributing to your result
 ```{r}
-gbif_citation(advanced_search)
+# Combine the data parts of the two species into one table
+all_data <- bind_rows(
+  advanced_search[[1]]$data,
+  advanced_search[[2]]$data
+)
 ```
 
+```{r}
+dataset_summary <- all_data %>%
+  group_by(datasetKey) %>%
+  tally(sort = TRUE)
+
+print(dataset_summary)
+head(all_data)
+```
+
+#### Get a list of all unique datasets involved
+
+```{r}
+dataset_counts <- all_data %>%
+  group_by(datasetKey) %>%
+  tally()
+```
+
+#### Create a vector of keys and their record counts
+```{r}
+citation_keys <- setNames(dataset_counts$n, dataset_counts$datasetKey)
+```
+
+#### 1. Get unique keys
+```{r}
+unique_keys <- unique(all_data$datasetKey)
+```
+
+#### 2. Map through keys using the updated function: dataset_get()
+
+```{r}
+dataset_titles <- map_chr(unique_keys, function(x) {
+  Sys.sleep(0.1) # Small pause to prevent API flickering
+  res <- dataset_get(x)
+  return(res$title)
+})
+```
+
+#### 3. Create a clean reference table
+
+```{r}
+citation_table <- data.frame(
+  datasetKey = unique_keys,
+  Title = dataset_titles
+)
+
+print(citation_table)
+```
 
 <img src="{{ '/assets/img/session_over3.png' | relative_url }}">
 

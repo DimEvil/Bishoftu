@@ -81,6 +81,7 @@ Note: WKT must close the loop by repeating the first coordinate at the end.
 
 You can draw WKT polygons here: [https://wktmap.com/](https://wktmap.com/)
 
+<<<<<<< HEAD
 ### Spatial Filtering with WKT (Well-Known Text)
 
 Define your polygon in WKT
@@ -107,7 +108,7 @@ ggplot() +
   geom_sf(data = wkt_sf, fill = "lightblue", alpha = 0.3) +
   geom_sf(data = pts_sf, aes(color = species)) +
   theme_minimal()
-```
+
 
 ### 3. Asynchronous Downloads for "Big Data"
 Goal: Learn the official way to request massive datasets for publication.

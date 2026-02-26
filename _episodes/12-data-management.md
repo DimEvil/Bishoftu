@@ -81,12 +81,6 @@ Note: WKT must close the loop by repeating the first coordinate at the end.
 
 You can draw WKT polygons here: [https://wktmap.com/](https://wktmap.com/)
 
-<<<<<<< HEAD
-### Spatial Filtering with WKT (Well-Known Text)
-
-Define your polygon in WKT
-You can draw WKT polygons here: https://wktmap.com/
-
 ### a. Define WKT and convert to spatial object
 
 ```{r}

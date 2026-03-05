@@ -15,6 +15,8 @@ keypoints:
 
 ## Mini project
 
+Templates for mini (projects)[https://drive.google.com/drive/folders/1Sk7eMCrpY1T9uc770EM5quGuDqnSR2pd?usp=sharing]
+
 ### The Mini Project: Biodiversity Data Use in Ethiopia
 
 #### Workshop Session: Defining Your Project Scope

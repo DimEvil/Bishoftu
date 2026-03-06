@@ -176,7 +176,7 @@ In this workshop we will talk about how GBIF is organized globally as an infrast
     <img src="{{ '/fig/img6.jpg' | relative_url }}" alt="atia" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/img7.jpg' | relative_url }}" alt="Belgian GBIF node" width="300">
+    <img src="{{ '/fig/img7.JPG' | relative_url }}" alt="Belgian GBIF node" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
     <img src="{{ '/fig/workshop1.jpg' | relative_url }}" alt="CESP" width="300">

@@ -173,19 +173,19 @@ In this workshop we will talk about how GBIF is organized globally as an infrast
 
 <p class="d-flex justify-content-around align-items-center">
   <a href="https://gbif.org/">
-    <img src="{{ '/fig/82.jpg' | relative_url }}" alt="atia" width="300">
+    <img src="{{ '/fig/img6.jpg' | relative_url }}" alt="atia" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/83.jpg' | relative_url }}" alt="Belgian GBIF node" width="300">
+    <img src="{{ '/fig/img7.jpg' | relative_url }}" alt="Belgian GBIF node" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/84.jpg' | relative_url }}" alt="CESP" width="300">
+    <img src="{{ '/fig/workshop1.jpg' | relative_url }}" alt="CESP" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/82.jpg' | relative_url }}" alt="atia" width="300">
+    <img src="{{ '/fig/workshop3.jpg' | relative_url }}" alt="atia" width="300">
   </a>
   <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/83.jpg' | relative_url }}" alt="Belgian GBIF node" width="300">
+    <img src="{{ '/fig/workshop4.jpg' | relative_url }}" alt="Belgian GBIF node" width="300">
   </a>
 </p>
 

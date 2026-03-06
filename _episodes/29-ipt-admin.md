@@ -14,7 +14,9 @@ keypoints:
 # Mini project presentation
 
 
+Linkt to the Mini project produced scripts
 
+[Click here](https://github.com/DimEvil/WorkshopBishoftu/tree/master/scr)
 
 <img src="{{ '/assets/img/miniProject.png' | relative_url }}">
 

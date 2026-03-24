@@ -23,25 +23,7 @@ collaborative_notes:  # optional: URL for the workshop collaborative notes, e.g.
 eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
 
-{% comment %} See instructions in the comments below for how to edit specific sections of this workshop template. {% endcomment %}
 
-{% comment %}
-HEADER
-
-Edit the values in the block above to be appropriate for your workshop.
-If the value is not 'true', 'false', 'null', or a number, please use
-double quotation marks around the value, unless specified otherwise.
-And run 'make workshop-check' *before* committing to make sure that changes are good.
-{% endcomment %}
-
-
-{% comment %}
-{% endcomment %}
-
-
-{% comment %}
-Check DC curriculum
-{% endcomment %}
 
 {% if site.carpentry == "dc" %}
 {% unless site.curriculum == "dc-astronomy" or site.curriculum == "dc-ecology" or site.curriculum == "dc-genomics" or site.curriculum == "dc-socsci" or site.curriculum == "dc-geospatial" %}
@@ -106,9 +88,9 @@ This three-day workshop aims to provide an understanding of GBIF, data managemen
   </a>
  </p>
 
-#### *Hands on Data Workshop*
-What the data workshop will cover:
+### Hands-on Data Workshop
 
+**What the data workshop will cover:**
 * Applied biodiversity data use: Tools, workflows, and use cases from Ethiopia
 * From data mobilization to data utilization in GBIF
 * Exploring gbif.org
@@ -119,34 +101,10 @@ What the data workshop will cover:
 
 The goal is that by the end of the workshop you will have a set of tools in your hands for data use.
 
-#### *some pictures*
-
-<a href="https://www.biodiversity.be/">
-    <img src="{{ '/fig/bishoftu1.png' | relative_url }}" alt="Group picture" width="800">
-  </a>
-
-<p class="d-flex justify-content-around align-items-center">
-  <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/bishoftu1.png' | relative_url }}" alt="Hands on" width="200">
-  </a>
-  <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/img81.jpg' | relative_url }}" alt="Hands on" width="200">
-  </a>
-  <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/82.jpg' | relative_url }}" alt="Stakeholder exercise" width="200">
-  </a>
-  <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/83.jpg' | relative_url }}" alt="Nodes meeting" width="200">
-  </a>
-  <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/84.jpg' | relative_url }}" alt="Hands on" width="200">
-  </a>
-</p>
-
-
 We will have large portions of time for you to work on your data and ask questions when you hit a stumbling block. Therefore, if you do not have a dataset to work on you may not find this workshop a good use of your time.
 
 If you would like to learn more about GBIF and a short rationale for sharing data to it, please watch this [three minute video](https://www.youtube.com/watch?v=HvS6sRVZbHo) and share them with those you want to work with to share data.
+
 {% if site.carpentry == "swc" %}
 {% include swc/intro.html %}
 {% elsif site.carpentry == "dc" %}
@@ -159,42 +117,37 @@ If you would like to learn more about GBIF and a short rationale for sharing dat
 This is a pilot workshop, testing out a lesson that is still under development. The lesson authors would appreciate any feedback you can give them about the lesson content and suggestions for how it could be further improved.
 {% endif %}
 
-#### *GBIF community workshop*
-What the GBIF community workshop will cover
+### GBIF Community Workshop
 
+**What the GBIF community workshop will cover:**
 * GBIF Data use
 
 In this workshop we will talk about how GBIF is organized globally as an infrastructure and how we can translate this in local practices.
 
-#### *Hands on technical workshop*
+### Hands-on Technical Workshop
 
+*(Details to be announced)*
 
-#### Some more pictures
+### Workshop Photos
+
+<div style="text-align: center; margin-bottom: 20px;">
+  <a href="https://www.biodiversity.be/">
+    <img src="{{ '/fig/bishoftu1.png' | relative_url }}" alt="Group picture" width="800" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%;">
+  </a>
+</div>
 
 <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px; padding: 20px; background-color: #f8f9fa; border-radius: 15px;">
-
-  <a href="https://gbif.org/" style="text-decoration: none;">
-    <img src="{{ '/fig/img6.jpg' | relative_url }}" alt="atia" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s;">
-  </a>
-
-  <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/img7.JPG' | relative_url }}" alt="Belgian GBIF node" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  </a>
-
+  <img src="{{ '/fig/img81.jpg' | relative_url }}" alt="Hands on" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <img src="{{ '/fig/82.jpg' | relative_url }}" alt="Stakeholder exercise" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <img src="{{ '/fig/83.jpg' | relative_url }}" alt="Nodes meeting" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <img src="{{ '/fig/84.jpg' | relative_url }}" alt="Hands on" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <img src="{{ '/fig/img6.jpg' | relative_url }}" alt="atia" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s;">
+  <img src="{{ '/fig/img7.JPG' | relative_url }}" alt="Belgian GBIF node" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <div style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;">
-    <a href="https://mingor.gov.hr/">
-      <img src="{{ '/fig/workshop1.jpg' | relative_url }}" alt="CESP" width="200" style="transform: rotate(-90deg); border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    </a>
+    <img src="{{ '/fig/workshop1.jpg' | relative_url }}" alt="CESP" width="200" style="transform: rotate(-90deg); border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   </div>
-
-  <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/workshop3.jpg' | relative_url }}" alt="atia" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  </a>
-
-  <a href="https://mingor.gov.hr/">
-    <img src="{{ '/fig/workshop4.jpg' | relative_url }}" alt="Belgian GBIF node" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  </a>
-
+  <img src="{{ '/fig/workshop3.jpg' | relative_url }}" alt="atia" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <img src="{{ '/fig/workshop4.jpg' | relative_url }}" alt="Belgian GBIF node" width="200" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 </div>
 
 

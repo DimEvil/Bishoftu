@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Develop GBIF data mobilization Strategy 2"
 start: true
 teaching: 10

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Darwin Core+Extensions archive"
 start: true
 teaching: 20

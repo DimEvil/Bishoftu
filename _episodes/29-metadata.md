@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Hands-on: Data visualization & Analysis"
 teaching: 0
 exercises: 90

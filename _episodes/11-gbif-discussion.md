@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Hands-on: Downloading via GBIF.org, wrap-up and discussions"
 start: true
 teaching: 0

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Introduction to GBIF data cubes (SQL option)"
 start: true
 teaching: 90

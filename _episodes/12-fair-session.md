@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Intro to R & GBIF-Related R packages ((rgbif, finch,..)"
 start: true
 teaching: 45

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Introduction to GBIF"
 start: true
 teaching: 45

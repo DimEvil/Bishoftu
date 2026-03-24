@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Feedback, summary and certificates"
 start: true
 teaching: 60

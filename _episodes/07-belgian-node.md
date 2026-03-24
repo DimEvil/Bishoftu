@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Hands on Exploring GBIF Biodiversity Data"
 start: true
 teaching: 45

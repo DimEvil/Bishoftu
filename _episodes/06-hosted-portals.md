@@ -1,4 +1,4 @@
-﻿---
+---
 title: "GBIF Hosted Portals"
 start: true
 teaching: 60

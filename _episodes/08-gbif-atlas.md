@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Data Quality, Data management and Download filters"
 start: true
 teaching: 60

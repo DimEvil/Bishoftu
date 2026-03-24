@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: DNA-derived Data Extension
 permalink: /edna-extension/

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Hands-on: GBIF Data Cubes"
 start: true
 teaching: 0

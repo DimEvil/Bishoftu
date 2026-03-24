@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Data Validation & GBIF Validator"
 teaching: 0
 exercises: 30

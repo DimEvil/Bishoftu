@@ -1,4 +1,4 @@
-﻿---
+---
 layout: break
 title: "Course Evaluation"
 break: 60

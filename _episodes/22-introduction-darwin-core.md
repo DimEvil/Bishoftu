@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Data cleaning and exploration using R"
 start: true
 teaching: 60

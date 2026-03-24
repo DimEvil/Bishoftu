@@ -1,4 +1,4 @@
-﻿---
+---
 title: "GBIF Discussion"
 start: true
 teaching: 0

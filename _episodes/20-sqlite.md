@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Hands-on: SQL queries"
 start: true
 teaching: 0

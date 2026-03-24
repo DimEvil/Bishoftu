@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Wrangling & visualizing data, spatial analyses"
 start: true
 teaching: 30

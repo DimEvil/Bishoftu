@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Biodiversity Informatics Network (TDWG)"
 start: true
 teaching: 30

@@ -1,0 +1,822 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2026-03-24 13:29:20 +0100">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta "search-domain" used for google site search function google_search() -->
+    <meta name="search-domain" value="">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/lesson.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/syntax.css" />
+    
+    <link rel="license" href="#license-info" />
+
+    
+
+
+
+    <!-- Favicons for everyone -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../assets/favicons//apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/favicons//apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/favicons//apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/favicons//apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../assets/favicons//apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/favicons//apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../assets/favicons//apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/favicons//apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="../assets/favicons//favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="../assets/favicons//favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="../assets/favicons//favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../assets/favicons//favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="../assets/favicons//favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content=" - Bishoftu Workshop on biodiversity data, data use and the GBIF network 2026"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="../assets/favicons//mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="../assets/favicons//mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="../assets/favicons//mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="../assets/favicons//mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="../assets/favicons//mstile-310x310.png" />
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+  <title>
+  Intro to R & GBIF-Related R packages ((rgbif, finch,..) &ndash; Bishoftu Workshop on biodiversity data, data use and the GBIF network 2026
+  </title>  
+
+  </head>
+  <body>
+
+    
+
+
+
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+
+      
+      <a class="navbar-brand" href="../">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
+
+	
+        <li><a href="../setup.html">Setup</a></li>
+
+        
+        
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            <li><a href="../01-welcome/index.html">Registration and Welcome</a></li>
+            
+            
+            <li><a href="../02-introduction-to-gbif/index.html">Introduction to GBIF</a></li>
+            
+            
+            <li><a href="../03-coffee/index.html">Break</a></li>
+            
+            
+            <li><a href="../04-gbif-nodes/index.html">From data mobilization to data utilization in GBIF</a></li>
+            
+            
+            <li><a href="../05-break/index.html">Lunch Break</a></li>
+            
+            
+            <li><a href="../06-bioblitz/index.html"></a></li>
+            
+            
+            <li><a href="../06-hosted-portals/index.html">GBIF Hosted Portals</a></li>
+            
+            
+            <li><a href="../07-belgian-node/index.html">Hands on Exploring GBIF Biodiversity Data</a></li>
+            
+            
+            <li><a href="../08-gbif-atlas/index.html">Data Quality, Data management and Download filters</a></li>
+            
+            
+            <li><a href="../09-break/index.html">Break</a></li>
+            
+            
+            <li><a href="../10-gbif-science/index.html">Break Optional reading GBIF Policy & science</a></li>
+            
+            
+            <li><a href="../11-gbif-discussion/index.html">Hands-on: Downloading via GBIF.org, wrap-up and discussions</a></li>
+            
+            
+            <li><a href="../12-fair-session/index.html">Intro to R & GBIF-Related R packages ((rgbif, finch,..)</a></li>
+            
+            
+            <li><a href="../13-data-management/index.html">Hands on: Working with rGBIF</a></li>
+            
+            
+            <li><a href="../14-break/index.html">Coffee Break</a></li>
+            
+            
+            <li><a href="../15-openrefine/index.html">Introduction to GBIF data cubes (SQL option)</a></li>
+            
+            
+            <li><a href="../16-break/index.html">Lunch Break</a></li>
+            
+            
+            <li><a href="../17-openrefine/index.html">Openrefine part 2</a></li>
+            
+            
+            <li><a href="../18-sqlite/index.html">Hands-on: GBIF Data Cubes</a></li>
+            
+            
+            <li><a href="../19-break/index.html">Coffee Break</a></li>
+            
+            
+            <li><a href="../20-sqlite/index.html">Hands-on: SQL queries</a></li>
+            
+            
+            <li><a href="../21-discussion/index.html">Discussion on data publication</a></li>
+            
+            
+            <li><a href="../22-introduction-darwin-core/index.html">Data cleaning and exploration using R</a></li>
+            
+            
+            <li><a href="../23-break/index.html">Coffee Break</a></li>
+            
+            
+            <li><a href="../24-datacleaning_darwincore/index.html">Hands on: Data Cleaning in R</a></li>
+            
+            
+            <li><a href="../25-gbif-community/index.html">Wrangling & visualizing data, spatial analyses</a></li>
+            
+            
+            <li><a href="../26-break/index.html">Lunch Break</a></li>
+            
+            
+            <li><a href="../27-create-schema/index.html">Darwin Core+Extensions archive</a></li>
+            
+            
+            <li><a href="../28-break/index.html">Break</a></li>
+            
+            
+            <li><a href="../29-metadata/index.html">Hands-on: Data visualization & Analysis</a></li>
+            
+            
+            <li><a href="../30-validation-and-publishing/index.html">Data Validation & GBIF Validator</a></li>
+            
+            
+            <li><a href="../31-finish/index.html">Continuing the Conversation</a></li>
+            
+            
+            <li><a href="../32-ipt-basic/index.html"></a></li>
+            
+            
+            <li><a href="../33-publisher/index.html">Mini project Continued</a></li>
+            
+            
+            <li><a href="../34-break/index.html">Coffee break</a></li>
+            
+            
+            <li><a href="../35-ipt-admin/index.html">Mini project presentation</a></li>
+            
+            
+            <li><a href="../36-break/index.html">Lunch Break</a></li>
+            
+            
+            <li><a href="../37-gbif-registry/index.html">The GBIF registry</a></li>
+            
+            
+            <li><a href="../38-grscicoll/index.html">Feedback, summary and certificates</a></li>
+            
+            
+            <li><a href="../39-break/index.html">Coffee break</a></li>
+            
+            
+            <li><a href="../41-discussion/index.html">GBIF Discussion</a></li>
+            
+            
+            <li><a href="../42-node-opportunities/index.html">GBIF opportunities (CESP, BID, Ambassador programme, data use club...)</a></li>
+            
+            
+            <li><a href="../43-tdwg/index.html">Biodiversity Informatics Network (TDWG)</a></li>
+            
+            
+            <li><a href="../44-break/index.html">Coffee break</a></li>
+            
+            
+            <li><a href="../45-mentoring/index.html">GBIF mentoring programme CESP</a></li>
+            
+            
+            <li><a href="../46-break/index.html">Lunch Break</a></li>
+            
+            
+            <li><a href="../47-bid/index.html">GBIF BID programme</a></li>
+            
+            
+            <li><a href="../48-strategy/index.html">Develop GBIF data mobilization Strategy</a></li>
+            
+            
+            <li><a href="../49-break/index.html">Coffee break</a></li>
+            
+            
+            <li><a href="../50-strategy/index.html">Develop GBIF data mobilization Strategy 2</a></li>
+            
+            
+            <li><a href="../51-post-workshop/index.html">Continuing the Conversation</a></li>
+            
+            
+            <li><a href="../52-evaluation/index.html">Course Evaluation</a></li>
+            
+            
+            <li><a href="../gbif-discussion/index.html">GBIF discussion</a></li>
+            
+	    <li role="separator" class="divider"></li>
+            <li><a href="../aio/index.html">All in one page (Beta)</a></li>
+          </ul>
+        </li>
+        
+
+	
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../reference.html">Reference</a></li>
+            
+            
+            
+              <li><a href="../about/">About</a></li>
+            
+            
+            
+            
+              <li><a href="../helpful-tutorials/">Helpful Tutorials</a></li>
+            
+            
+            
+            
+              <li><a href="../figures/index.html">Figures</a></li>
+            
+            
+            
+            
+              <li><a href="../edna-extension/">DNA-derived Data Extension</a></li>
+            
+            
+          </ul>
+        </li>
+
+	
+        <li><a href="../LICENSE.html">License</a></li>
+	
+	<li><a href="/edit//_episodes/12-fair-session.md" data-checker-ignore>Improve this page <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
+	
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" title="Google search" id="google-search" placeholder="Search..." aria-label="Google site search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-xs-1">
+    <h3 class="text-left">
+      
+      <a href="../11-gbif-discussion/index.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-xs-10">
+    
+    <h3 class="maintitle"><a href="../">Bishoftu Workshop on biodiversity data, data use and the GBIF network 2026</a></h3>
+    
+  </div>
+  <div class="col-xs-1">
+    <h3 class="text-right">
+      
+      <a href="../13-data-management/index.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+<article>
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-10">
+    <h1 class="maintitle">Intro to R & GBIF-Related R packages ((rgbif, finch,..)</h1>
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 45 min
+      <br/>
+      <strong>Exercises:</strong> 0 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>What is R</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Getting familiar with R and packages</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+</blockquote>
+
+<h1 id="intro-to-r--gbif-related-r-packages-rgbif-finch">Intro to R &amp; GBIF-Related R packages ((rgbif, finch,..)</h1>
+<p>By Lena Thöle</p>
+
+<p><a href="https://docs.google.com/presentation/d/1fJCqzndVCB2RLgglIKrb0QsEBecNrI1h/edit?usp=sharing&amp;ouid=106540432290122943029&amp;rtpof=true&amp;sd=true">
+    <img src="/fig/Session3_introR.png" />
+  </a></p>
+
+<h2 id="r-biodiversity-cheat-sheet">R Biodiversity Cheat Sheet</h2>
+
+<h3 id="1-installation--setup">1. Installation &amp; Setup</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">install.packages</span><span class="p">(</span><span class="s2">"rgbif"</span><span class="p">)</span><span class="w">
+</span><span class="n">install.packages</span><span class="p">(</span><span class="s2">"finch"</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">rgbif</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="introduction-to-r--gbif-related-packages">Introduction to R &amp; GBIF-Related Packages</h1>
+
+<p>Why use R for biodiversity data? While the GBIF portal is powerful, R allows for <strong>reproducible, automated, and large-scale science</strong>. By using a programmatic interface, you can move from raw data to sophisticated visualizations and models in a single script.</p>
+
+<p>In this session, we introduce the core tools developed by the <strong>rOpenSci</strong> community that allow R to “talk” directly to the GBIF servers.</p>
+
+<hr />
+
+<h3 id="core-r-packages-for-this-session">Core R Packages for this Session</h3>
+
+<ul>
+  <li><strong>rgbif</strong>: The primary interface for the GBIF API. It allows you to search for species, check taxonomic names against the GBIF backbone, and request bulk data downloads directly from your R console.</li>
+  <li><strong>finch</strong>: A specialized tool used to parse <strong>Darwin Core Archive (DwC-A)</strong> files. When you download large datasets, <code class="language-plaintext highlighter-rouge">finch</code> helps R read the complex structure of these zip files effortlessly.</li>
+  <li><strong>CoordinateCleaner</strong>: A vital companion package used to “scrub” your data—automatically flagging records that fall in the ocean, at city centers, or inside museum coordinates.</li>
+</ul>
+
+<hr />
+
+<h3 id="session-exercises-r-programming-for-biodiversity">Session Exercises: R Programming for Biodiversity</h3>
+
+<h4 id="1-the-hello-gbif-script">1. The “Hello GBIF” Script</h4>
+<ul>
+  <li><strong>Goal:</strong> Successfully connect R to the GBIF API.</li>
+  <li><strong>Task:</strong> Install and load <code class="language-plaintext highlighter-rouge">rgbif</code>. Use the <code class="language-plaintext highlighter-rouge">name_backbone()</code> function to find the unique <code class="language-plaintext highlighter-rouge">usageKey</code> for an Ethiopian endemic, such as the <strong>Mountain Nyala</strong> (<em>Tragelaphus buxtoni</em>).</li>
+  <li><strong>Discovery:</strong> Why is the <code class="language-plaintext highlighter-rouge">usageKey</code> more reliable than just searching for the name string?</li>
+</ul>
+
+<h4 id="2-rapid-mapping-with-occ_data">2. Rapid Mapping with <code class="language-plaintext highlighter-rouge">occ_data</code></h4>
+<ul>
+  <li><strong>Goal:</strong> Visualize sightings in under five lines of code.</li>
+  <li><strong>Task:</strong> Use the <code class="language-plaintext highlighter-rouge">occ_data()</code> function to pull the last 500 records of <strong>Coffee</strong> (<em>Coffea arabica</em>) in Ethiopia.</li>
+  <li><strong>Exercise:</strong> Pipe the results into a quick plot.</li>
+  <li><strong>Discovery:</strong> Identify any obvious spatial outliers in the resulting map.</li>
+</ul>
+
+<h4 id="3-parsing-the-archive-with-finch">3. Parsing the Archive with <code class="language-plaintext highlighter-rouge">finch</code></h4>
+<ul>
+  <li><strong>Goal:</strong> Handle bulk downloads that are too large for simple CSVs.</li>
+  <li><strong>Task:</strong> Take a local <strong>Darwin Core Archive (.zip)</strong> from our Bishoftu Bioblitz.</li>
+  <li><strong>Exercise:</strong> Use <code class="language-plaintext highlighter-rouge">finch::dwca_read()</code> to explore the “metadata” and “core” data tables hidden inside the zip.</li>
+</ul>
+
+<h4 id="4-the-cleaner-challenge">4. The “Cleaner” Challenge</h4>
+<ul>
+  <li><strong>Goal:</strong> Automated data quality control.</li>
+  <li><strong>Task:</strong> Run a set of Ethiopian occurrence records through the <code class="language-plaintext highlighter-rouge">clean_coordinates()</code> function.</li>
+  <li><strong>Exercise:</strong> Identify how many records were flagged as “invalid” because they were exactly at 0,0 or located at the coordinates of a known herbarium.</li>
+</ul>
+
+<h2 id="starter-kit">Starter Kit</h2>
+
+<h2 id="-preparation-install-and-load-packages-">— PREPARATION: Install and Load Packages —</h2>
+
+<h3 id="run-these-once-to-set-up-your-environment">Run these once to set up your environment</h3>
+
+<p>install.packages(c(“rgbif”, “finch”, “CoordinateCleaner”, “ggplot2”, “dplyr”))</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">rgbif</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">rgbif</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">finch</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">CoordinateCleaner</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="-exercise-1-the-hello-gbif-script-">— EXERCISE 1: The “Hello GBIF” Script —</h3>
+<h4 id="finding-the-unique-taxon-key-for-the-mountain-nyala-or-gedemsa">Finding the unique Taxon Key for the Mountain Nyala or Gedemsa</h4>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nyala_lookup</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">name_backbone</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Tragelaphus buxtoni"</span><span class="p">)</span><span class="w">
+</span><span class="n">nyala_key</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">nyala_lookup</span><span class="o">$</span><span class="n">usageKey</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">print</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"The usageKey for Mountain Nyala is:"</span><span class="p">,</span><span class="w"> </span><span class="n">nyala_key</span><span class="p">))</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Discovery: The usageKey is a unique ID that prevents issues with synonyms or common names.</p>
+
+<h3 id="-exercise-2-rapid-mapping-with-occ_data-">— EXERCISE 2: Rapid Mapping with occ_data —</h3>
+<h4 id="pull-the-last-500-records-of-coffee-coffea-arabica-in-ethiopia">Pull the last 500 records of Coffee (Coffea arabica) in Ethiopia</h4>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">coffee_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">occ_data</span><span class="p">(</span><span class="w">
+  </span><span class="n">scientificName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Coffea arabica"</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">country</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ET"</span><span class="p">,</span><span class="w">            </span><span class="c1"># ISO code for Ethiopia</span><span class="w">
+  </span><span class="n">hasCoordinate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w">      </span><span class="c1"># Only get records we can map</span><span class="w">
+  </span><span class="n">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">500</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+<h4 id="extract-the-data-frame">Extract the data frame</h4>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">coffee_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">coffee_data</span><span class="o">$</span><span class="n">data</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="quick-visualization">Quick visualization</h4>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">coffee_df</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decimalLongitude</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decimalLatitude</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_point</span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"darkgreen"</span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme_minimal</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Coffea arabica Occurrences in Ethiopia"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="-exercise-3-parsing-the-archive-with-finch-">— EXERCISE 3: Parsing the Archive with finch —</h3>
+
+<p>Replace ‘path/to/your/bioblitz.zip’ with the actual file path</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bioblitz_archive</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dwca_read</span><span class="p">(</span><span class="s2">"path/to/your/bioblitz.zip"</span><span class="p">,</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="explore-the-contents">Explore the contents</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">View</span><span class="p">(</span><span class="n">bioblitz_archive</span><span class="o">$</span><span class="n">data</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span><span class="w"> </span><span class="c1"># View the main occurrence table</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="-exercise-4-the-cleaner-challenge-">— EXERCISE 4: The “Cleaner” Challenge —</h3>
+<h4 id="clean-the-coffee-data-using-automated-tests">Clean the coffee data using automated tests</h4>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cleaned_coffee</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">clean_coordinates</span><span class="p">(</span><span class="w">
+  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coffee_df</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">lon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"decimalLongitude"</span><span class="p">,</span><span class="w"> 
+  </span><span class="n">lat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"decimalLatitude"</span><span class="p">,</span><span class="w">
+  </span><span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"species"</span><span class="p">,</span><span class="w">
+  </span><span class="n">tests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"capitals"</span><span class="p">,</span><span class="w"> </span><span class="s2">"centroids"</span><span class="p">,</span><span class="w"> </span><span class="s2">"equal"</span><span class="p">,</span><span class="w"> </span><span class="s2">"zeros"</span><span class="p">,</span><span class="w"> </span><span class="s2">"institutions"</span><span class="p">)</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="summary-of-flags-found">summary of flags found</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">summary</span><span class="p">(</span><span class="n">cleaned_coffee</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="keep-only-the-clean-records">Keep only the ‘clean’ records</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">coffee_final</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">coffee_df</span><span class="p">[</span><span class="n">cleaned_coffee</span><span class="o">$</span><span class="n">.summary</span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p><img src="/fig/session_over2.png" /></p>
+
+<h3 id="presentation-optional-extra-informatio">Presentation (optional Extra informatio)</h3>
+
+<p><a href="https://docs.google.com/presentation/d/1HR6RyRdKEuOZoGXaUw193Ka6oxsSYWv6e3Mjqvwa7X8/edit?usp=sharing">
+    <img src="/fig/openscience.PNG" />
+  </a></p>
+
+<blockquote class="challenge">
+  <h2 id="excercise--fair-data--open-science">Excercise : FAIR data &amp; Open Science</h2>
+
+  <ol>
+    <li>What is the difference between FAIR and OPEN data?</li>
+    <li>Check the FAIR Self assessment tool <a href="https://ardc.edu.au/resource/fair-data-self-assessment-tool/">here</a> Think about a dataset you know and run over the assessment</li>
+    <li>What could you do to make your data more FAIR?</li>
+    <li>Is data published through GBIF FAIR?</li>
+    <li>Is all data published by GBIF considered as open data?</li>
+  </ol>
+
+  <blockquote class="solution">
+    <h2 id="solution">SOLUTION</h2>
+    <ol>
+      <li>FAIR data is not always open, FAIR data is findable and good documented. Open data per definition is not always FAIR. (Just an Excel somewhere on a website is considered as open data)</li>
+      <li><img src="/fig/extra/fair.PNG" alt="fair" width="400" class="image-with-shadow" /></li>
+      <li>Publish your data in GBIF or in another open repository like Zenodo</li>
+      <li>YES</li>
+      <li>No, CC-BY-NC is not considered as open data</li>
+    </ol>
+
+  </blockquote>
+</blockquote>
+
+<h2 id="presentation">Presentation</h2>
+
+<p><a href="https://docs.google.com/presentation/d/1aMJSoK26h-RxvYUhMC5m0Q1_0buUu6V4QcnZVLnbjEE/edit?usp=sharing">
+    <img src="/fig/license.PNG" />
+  </a></p>
+
+<blockquote class="challenge">
+  <h2 id="excercise--creative-commons-license-chooser">Excercise : Creative commons license chooser</h2>
+
+  <ol>
+    <li>Check the <a href="https://chooser-beta.creativecommons.org/">Creative commons license chooser</a></li>
+    <li>Learn how to find an appropriate license for your biodiversity data</li>
+    <li>Is this license alowed for GBIF?</li>
+    <li>Is CC-BY-NC an open data license?</li>
+  </ol>
+
+  <blockquote class="solution">
+    <h2 id="solution-1">SOLUTION</h2>
+    <ol>
+      <li><img src="/fig/extra/creativecommons.PNG" alt="cc" width="400" class="image-with-shadow" /></li>
+      <li>Check the license chooser</li>
+      <li>The only licenses allowed for GBIF are CC0 ; CC_BY ; and CC_BY_NC</li>
+      <li>CC-BY-NC is not considered as an open data license</li>
+    </ol>
+
+  </blockquote>
+</blockquote>
+
+
+
+
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Getting familiar with R and packages</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-xs-1">
+    <h3 class="text-left">
+      
+      <a href="../11-gbif-discussion/index.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-xs-10">
+    
+  </div>
+  <div class="col-xs-1">
+    <h3 class="text-right">
+      
+      <a href="../13-data-management/index.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+      
+      
+<footer>
+  <hr/>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	<!--Copyright &copy; 2016–2026-->
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+        	
+		<a href="/edit//_episodes/12-fair-session.md" data-checker-ignore>Edit on GitHub</a>
+			
+		/
+		<a href="/blob//CONTRIBUTING.md" data-checker-ignore>Contributing</a>
+		/
+		<a href="/">Source</a>
+		/
+		<a href="/blob//CITATION.cff" data-checker-ignore>Cite</a>
+		/
+		<a href="mailto:dimitri.brosens@inbo.be">Contact</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" align="center">
+       Using <a href="https://github.com/carpentries/workshop-template">The Carpentries workshop-template</a>
+       version <a href="https://github.com/carpentries/workshop-template/tree/ea92816066f40af1e305e08ce90fa8da498b24ec">ea92816066</a>.
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/lesson.js"></script>
+
+<script>
+/* Based on https://stackoverflow.com/a/30894829/1802726 */
+var show_instructions = function() {
+     //set all nav tabs to inactive
+    $('.nav-tabs li').removeClass('active');
+
+    //get all nav tabs matching the os and set to active
+    $('.nav-tabs li a[href*="'+localStorage.os+'"]').closest('li').addClass('active');
+
+    //set all tabs to inactive
+    $('.tab-pane').removeClass('active');
+
+    //get all tabs matching the os and set to active
+    $('.tab-pane[id*="'+localStorage.os+'"]').addClass('active');
+}
+
+if (typeof(Storage) !== "undefined") {
+    if (localStorage.os == "undefined") {
+        localStorage.os = "windows";
+    }
+    show_instructions();
+} else {
+    console.log("No localStorage");
+}
+
+/* Based on https://stackoverflow.com/a/30894829/1802726 */
+$('.nav-tabs li a').click(function(){
+    //get selected os
+    localStorage.os = $(this)[0].dataset.os;
+    show_instructions();
+});
+
+  // detect misssing iframe for Eventbrite
+  $(document).ready(function(){
+      if ($('iframe').height() == 0) {
+          $('iframe').before('<p>Looks like your adblocker blocked the registration window. Please navigate to <a href="https://www.eventbrite.com/tickets-external?eid=&ref=etckt">https://www.eventbrite.com/tickets-external?eid=&ref=etckt</a> to register.</p>');
+      }
+  });
+
+  // hide alerts when site is rendered on carpentries.github.io
+  $(document).ready(function() {
+      if (location.href.startsWith("https://carpentries.github.io/workshop-template/")) {
+          $("div.alert").hide();
+      }
+  });
+
+
+
+<script src="../assets/js/anchor.min.js"></script>
+<script>
+    anchors.add();
+</script>
+
+  </body>
+</html>

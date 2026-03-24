@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Understanding occurrence data"
 start: true
 teaching: 15

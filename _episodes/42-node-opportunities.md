@@ -1,4 +1,4 @@
-﻿---
+---
 title: "GBIF opportunities (CESP, BID, Ambassador programme, data use club...)"
 start: true
 teaching: 60

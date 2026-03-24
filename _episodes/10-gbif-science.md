@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Break Optional reading GBIF Policy & science"
 start: true
 teaching: 30

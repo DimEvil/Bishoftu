@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Hands on: Data Cleaning in R"
 teaching: 0
 exercises: 120

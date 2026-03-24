@@ -1,0 +1,914 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2026-03-24 13:29:20 +0100">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta "search-domain" used for google site search function google_search() -->
+    <meta name="search-domain" value="">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/lesson.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/syntax.css" />
+    
+    <link rel="license" href="#license-info" />
+
+    
+
+
+
+    <!-- Favicons for everyone -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../assets/favicons//apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/favicons//apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/favicons//apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/favicons//apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../assets/favicons//apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/favicons//apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../assets/favicons//apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/favicons//apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="../assets/favicons//favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="../assets/favicons//favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="../assets/favicons//favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../assets/favicons//favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="../assets/favicons//favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content=" - Bishoftu Workshop on biodiversity data, data use and the GBIF network 2026"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="../assets/favicons//mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="../assets/favicons//mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="../assets/favicons//mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="../assets/favicons//mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="../assets/favicons//mstile-310x310.png" />
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+  <title>
+  Introduction to GBIF data cubes (SQL option) &ndash; Bishoftu Workshop on biodiversity data, data use and the GBIF network 2026
+  </title>  
+
+  </head>
+  <body>
+
+    
+
+
+
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+
+      
+      <a class="navbar-brand" href="../">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
+
+	
+        <li><a href="../setup.html">Setup</a></li>
+
+        
+        
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            <li><a href="../01-welcome/index.html">Registration and Welcome</a></li>
+            
+            
+            <li><a href="../02-introduction-to-gbif/index.html">Introduction to GBIF</a></li>
+            
+            
+            <li><a href="../03-coffee/index.html">Break</a></li>
+            
+            
+            <li><a href="../04-gbif-nodes/index.html">From data mobilization to data utilization in GBIF</a></li>
+            
+            
+            <li><a href="../05-break/index.html">Lunch Break</a></li>
+            
+            
+            <li><a href="../06-bioblitz/index.html"></a></li>
+            
+            
+            <li><a href="../06-hosted-portals/index.html">GBIF Hosted Portals</a></li>
+            
+            
+            <li><a href="../07-belgian-node/index.html">Hands on Exploring GBIF Biodiversity Data</a></li>
+            
+            
+            <li><a href="../08-gbif-atlas/index.html">Data Quality, Data management and Download filters</a></li>
+            
+            
+            <li><a href="../09-break/index.html">Break</a></li>
+            
+            
+            <li><a href="../10-gbif-science/index.html">Break Optional reading GBIF Policy & science</a></li>
+            
+            
+            <li><a href="../11-gbif-discussion/index.html">Hands-on: Downloading via GBIF.org, wrap-up and discussions</a></li>
+            
+            
+            <li><a href="../12-fair-session/index.html">Intro to R & GBIF-Related R packages ((rgbif, finch,..)</a></li>
+            
+            
+            <li><a href="../13-data-management/index.html">Hands on: Working with rGBIF</a></li>
+            
+            
+            <li><a href="../14-break/index.html">Coffee Break</a></li>
+            
+            
+            <li><a href="../15-openrefine/index.html">Introduction to GBIF data cubes (SQL option)</a></li>
+            
+            
+            <li><a href="../16-break/index.html">Lunch Break</a></li>
+            
+            
+            <li><a href="../17-openrefine/index.html">Openrefine part 2</a></li>
+            
+            
+            <li><a href="../18-sqlite/index.html">Hands-on: GBIF Data Cubes</a></li>
+            
+            
+            <li><a href="../19-break/index.html">Coffee Break</a></li>
+            
+            
+            <li><a href="../20-sqlite/index.html">Hands-on: SQL queries</a></li>
+            
+            
+            <li><a href="../21-discussion/index.html">Discussion on data publication</a></li>
+            
+            
+            <li><a href="../22-introduction-darwin-core/index.html">Data cleaning and exploration using R</a></li>
+            
+            
+            <li><a href="../23-break/index.html">Coffee Break</a></li>
+            
+            
+            <li><a href="../24-datacleaning_darwincore/index.html">Hands on: Data Cleaning in R</a></li>
+            
+            
+            <li><a href="../25-gbif-community/index.html">Wrangling & visualizing data, spatial analyses</a></li>
+            
+            
+            <li><a href="../26-break/index.html">Lunch Break</a></li>
+            
+            
+            <li><a href="../27-create-schema/index.html">Darwin Core+Extensions archive</a></li>
+            
+            
+            <li><a href="../28-break/index.html">Break</a></li>
+            
+            
+            <li><a href="../29-metadata/index.html">Hands-on: Data visualization & Analysis</a></li>
+            
+            
+            <li><a href="../30-validation-and-publishing/index.html">Data Validation & GBIF Validator</a></li>
+            
+            
+            <li><a href="../31-finish/index.html">Continuing the Conversation</a></li>
+            
+            
+            <li><a href="../32-ipt-basic/index.html"></a></li>
+            
+            
+            <li><a href="../33-publisher/index.html">Mini project Continued</a></li>
+            
+            
+            <li><a href="../34-break/index.html">Coffee break</a></li>
+            
+            
+            <li><a href="../35-ipt-admin/index.html">Mini project presentation</a></li>
+            
+            
+            <li><a href="../36-break/index.html">Lunch Break</a></li>
+            
+            
+            <li><a href="../37-gbif-registry/index.html">The GBIF registry</a></li>
+            
+            
+            <li><a href="../38-grscicoll/index.html">Feedback, summary and certificates</a></li>
+            
+            
+            <li><a href="../39-break/index.html">Coffee break</a></li>
+            
+            
+            <li><a href="../41-discussion/index.html">GBIF Discussion</a></li>
+            
+            
+            <li><a href="../42-node-opportunities/index.html">GBIF opportunities (CESP, BID, Ambassador programme, data use club...)</a></li>
+            
+            
+            <li><a href="../43-tdwg/index.html">Biodiversity Informatics Network (TDWG)</a></li>
+            
+            
+            <li><a href="../44-break/index.html">Coffee break</a></li>
+            
+            
+            <li><a href="../45-mentoring/index.html">GBIF mentoring programme CESP</a></li>
+            
+            
+            <li><a href="../46-break/index.html">Lunch Break</a></li>
+            
+            
+            <li><a href="../47-bid/index.html">GBIF BID programme</a></li>
+            
+            
+            <li><a href="../48-strategy/index.html">Develop GBIF data mobilization Strategy</a></li>
+            
+            
+            <li><a href="../49-break/index.html">Coffee break</a></li>
+            
+            
+            <li><a href="../50-strategy/index.html">Develop GBIF data mobilization Strategy 2</a></li>
+            
+            
+            <li><a href="../51-post-workshop/index.html">Continuing the Conversation</a></li>
+            
+            
+            <li><a href="../52-evaluation/index.html">Course Evaluation</a></li>
+            
+            
+            <li><a href="../gbif-discussion/index.html">GBIF discussion</a></li>
+            
+	    <li role="separator" class="divider"></li>
+            <li><a href="../aio/index.html">All in one page (Beta)</a></li>
+          </ul>
+        </li>
+        
+
+	
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../reference.html">Reference</a></li>
+            
+            
+            
+              <li><a href="../about/">About</a></li>
+            
+            
+            
+            
+              <li><a href="../helpful-tutorials/">Helpful Tutorials</a></li>
+            
+            
+            
+            
+              <li><a href="../figures/index.html">Figures</a></li>
+            
+            
+            
+            
+              <li><a href="../edna-extension/">DNA-derived Data Extension</a></li>
+            
+            
+          </ul>
+        </li>
+
+	
+        <li><a href="../LICENSE.html">License</a></li>
+	
+	<li><a href="/edit//_episodes/15-openrefine.md" data-checker-ignore>Improve this page <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
+	
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" title="Google search" id="google-search" placeholder="Search..." aria-label="Google site search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-xs-1">
+    <h3 class="text-left">
+      
+      <a href="../14-break/index.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-xs-10">
+    
+    <h3 class="maintitle"><a href="../">Bishoftu Workshop on biodiversity data, data use and the GBIF network 2026</a></h3>
+    
+  </div>
+  <div class="col-xs-1">
+    <h3 class="text-right">
+      
+      <a href="../16-break/index.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+<article>
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-10">
+    <h1 class="maintitle">Introduction to GBIF data cubes (SQL option)</h1>
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 90 min
+      <br/>
+      <strong>Exercises:</strong> 90 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Understand the purpose of Cubes</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+</blockquote>
+
+<h1 id="introduction-to-gbif-data-cubes-sql-option">Introduction to GBIF data cubes (SQL option)</h1>
+
+<p>Traditional downloads give you every single column for every single record. Data Cubes are different: they are multi-dimensional summaries. They are perfect for answering questions like: “How has the number of recorded bird species in Ethiopia changed per year since 1970?”</p>
+
+<p>In this session, we explore the SQL Download API, which allows you to write custom queries to “slice and dice” the GBIF database before you even hit the download button.</p>
+
+<p>The next logical step in your workshop is the GBIF Data Cube. This is a relatively new and powerful feature that moves away from raw record lists toward “Analysis-Ready” summarized data.</p>
+
+<p>Instead of downloading 1 million individual dots (records) and aggregating them yourself, a Data Cube allows you to ask GBIF’s servers to do the math for you—returning a neat table of counts based on time, space, and taxonomy.</p>
+
+<h2 id="why-use-data-cubes">Why use Data Cubes?</h2>
+<p>Performance: Smaller file sizes (KBs instead of GBs).</p>
+
+<p>Speed: The aggregation happens on GBIF’s high-performance servers.</p>
+
+<p>Flexibility: You choose exactly which “dimensions” (columns) you want.</p>
+
+<p>FAIR Data: Each cube gets its own DOI, making your summarized analysis fully citable.</p>
+
+<h2 id="the-golden-rules-of-gbif-sql">The “Golden Rules” of GBIF SQL</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"><strong>Rule</strong></th>
+      <th style="text-align: left"><strong>Constraint</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Only One Table</strong></td>
+      <td style="text-align: left">You can only query the <code class="language-plaintext highlighter-rouge">occurrence</code> table. You cannot use <code class="language-plaintext highlighter-rouge">JOIN</code> to combine it with other tables (like checklists or environmental layers).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>No <code class="language-plaintext highlighter-rouge">SELECT *</code></strong></td>
+      <td style="text-align: left">You must explicitly list the columns you want (e.g., <code class="language-plaintext highlighter-rouge">SELECT scientificName, decimalLatitude</code>). This keeps the download size manageable.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Single Query</strong></td>
+      <td style="text-align: left">Sub-queries (queries inside other queries) are generally not supported.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Read-Only</strong></td>
+      <td style="text-align: left">You can only use <code class="language-plaintext highlighter-rouge">SELECT</code> commands. You cannot <code class="language-plaintext highlighter-rouge">INSERT</code>, <code class="language-plaintext highlighter-rouge">UPDATE</code>, or <code class="language-plaintext highlighter-rouge">DELETE</code> anything.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="https://docs.google.com/presentation/d/1gSXkpcZthO6EDHNWfVOsiNSugpjuo5DPOLzHUIkKhvQ/edit?usp=sharing">
+    <img src="/fig/cubes2.png" />
+  </a></p>
+
+<blockquote>
+  <h2 id="extra-exercise-1-the-simple-summary-cube">Extra Exercise 1: The “Simple Summary” Cube</h2>
+
+  <p>Goal: Create a cube that counts species per year for a specific group.
+Task: Use the “Cube” tab on the GBIF download page. Select Taxonomic (Species) and Temporal (Year) as your dimensions.
+Exercise: Run this for Mammals in Ethiopia.
+Result: You will get a table with three columns: species, year, and occurrenceCount.</p>
+
+  <blockquote class="solution">
+    <h2 id="solution">SOLUTION</h2>
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>    </div>
+
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <h2 id="extra-exercise-2-grid-based-exploration-the-spatial-dimension">Extra Exercise 2: Grid-Based Exploration (The Spatial Dimension)</h2>
+
+  <p>Goal: Summarize data into standardized geographic grids.
+Task: Create a cube using a Spatial Dimension (e.g., the EEA 1km grid or the Military Grid Reference System).
+Exercise: Pick a specific region in Ethiopia (like the Simien Mountains) and see how many observations exist per grid cell.</p>
+
+  <blockquote class="solution">
+    <h2 id="solution-1">SOLUTION</h2>
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>    </div>
+
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <h2 id="extra-exercise-3-customizing-with-sql-the-edit-as-sql-challenge">Extra Exercise 3: Customizing with SQL (The “Edit as SQL” Challenge)</h2>
+
+  <p>Goal: Use SQL to add complex filters like “Life Stage” or “IUCN Category.”
+Task: Switch to the Edit as SQL view in the GBIF portal.
+Exercise: Modify the query to count only records where lifeStage = ‘ADULT’.</p>
+
+  <blockquote class="solution">
+    <h2 id="solution-2">SOLUTION</h2>
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>    </div>
+
+  </blockquote>
+</blockquote>
+
+<p>Extra Session Exercises: Thinking in SQL</p>
+
+<ol>
+  <li>
+    <p>The “Simple Summary” Cube
+<em>Goal:</em> Create a cube that counts species per year for a specific group.
+<em>Task:</em> Use the “Cube” tab on the GBIF download page. Select Taxonomic (Species) and Temporal (Year) as your dimensions.
+<em>Exercise:</em> Run this for Mammals in Ethiopia.
+Result: You will get a table with three columns: species, year, and occurrenceCount.</p>
+  </li>
+  <li>
+    <p>Grid-Based Exploration (The Spatial Dimension)
+<em>Goal:</em> Summarize data into standardized geographic grids.
+<em>Task:</em> Create a cube using a Spatial Dimension (e.g., the EEA 1km grid or the Military Grid Reference System).
+<em>Exercise:</em> Pick a specific region in Ethiopia (like the Simien Mountains) and see how many observations exist per grid cell.</p>
+  </li>
+  <li>
+    <p>Customizing with SQL (The “Edit as SQL” Challenge)
+<em>Goal:</em> Use SQL to add complex filters like “Life Stage” or “IUCN Category.”
+<em>Task:</em> Switch to the Edit as SQL view in the GBIF portal.
+<em>Exercise:</em> Modify the query to count only records where lifeStage = ‘ADULT’.</p>
+  </li>
+</ol>
+
+<p>SQL</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> 
+  <span class="n">speciesKey</span><span class="p">,</span> 
+  <span class="nb">year</span><span class="p">,</span> 
+  <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">occurrenceCount</span>
+<span class="k">FROM</span> <span class="n">occurrence</span>
+<span class="k">WHERE</span> 
+  <span class="n">countryCode</span> <span class="o">=</span> <span class="s1">'ET'</span> <span class="k">AND</span> 
+  <span class="n">lifeStage</span> <span class="o">=</span> <span class="s1">'ADULT'</span> <span class="k">AND</span>
+  <span class="nb">year</span> <span class="o">&gt;=</span> <span class="mi">2000</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">speciesKey</span><span class="p">,</span> <span class="nb">year</span>
+
+</code></pre></div></div>
+<p>GBIF SQL</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span>
+  <span class="n">specieskey</span><span class="p">,</span>
+  <span class="nv">"year"</span><span class="p">,</span>
+  <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">occurrencecount</span>
+<span class="k">FROM</span>
+  <span class="n">occurrence</span>
+<span class="k">WHERE</span>
+  <span class="n">occurrence</span><span class="p">.</span><span class="n">countrycode</span> <span class="o">=</span> <span class="s1">'ET'</span>
+  <span class="k">AND</span> <span class="n">occurrence</span><span class="p">.</span><span class="n">lifestage</span><span class="p">.</span><span class="n">concept</span> <span class="o">=</span> <span class="s1">'ADULT'</span>
+  <span class="k">AND</span> <span class="n">occurrence</span><span class="p">.</span><span class="nv">"year"</span> <span class="o">&gt;=</span> <span class="mi">2000</span>
+<span class="k">GROUP</span> <span class="k">BY</span>
+  <span class="n">occurrence</span><span class="p">.</span><span class="n">specieskey</span><span class="p">,</span>
+  <span class="n">occurrence</span><span class="p">.</span><span class="nv">"year"</span>
+</code></pre></div></div>
+
+<blockquote>
+  <h2 id="extra-exercise-4-the-uncertainty-filter">Extra Exercise 4: The “Uncertainty” Filter</h2>
+
+  <p>Goal: Create a high-quality data cube by filtering for precision.
+Task: Add a constraint to your SQL query to only include records with a coordinateUncertaintyInMeters less than 100m.</p>
+
+  <blockquote class="solution">
+    <h2 id="solution-3">SOLUTION</h2>
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>    </div>
+
+  </blockquote>
+</blockquote>
+
+<ol>
+  <li>The “Uncertainty” Filter
+<em>Goal:</em> Create a high-quality data cube by filtering for precision.
+<em>Task:</em> Add a constraint to your SQL query to only include records with a coordinateUncertaintyInMeters less than 100m.</li>
+</ol>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> 
+  <span class="n">speciesKey</span><span class="p">,</span> 
+  <span class="nb">year</span><span class="p">,</span> 
+  <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">occurrenceCount</span>
+<span class="k">FROM</span> <span class="n">occurrence</span>
+<span class="k">WHERE</span> 
+  <span class="n">countryCode</span> <span class="o">=</span> <span class="s1">'ET'</span> <span class="k">AND</span> 
+  <span class="n">coordinateUncertaintyInMeters</span> <span class="o">&lt;</span> <span class="mi">100</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">speciesKey</span><span class="p">,</span> <span class="nb">year</span>
+</code></pre></div></div>
+<p>Transformed into SQLgbif</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span>
+  <span class="n">specieskey</span><span class="p">,</span>
+  <span class="nv">"year"</span><span class="p">,</span>
+  <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">occurrencecount</span>
+<span class="k">FROM</span>
+  <span class="n">occurrence</span>
+<span class="k">WHERE</span>
+  <span class="n">occurrence</span><span class="p">.</span><span class="n">countrycode</span> <span class="o">=</span> <span class="s1">'ET'</span>
+  <span class="k">AND</span> <span class="n">occurrence</span><span class="p">.</span><span class="n">coordinateuncertaintyinmeters</span> <span class="o">&lt;</span> <span class="mi">100</span>
+  <span class="k">AND</span> <span class="n">specieskey</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">GROUP</span> <span class="k">BY</span>
+  <span class="n">occurrence</span><span class="p">.</span><span class="n">specieskey</span><span class="p">,</span>
+  <span class="n">occurrence</span><span class="p">.</span><span class="nv">"year"</span>
+</code></pre></div></div>
+<p>will become</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span>
+  <span class="n">specieskey</span><span class="p">,</span>
+  <span class="nv">"year"</span><span class="p">,</span>
+  <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">occurrencecount</span>
+<span class="k">FROM</span>
+  <span class="n">occurrence</span>
+<span class="k">WHERE</span>
+  <span class="n">occurrence</span><span class="p">.</span><span class="n">countrycode</span> <span class="o">=</span> <span class="s1">'ET'</span>
+  <span class="k">AND</span> <span class="n">occurrence</span><span class="p">.</span><span class="n">coordinateuncertaintyinmeters</span> <span class="o">&lt;</span> <span class="mi">100</span>
+  <span class="k">AND</span> <span class="k">CAST</span><span class="p">(</span><span class="n">occurrence</span><span class="p">.</span><span class="n">specieskey</span> <span class="k">AS</span> <span class="nb">INTEGER</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">GROUP</span> <span class="k">BY</span>
+  <span class="n">occurrence</span><span class="p">.</span><span class="n">specieskey</span><span class="p">,</span>
+  <span class="n">occurrence</span><span class="p">.</span><span class="nv">"year"</span>
+</code></pre></div></div>
+
+<p>Which GBIF will transform correctly</p>
+
+<h2 id="gbif-sql-cheat-sheet">GBIF SQL Cheat Sheet</h2>
+
+<h3 id="1-essential-columns">1. Essential Columns</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">occurrence</code>: The main table containing all data.</li>
+  <li><code class="language-plaintext highlighter-rouge">speciesKey</code>: The unique ID for the species.</li>
+  <li><code class="language-plaintext highlighter-rouge">basisOfRecord</code>: How the data was collected (HUMAN_OBSERVATION, etc).</li>
+</ul>
+
+<h3 id="2-useful-sql-functions">2. Useful SQL Functions</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">COUNT(*)</code>: Counts the number of records in each group.</li>
+  <li><code class="language-plaintext highlighter-rouge">COUNT(DISTINCT speciesKey)</code>: Counts how many <em>unique</em> species are in that group.</li>
+  <li><code class="language-plaintext highlighter-rouge">GBIF_MGRSCode(gridSize, lat, lon)</code>: Groups points into military grid cells.</li>
+</ul>
+
+<h3 id="3-basic-query-structure">3. Basic Query Structure</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> 
+  <span class="n">dimensions</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="k">g</span><span class="p">.,</span> <span class="nb">year</span><span class="p">,</span> <span class="n">speciesKey</span><span class="p">),</span> 
+  <span class="n">measure</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="k">g</span><span class="p">.,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">))</span>
+<span class="k">FROM</span> <span class="n">occurrence</span>
+<span class="k">WHERE</span> <span class="n">filters</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="k">g</span><span class="p">.,</span> <span class="n">countryCode</span> <span class="o">=</span> <span class="s1">'ET'</span><span class="p">)</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">dimensions</span>
+</code></pre></div></div>
+
+<p>Let’s break down that exact template and highlight the major differences between standard relational SQL and GBIF’s specific flavor of SQL.</p>
+
+<h3 id="1-from-occurrence-the-single-source-of-truth">1. FROM occurrence (The Single Source of Truth)</h3>
+<p>Normal SQL: You usually have dozens of smaller, connected tables. You might have one table for locations, one for species_names, and one for observations.</p>
+
+<p>GBIF SQL: The GBIF database is heavily denormalized into one massively wide, flat table called <strong>occurrence</strong>. For 99% of your GBIF queries, FROM occurrence is <strong>practically hardcoded</strong>.</p>
+
+<h3 id="2-no-join-clauses-allowed">2. No JOIN Clauses Allowed</h3>
+<p>Normal SQL: If you want to connect a species ID to its actual scientific name, you would write something like JOIN taxa ON taxa.id = occurrence.speciesKey.</p>
+
+<p>GBIF SQL: GBIF SQL does not support JOINs. Because it is querying a dataset of billions of rows across a distributed “Big Data” cluster, joining tables is too computationally expensive. Instead, GBIF has already pre-packed all the information (kingdom, phylum, species name, etc.) directly into the occurrence table.</p>
+
+<h3 id="3-complex-data-types-structs--arrays">3. Complex Data Types (Structs &amp; Arrays)</h3>
+<p>Normal SQL: Columns usually hold simple data types: a text string, an integer, a date, or a boolean (true/false).</p>
+
+<p>GBIF SQL: As we saw with lifeStage.concept, GBIF uses advanced data types to handle complex biological standards. Many fields are “Structs” (records containing multiple sub-fields) or Arrays (lists of items). You have to use dot notation (like media.type or issue.concept) to filter them, which isn’t standard in basic SQL.</p>
+
+<h3 id="4-strict-case-sensitivity-and-reserved-words">4. Strict Case Sensitivity and Reserved Words</h3>
+<p>Normal SQL: Many SQL engines are completely case-insensitive. SELECT specieskey and SELECT speciesKey would work identically.</p>
+
+<p>GBIF SQL: The GBIF SQL parser is notoriously strict. Column names must match their official camelCase format exactly. Furthermore, standard terms like “year”, “month”, and “day” are strictly reserved and will instantly break the query if not wrapped in double quotes.</p>
+
+<h3 id="5-read-only-and-aggregation-heavy">5. Read-Only and Aggregation-Heavy</h3>
+<p>Normal SQL: You use SQL to manage the database (INSERT new rows, UPDATE records, DELETE mistakes).</p>
+
+<p>GBIF SQL: You are operating in a strict, read-only environment. The portal is specifically designed for data extraction, usually via aggregations (like COUNT(*)). While you can run a query without a GROUP BY to just download raw rows, using dimensions and measures is highly encouraged to summarize the data before you download a massive, multi-gigabyte file.</p>
+
+<p>In short, GBIF SQL strips away the relational complexity of normal SQL (no joins, no managing tables) but adds Big Data quirks (complex structs, strict casing, flat architecture) to handle billions of biological records efficiently.</p>
+
+<hr />
+
+<p><img src="/fig/session_over4.png" /></p>
+
+<h2 id="presentation-open-refine-optional">Presentation Open Refine (optional)</h2>
+
+<p><a href="https://docs.google.com/presentation/d/1wtvqjm8XxbfYOzmkE03yTux42KmN2c-sDyK-EgH_q5M/edit?usp=sharing">
+    <img src="/fig/openrefine.PNG" />
+  </a></p>
+
+<p>You can find the complete user manual <a href="https://openrefine.org/docs/manual/starting">here</a></p>
+
+<blockquote class="challenge">
+  <h2 id="excercise--openrefine">Excercise : Openrefine</h2>
+
+  <ol>
+    <li>Complete <a href="https://drive.google.com/file/d/1KKkqfjAtkaV80Xs1vd0ycTeaJwztxU3b/view?usp=drive_link">this</a> exercise</li>
+  </ol>
+
+  <blockquote class="solution">
+    <h2 id="solution-4">SOLUTION</h2>
+    <ol>
+      <li>follow the guidelines in the tutorial document</li>
+    </ol>
+
+  </blockquote>
+</blockquote>
+
+<p><a href="https://drive.google.com/file/d/1KKkqfjAtkaV80Xs1vd0ycTeaJwztxU3b/view?usp=drive_link">
+    <img src="/fig/openrefine_tutorial.PNG" />
+  </a></p>
+
+
+
+
+
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Hip to be Cubed</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-xs-1">
+    <h3 class="text-left">
+      
+      <a href="../14-break/index.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-xs-10">
+    
+  </div>
+  <div class="col-xs-1">
+    <h3 class="text-right">
+      
+      <a href="../16-break/index.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+      
+      
+<footer>
+  <hr/>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	<!--Copyright &copy; 2016–2026-->
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+        	
+		<a href="/edit//_episodes/15-openrefine.md" data-checker-ignore>Edit on GitHub</a>
+			
+		/
+		<a href="/blob//CONTRIBUTING.md" data-checker-ignore>Contributing</a>
+		/
+		<a href="/">Source</a>
+		/
+		<a href="/blob//CITATION.cff" data-checker-ignore>Cite</a>
+		/
+		<a href="mailto:dimitri.brosens@inbo.be">Contact</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" align="center">
+       Using <a href="https://github.com/carpentries/workshop-template">The Carpentries workshop-template</a>
+       version <a href="https://github.com/carpentries/workshop-template/tree/ea92816066f40af1e305e08ce90fa8da498b24ec">ea92816066</a>.
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/lesson.js"></script>
+
+<script>
+/* Based on https://stackoverflow.com/a/30894829/1802726 */
+var show_instructions = function() {
+     //set all nav tabs to inactive
+    $('.nav-tabs li').removeClass('active');
+
+    //get all nav tabs matching the os and set to active
+    $('.nav-tabs li a[href*="'+localStorage.os+'"]').closest('li').addClass('active');
+
+    //set all tabs to inactive
+    $('.tab-pane').removeClass('active');
+
+    //get all tabs matching the os and set to active
+    $('.tab-pane[id*="'+localStorage.os+'"]').addClass('active');
+}
+
+if (typeof(Storage) !== "undefined") {
+    if (localStorage.os == "undefined") {
+        localStorage.os = "windows";
+    }
+    show_instructions();
+} else {
+    console.log("No localStorage");
+}
+
+/* Based on https://stackoverflow.com/a/30894829/1802726 */
+$('.nav-tabs li a').click(function(){
+    //get selected os
+    localStorage.os = $(this)[0].dataset.os;
+    show_instructions();
+});
+
+  // detect misssing iframe for Eventbrite
+  $(document).ready(function(){
+      if ($('iframe').height() == 0) {
+          $('iframe').before('<p>Looks like your adblocker blocked the registration window. Please navigate to <a href="https://www.eventbrite.com/tickets-external?eid=&ref=etckt">https://www.eventbrite.com/tickets-external?eid=&ref=etckt</a> to register.</p>');
+      }
+  });
+
+  // hide alerts when site is rendered on carpentries.github.io
+  $(document).ready(function() {
+      if (location.href.startsWith("https://carpentries.github.io/workshop-template/")) {
+          $("div.alert").hide();
+      }
+  });
+
+
+
+<script src="../assets/js/anchor.min.js"></script>
+<script>
+    anchors.add();
+</script>
+
+  </body>
+</html>

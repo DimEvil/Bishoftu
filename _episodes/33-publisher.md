@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Mini project Continued"
 start: true
 teaching: 30

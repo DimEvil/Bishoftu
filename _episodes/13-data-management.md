@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Hands on: Working with rGBIF"
 start: true
 teaching: 

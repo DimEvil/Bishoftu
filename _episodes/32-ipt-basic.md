@@ -8,7 +8,7 @@ questions:
 objectives:
 - "Comple a GBIf Mini project on Ethiopia."
 keypoints:
-- "Mini projects are cool""
+- "Mini projects are cool"
 ---
 
 <img src="{{ '/fig/miniProject.png' | relative_url }}">

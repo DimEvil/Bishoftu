@@ -2,7 +2,7 @@
 title: "Understanding occurrence data"
 start: true
 teaching: 15
-exercises:0
+exercises: 0
 questions:
 - "As a citizen scientist, how to share your observations with GBIF."
 objectives:

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Hands on: Working with rGBIF"
 start: true
 teaching: 
@@ -321,7 +321,7 @@ print(validation)
 
 
 
-<img src="{{ '/assets/img/session_over3.png' | relative_url }}">
+<img src="{{ '/fig/session_over3.png' | relative_url }}">
 
 
 
@@ -330,7 +330,7 @@ print(validation)
 ### Presentation (optional)
 
 <a href="https://docs.google.com/presentation/d/1xgCBYw0HCd2RHagOH4cL4xxK8fMSTyIPbqEQ8smULyo/edit?usp=sharing">
-    <img src="{{ '/assets/img/data_management.PNG' | relative_url }}">
+    <img src="{{ '/fig/data_management.PNG' | relative_url }}">
   </a>
 
 > ## Exercise

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Biodiversity Informatics Network (TDWG)"
 start: true
 teaching: 30
@@ -25,7 +25,7 @@ To achieve its goals, TDWG:
 
 see [TDWG website](https://www.tdwg.org/about/) for more.
 
-![TDWG 2023 Hobart](../assets/img/TDWG2023Hobart.jpg)
+![TDWG 2023 Hobart](../fig/TDWG2023Hobart.jpg)
 
 ### Community
 TDWG is an open, bottom-up organization. Anyone can become a member, individuals as well as institutions (including government agencies, non-governmental organizations, programs, and projects). Everything TDWG produces comes from the expertise, collaboration, and support of its members - people and organizations who create, manage, integrate, and analyze biodiversity information.

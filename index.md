@@ -1,4 +1,4 @@
----
+﻿---
 layout: workshop      # DON'T CHANGE THIS.
 # More detailed instructions (including how to fill these variables for an
 # online workshop) are available at
@@ -81,10 +81,10 @@ This three-day workshop aims to provide an understanding of GBIF, data managemen
 
 <p class="d-flex justify-content-around align-items-center">
   <a href="https://www.gbif.org/programme/82219/capacity-enhancement-support-programme">
-    <img src="{{ '/assets/img/cesp.PNG' | relative_url }}" alt="CESP" width="180">
+    <img src="{{ '/fig/cesp.PNG' | relative_url }}" alt="CESP" width="180">
   </a>
   <a href="https://www.gbif.org/">
-    <img src="{{ '/assets/img/gbif.png' | relative_url }}" alt="GBIF" width="200">
+    <img src="{{ '/fig/gbif.png' | relative_url }}" alt="GBIF" width="200">
   </a>
  </p>
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Introduction to GBIF"
 start: true
 teaching: 45
@@ -30,7 +30,7 @@ The Global Biodiversity Information Facility (GBIF) is an international network 
 In this video (03:23) you will learn about GBIF through animation. It is a co-production of SiB Colombia and GBIF Spain, both GBIF national nodes, with co-funding from GBIF Spain and Instituto de Investigación de Recursos Biológicos Alexander von Humboldt (IAvH). The video is in Spanish, but subtitles are available.
 
 <a href="https://vimeo.com/236573907" title="Introduction movie">
-<img src="{{ '/assets/img/gbif_introduction_video.PNG' | relative_url }}" alt="Alternate Text" />
+<img src="{{ '/fig/gbif_introduction_video.PNG' | relative_url }}" alt="Alternate Text" />
 </a>
 
 ### What is GBIF video
@@ -38,7 +38,7 @@ In this video (03:23) you will learn about GBIF through animation. It is a co-pr
 In this video (07:55), Tim Hirsch, Deputy Director of the GBIF Secretariat, provides you with an overview of GBIF. 
 
 <a href="https://docs.gbif.org/course-introduction-to-gbif/videos/Introduction-to-GBIF.mp4" title="What is GBIFmovie">
-<img src="{{ '/assets/img/gbif_introduction_video2.PNG' | relative_url }}" alt="Alternate Text" />
+<img src="{{ '/fig/gbif_introduction_video2.PNG' | relative_url }}" alt="Alternate Text" />
 </a>
 
 ### GBIF Overview
@@ -48,7 +48,7 @@ GBIF updates a set of [overview slides](https://www.gbif.org/document/81771/gbif
 ### Presentation
 
 <a href="https://docs.google.com/presentation/d/1YsztuD-W4nIcDx0bOOdGFyVjskGxsXQ7hfBZseuIdyo/edit?usp=sharing">
-    <img src="{{ '/assets/img/gbif_introduction.PNG' | relative_url }}">
+    <img src="{{ '/fig/gbif_introduction.PNG' | relative_url }}">
   </a>
 
 
@@ -131,7 +131,7 @@ GBIF updates a set of [overview slides](https://www.gbif.org/document/81771/gbif
 > {: .solution}
 {: .challenge}
 
-![GBIF participation](../assets/img/GBIF_MoU.png)
+![GBIF participation](../fig/GBIF_MoU.png)
 
 > ## Exercise 1: Investigate Ethiopian participation in GBIF
 > 
@@ -149,7 +149,7 @@ A [node](https://www.gbif.org/nodes) is a team designated by a Participant to co
 
 Nodes meets every year either globally or regionally. 
 
-![ECA Nodes meeting](../assets/img/ECA2023_Warshaw.png)
+![ECA Nodes meeting](../fig/ECA2023_Warshaw.png)
 
 
 > ## Exercise 2: Seek information on the Ethiopian Node
@@ -167,7 +167,7 @@ Nodes meets every year either globally or regionally.
 
 # 3: [GBIF Governance](https://docs.google.com/presentation/d/1Sce89pOXwkPOCp6oTE9GgQaYyey0KHs8db0DlI2dWd0/edit?usp=sharing)
 
-![GBIF Governance](../assets/img/GB29Brussels.JPG)
+![GBIF Governance](../fig/GB29Brussels.JPG)
 
 > ## Exercise 3: Governing Board and Standing Committee
 > 

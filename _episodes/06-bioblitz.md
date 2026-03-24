@@ -1,4 +1,4 @@
----
+﻿---
 title: "Understanding occurrence data"
 start: true
 teaching: 15
@@ -22,7 +22,7 @@ With over 2 billion records, GBIF is the world’s largest window into biologica
 We move beyond simple downloads to explore the "fitness-for-use" of biodiversity data. You’ll learn to navigate the Darwin Core standard, utilize programmatic tools like rgbif, and apply rigorous data-cleaning protocols to handle taxonomic uncertainty and spatial bias. Whether you are modeling species distributions or tracking invasive species, this session will give you the toolkit to use global data with local precision.
 
 <a href="https://docs.google.com/presentation/d/1bdSUFC_kOu_Nw6XR59F_Nkbwjzkz7oVP/edit?usp=sharing&ouid=106540432290122943029&rtpof=true&sd=true">
-    <img src="{{ '/assets/img/occurrencedata1.png' | relative_url }}">
+    <img src="{{ '/fig/occurrencedata1.png' | relative_url }}">
   </a>
 
 # Bioblitz
@@ -34,12 +34,12 @@ Get ready to turn your curiosity into high-quality scientific data as we explore
 
 
 <a href="https://docs.google.com/presentation/d/1OXJqo9St33sQrnIabYccXA9ItN7KLARsxHwPywNcOA4/edit?usp=sharing">
-    <img src="{{ '/assets/img/bioblitz.PNG' | relative_url }}">
+    <img src="{{ '/fig/bioblitz.PNG' | relative_url }}">
   </a>
 
 
 <a href="https://www.inaturalist.org/projects/cesp-ethiopia-bioblitz">
-   <img src="{{ '/assets/img/bioblitz_croment.PNG' | relative_url }}">
+   <img src="{{ '/fig/bioblitz_croment.PNG' | relative_url }}">
  </a>
 
 

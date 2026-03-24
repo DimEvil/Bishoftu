@@ -1,4 +1,4 @@
----
+﻿---
 title: "Hands-on: GBIF Data Cubes"
 start: true
 teaching: 0
@@ -24,7 +24,7 @@ keypoints:
 ## Presentation GBIF Data Cubes Hands on
 
 <a href="https://docs.google.com/presentation/d/1P3Wt1udes5581cH0gcEj2ANpcr0hZcemQQrTCvAizM8/edit?usp=sharing">
-    <img src="{{ '/assets/img/cubes3.png' | relative_url }}">
+    <img src="{{ '/fig/cubes3.png' | relative_url }}">
   </a>
 
 
@@ -176,12 +176,12 @@ keypoints:
 {: .challenge}
 
 
-<img src="{{ '/assets/img/session_over5.png' | relative_url }}">
+<img src="{{ '/fig/session_over5.png' | relative_url }}">
 
 
 ## Optional Presentation: [SQLite](https://docs.google.com/presentation/d/1oMPNqm4tU9BwnUo1zJxI0nlXMPfIljYeAqh4vEdJZ_0/edit?usp=sharing)
 
-![SQLite](../assets/img/SQLite.png)
+![SQLite](../fig/SQLite.png)
 
 ---
 ## Exercise 1 : Download from GBIF.org
@@ -243,6 +243,6 @@ keypoints:
 
 ---
 > ## Solutions
-> If needed, see the [solutions page](../18-sqlite/index.html).
+> If needed, see the [solutions page](../20-sqlite/index.html).
 > 
 {: .solution}

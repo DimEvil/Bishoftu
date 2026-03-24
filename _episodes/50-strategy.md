@@ -1,4 +1,4 @@
----
+﻿---
 title: "Develop GBIF data mobilization Strategy 2"
 start: true
 teaching: 10
@@ -17,7 +17,7 @@ keypoints:
 
 ## [Presentation](https://docs.google.com/presentation/d/1ad2hfTNhz2aR4YwYp9AUoJtsff_2rZ4F7j4c3E_i4xU/edit?usp=sharing)
 
-![StakeholdersLandscape](../assets/img/StakeholdersLandscape.png)
+![StakeholdersLandscape](../fig/StakeholdersLandscape.png)
 
 ## Exercise
 1. List all your stakeholders

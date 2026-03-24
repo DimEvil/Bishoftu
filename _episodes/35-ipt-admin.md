@@ -1,4 +1,4 @@
----
+﻿---
 title: "Mini project presentation"
 start: true
 teaching: 30
@@ -18,7 +18,7 @@ Linkt to the Mini project produced scripts
 
 [Click here](https://github.com/DimEvil/WorkshopBishoftu/tree/master/scr)
 
-<img src="{{ '/assets/img/miniProject.png' | relative_url }}">
+<img src="{{ '/fig/miniProject.png' | relative_url }}">
 
 
 
@@ -31,7 +31,7 @@ Linkt to the Mini project produced scripts
 # presentation IPT admin
 
 <a href="https://docs.google.com/presentation/d/13o6PLmh8zFNT7hR8XtMCorazx--KJxPXiykG8xB4TDc/edit?usp=sharing">
-    <img src="{{ '/assets/img/iptadmin.PNG' | relative_url }}">
+    <img src="{{ '/fig/iptadmin.PNG' | relative_url }}">
   </a>
 
 > ## Exercises 1: Get familiar with the Croatian IPT 

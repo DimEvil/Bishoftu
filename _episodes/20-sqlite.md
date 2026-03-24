@@ -1,4 +1,4 @@
----
+﻿---
 title: "Hands-on: SQL queries"
 start: true
 teaching: 0
@@ -123,11 +123,11 @@ Think: Why are FOSSIL_SPECIMEN and LIVING_SPECIMEN excluded for an Ethiopian bio
 ```
 
 
-<img src="{{ '/assets/img/session_over7.png' | relative_url }}">
+<img src="{{ '/fig/session_over7.png' | relative_url }}">
 
 ## Presentation: [SQLite](https://docs.google.com/presentation/d/1oMPNqm4tU9BwnUo1zJxI0nlXMPfIljYeAqh4vEdJZ_0/edit?usp=sharing)
 
-![SQLite](../assets/img/SQLite.png)
+![SQLite](../fig/SQLite.png)
 
 ## Exercise 1 : Download from GBIF.org
 ### Instructions

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Hands-on: Downloading via GBIF.org, wrap-up and discussions"
 start: true
 teaching: 0
@@ -76,7 +76,7 @@ To make the learning process engaging, we have designed a series of exercises ce
 # GBIF Discussion (optional)
 
 <a href="www.gbif.org">
-    <img src="{{ '/assets/img/gbif_discussion.PNG' | relative_url }}">
+    <img src="{{ '/fig/gbif_discussion.PNG' | relative_url }}">
   </a>
 
 What challenges are next in relation to:

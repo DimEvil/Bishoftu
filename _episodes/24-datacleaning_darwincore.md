@@ -1,4 +1,4 @@
----
+﻿---
 title: "Hands on: Data Cleaning in R"
 teaching: 0
 exercises: 120
@@ -320,7 +320,7 @@ ggplot() +
   theme_minimal()
 ```
 
-<img src="{{ '/assets/img/session_over8.png' | relative_url }}">
+<img src="{{ '/fig/session_over8.png' | relative_url }}">
 
 
 # Hands on on Data cleaning  (OPtional)

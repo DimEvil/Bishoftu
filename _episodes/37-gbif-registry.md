@@ -1,4 +1,4 @@
----
+﻿---
 title: "The GBIF registry"
 start: true
 teaching: 30
@@ -20,7 +20,7 @@ keypoints:
 
 This presentation will introduce you to GBIF Registry( a core component of GBIF architecture ). 
 
-![Registry](../assets/img/RegistryInSystem.png)
+![Registry](../fig/RegistryInSystem.png)
 
 ---
 ## Exercise 1 : Find your organisation in the Registry

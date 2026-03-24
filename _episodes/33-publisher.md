@@ -1,4 +1,4 @@
----
+﻿---
 title: "Mini project Continued"
 start: true
 teaching: 30
@@ -16,7 +16,7 @@ keypoints:
 
 
 
-<img src="{{ '/assets/img/miniProject.png' | relative_url }}">
+<img src="{{ '/fig/miniProject.png' | relative_url }}">
 
 
 
@@ -64,7 +64,7 @@ The Living Atlases platform, originally developed by the Atlas of Living Austral
 
 Other alternatives exist: fully automated based on GBIF API or simply by putting on the web (HTTP installation). 
 
-![Publishing](../assets/img/datapublishing.webp)
+![Publishing](../fig/datapublishing.webp)
 
 
 ## 4. Data Management Plan

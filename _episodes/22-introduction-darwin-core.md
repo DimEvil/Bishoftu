@@ -1,4 +1,4 @@
----
+﻿---
 title: "Data cleaning and exploration using R"
 start: true
 teaching: 60
@@ -23,7 +23,7 @@ Data cleaning in R, getting downloaded data ready for analysis
 
 
 <a href="https://docs.google.com/presentation/d/1vsP8RikGGS6K_dMk9m9pga4tuvwb-rcgRCbU4cSvHNc/edit?usp=sharing">
-    <img src="{{ '/assets/img/whydatacleaning.png' | relative_url }}">
+    <img src="{{ '/fig/whydatacleaning.png' | relative_url }}">
   </a>
 
 
@@ -713,7 +713,7 @@ print(unique_names)
 
 
 <a href="https://docs.google.com/presentation/d/12BeC_M63xG6PCl4bVmOW0YE8etWt2lTfGXBjjG5JeJQ/edit?usp=sharing">
-    <img src="{{ '/assets/img/standards.PNG' | relative_url }}">
+    <img src="{{ '/fig/standards.PNG' | relative_url }}">
   </a>
 
 

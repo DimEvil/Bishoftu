@@ -1,4 +1,4 @@
----
+﻿---
 title: "Wrangling & visualizing data, spatial analyses"
 start: true
 teaching: 30
@@ -20,7 +20,7 @@ keypoints:
 By Lena Thöle
 
 <a href="https://docs.google.com/presentation/d/1R28VaK9d0sVvafcSyPq4kzgSmyU58WmP/edit?usp=sharing&ouid=106540432290122943029&rtpof=true&sd=true">
-    <img src="{{ '/assets/img/session4_dataAnalyse.png' | relative_url }}">
+    <img src="{{ '/fig/session4_dataAnalyse.png' | relative_url }}">
   </a>
 
 
@@ -30,7 +30,7 @@ By Lena Thöle
 # Presentation: The GBIF community forum
 
 <a href="https://docs.google.com/presentation/d/13Dnzw-swM8J21fHhqVc2o5LjoVCdGlfsuvxinO-qoNc/edit?usp=sharing">
-    <img src="{{ '/assets/img/forum.PNG' | relative_url }}">{: .image-with-shadow }
+    <img src="{{ '/fig/forum.PNG' | relative_url }}">{: .image-with-shadow }
   </a>
 
 > ## Excercise : Browse the Community forum
@@ -48,14 +48,14 @@ By Lena Thöle
 # Presentation: The GBIF Helpdesk
 
 <a href="https://docs.google.com/presentation/d/1zwQp9Hh2LhGJQ79U1qUm8Mc8kZHuGzQ8qnvYy1Zj5n8/edit?usp=sharing">
-    <img src="{{ '/assets/img/helpdesk.PNG' | relative_url }}">{: .image-with-shadow }
+    <img src="{{ '/fig/helpdesk.PNG' | relative_url }}">{: .image-with-shadow }
   </a>
 
 # GBIF portal 'Feedback system'
 
 
 <a href="https://docs.google.com/presentation/d/1r8vzJHIArjIFuWMSxZI03ZYVr0eQiMcJ5sD5ViHsil8/edit?usp=sharing">
-    <img src="{{ '/assets/img/portal.PNG' | relative_url }}">{: .image-with-shadow }
+    <img src="{{ '/fig/portal.PNG' | relative_url }}">{: .image-with-shadow }
   </a>
 
 > ## Instructions 
@@ -63,7 +63,7 @@ By Lena Thöle
 > 1. Create an account on Github
 > 2. Instead of sending bugs or ideas to helpdesk@gbif.org you can also use Github issues
 > 3. On the right upper corner of the GBIF portal clik here:
-> <img src="{{ 'assets/img/portalfeedback2.PNG' | relative_url }}" alt="portal" width="500">{: .image-with-shadow }
+> <img src="{{ 'fig/portalfeedback2.PNG' | relative_url }}" alt="portal" width="500">{: .image-with-shadow }
 > You can choose different options <br>
 > **content** <br>
 > **Bug** <br>
@@ -72,7 +72,7 @@ By Lena Thöle
 >    
 > > ## SOLUTION
 > > 1. That was easy
-> > ![]({{ '/assets/img/portalfeedback.PNG' | relative_url }}){: .image-with-shadow }
+> > ![]({{ '/fig/portalfeedback.PNG' | relative_url }}){: .image-with-shadow }
 > > 
 > {: .solution}
 {: .challenge}

@@ -1,4 +1,4 @@
----
+﻿---
 title: "GBIF Hosted Portals"
 start: true
 teaching: 60
@@ -18,7 +18,7 @@ Each hosted portal is a simple website hosted and maintained on the GBIF infrast
 Watch this introduction video:
 
 <a href="https://vimeo.com/475763745" title="Introduction movie">
-<img src="{{ '/assets/img/hportals.PNG' | relative_url }}" alt="Alternate Text" />
+<img src="{{ '/fig/hportals.PNG' | relative_url }}" alt="Alternate Text" />
 </a>
 
 ## What is a hosted portal?

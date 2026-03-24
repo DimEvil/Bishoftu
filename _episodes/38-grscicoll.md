@@ -1,4 +1,4 @@
----
+﻿---
 title: "Feedback, summary and certificates"
 start: true
 teaching: 60
@@ -14,7 +14,7 @@ keypoints:
 - "GRSciColl a community effort"
 ---
 
-<img src="{{ '/assets/img/miniProject.png' | relative_url }}">
+<img src="{{ '/fig/miniProject.png' | relative_url }}">
 
 
 # Feedback, summary and certificates

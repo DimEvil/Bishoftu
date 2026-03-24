@@ -1,4 +1,4 @@
----
+﻿---
 title: "GBIF Discussion"
 start: true
 teaching: 0
@@ -12,7 +12,7 @@ keypoints:
 # Discussion
 
 <a href="www.gbif.org">
-    <img src="{{ '/assets/img/gbif_discussion.PNG' | relative_url }}">
+    <img src="{{ '/fig/gbif_discussion.PNG' | relative_url }}">
   </a>
 
 1. **Data Standardization:** Discuss the role of data standardization in ensuring interoperability and usability of biodiversity data across different platforms, including GBIF hosted portals, GRSciColl, and IPT.

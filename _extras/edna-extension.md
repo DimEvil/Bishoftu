@@ -1,4 +1,4 @@
----
+﻿---
 layout: page
 title: DNA-derived Data Extension
 permalink: /edna-extension/
@@ -16,7 +16,7 @@ keypoints:
 
 <figure>
   <img align = "center"
-       src = "/bio_mobilization_workshop/assets/img/DwC-A_closeup.png"
+       src = "/bio_mobilization_workshop/fig/DwC-A_closeup.png"
        alt = "DNA-derived extension in Darwin Core">
   <figcaption class="figure-caption text-center">Source: GBIF DNA-derived Data Extension Manual</figcaption>
  </figure>

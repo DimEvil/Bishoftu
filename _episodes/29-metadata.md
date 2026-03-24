@@ -1,4 +1,4 @@
----
+﻿---
 title: "Hands-on: Data visualization & Analysis"
 teaching: 0
 exercises: 90
@@ -14,7 +14,7 @@ keypoints:
 ---
 
 
-<img src="{{ '/assets/img/data_visualisation.png' | relative_url }}">
+<img src="{{ '/fig/data_visualisation.png' | relative_url }}">
 
 
 
@@ -43,7 +43,7 @@ The requirements for publishing data through your node IPT are that:
 # Presentation
 
 <a href="https://docs.google.com/presentation/d/1s3BFq3_kE4P2XtnNklXaVo2G2jxj6sSpYq09GphixxA/edit?usp=sharing">
-    <img src="{{ '/assets/img/ipt.PNG' | relative_url }}">
+    <img src="{{ '/fig/ipt.PNG' | relative_url }}">
   </a>
 
 # Ecological Metadata Language (EML) 
@@ -90,13 +90,13 @@ Simply use the IPT’s built-in metadata editor to populate the metadata.
 > 
 > 1. Go to the Croatian 'test' IPT instance on ipt.bioportal.hr
 > 2. Login to the 'IPT' instance, you can login with your emailaddress and `WelcomCroMent`
->    <img src="{{ 'assets/img/extra/iptlogin.PNG' | relative_url }}" alt="iptlogin" width="300">{: .image-with-shadow }
+>    <img src="{{ 'fig/extra/iptlogin.PNG' | relative_url }}" alt="iptlogin" width="300">{: .image-with-shadow }
 > 3. Click on  `manage resources`
->    <img src="{{ 'assets/img/extra/iptmanage.PNG' | relative_url }}" alt="iptmanage" width="300">{: .image-with-shadow }
+>    <img src="{{ 'fig/extra/iptmanage.PNG' | relative_url }}" alt="iptmanage" width="300">{: .image-with-shadow }
 > 4. Click on `Create New`and choose your the type of your dataset (here choose `occurrence`)
->    <img src="{{ 'assets/img/extra/iptcreate.PNG' | relative_url }}" alt="iptcreate" width="300">{: .image-with-shadow }
+>    <img src="{{ 'fig/extra/iptcreate.PNG' | relative_url }}" alt="iptcreate" width="300">{: .image-with-shadow }
 > 5. Give a shortname for your resource, `the shortname serves as an identifier for the resource and will be used as a parameter in the url`
->    <img src="{{ 'assets/img/extra/iptshortname.PNG' | relative_url }}" alt="iptshortname" width="300">{: .image-with-shadow }
+>    <img src="{{ 'fig/extra/iptshortname.PNG' | relative_url }}" alt="iptshortname" width="300">{: .image-with-shadow }
 > 6. Click on `Create`
 > 
 > > ## Solution
@@ -110,11 +110,11 @@ Simply use the IPT’s built-in metadata editor to populate the metadata.
 > 2. Login
 > 3. Click on `Manage resources`
 > 4. Click on your 'imaginary' dataset
->    <img src="{{ 'assets/img/extra/iptimaginary.PNG' | relative_url }}" alt="iptimaginary" width="300">{: .image-with-shadow }
+>    <img src="{{ 'fig/extra/iptimaginary.PNG' | relative_url }}" alt="iptimaginary" width="300">{: .image-with-shadow }
 > 5. Click on `edit` in the `Metadata`section
->    <img src="{{ 'assets/img/extra/iptmetadata.PNG' | relative_url }}" alt="iptmetadata" width="300">{: .image-with-shadow }
+>    <img src="{{ 'fig/extra/iptmetadata.PNG' | relative_url }}" alt="iptmetadata" width="300">{: .image-with-shadow }
 > 6. Complete the Metadata wizzard, starting with providing a tittle for your dataset
->    <img src="{{ 'assets/img/extra/iptwizzard.PNG' | relative_url }}" alt="iptwizzard" width="300">{: .image-with-shadow }
+>    <img src="{{ 'fig/extra/iptwizzard.PNG' | relative_url }}" alt="iptwizzard" width="300">{: .image-with-shadow }
 > 
 > > ## Solution
 > > 1. Congratulations, you did add metadata in your dataset
@@ -128,13 +128,13 @@ Simply use the IPT’s built-in metadata editor to populate the metadata.
 > 3. Click on `Manage resources`
 > 4. Click on your 'imaginary' dataset
 > 5. Click on `add` in the `Source data`section
->    <img src="{{ 'assets/img/extra/iptsource.PNG' | relative_url }}" alt="source" width="400">{: .image-with-shadow }
+>    <img src="{{ 'fig/extra/iptsource.PNG' | relative_url }}" alt="source" width="400">{: .image-with-shadow }
 > 6. Choose your source data: <br>
 > * A File (Choose [`occurrencememo.csv`]({{ page.root }}/data/occurrencememo.csv) if you don't have an 'imaginary' dataset
 > * An url
 > * An SQL statement
 > 7. Click on `add`in the `Darwin Core Mappings` section
->    <img src="{{ 'assets/img/extra/iptmapping.PNG' | relative_url }}" alt="mapping" width="400">{: .image-with-shadow }
+>    <img src="{{ 'fig/extra/iptmapping.PNG' | relative_url }}" alt="mapping" width="400">{: .image-with-shadow }
 > 8. CLick again on `add`, make sure Darwin Core Occurrence is selected
 > 9. Select the source 'occurrencememo`and click `save`
 > 10. Your data is automapped to Darwin Core, you can click on `save`
@@ -146,7 +146,7 @@ Simply use the IPT’s built-in metadata editor to populate the metadata.
 
 # Datapapers
 
-![datapaper]({{ '/assets/img/datapaper.PNG' | relative_url }})
+![datapaper]({{ '/fig/datapaper.PNG' | relative_url }})
 
 > ## Tip
 > * In some cases you'll want to ensure the values are representative of the entity you are reporting.

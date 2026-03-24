@@ -1,4 +1,4 @@
----
+﻿---
 title: "Hands on Exploring GBIF Biodiversity Data"
 start: true
 teaching: 45
@@ -18,7 +18,7 @@ keypoints:
 By Lena Thöle & Dimitri Brosens
 
 <a href="https://docs.google.com/presentation/d/1__3Wd32_BgFjRLG4BHY63fQQGrwzALh9W8lusgEu2Qk/edit?usp=sharing">
-    <img src="{{ '/assets/img/Ethiopia1.png' | relative_url }}">
+    <img src="{{ '/fig/Ethiopia1.png' | relative_url }}">
   </a>
 
 ## Session Exercises: Exploring the Data
@@ -87,11 +87,11 @@ By Lena Thöle & Dimitri Brosens
 
 
 
-<img src="/assets/img/session_over.png">
+<img src="/fig/session_over.png">
 
 
 <a href="https://docs.google.com/presentation/d/1M9VWVUgmBFdlk7ZQkA-sO3qxkoTTx6fKzV-jZNzEF9Y/edit?usp=sharing">
-    <img src="{{ '/assets/img/gbif_belgium.PNG' | relative_url }}">
+    <img src="{{ '/fig/gbif_belgium.PNG' | relative_url }}">
   </a>
 
 
@@ -102,7 +102,7 @@ By Lena Thöle & Dimitri Brosens
 > 3. How many datasets are published by Ethiopia?
 > 4. Navigate to the INBO (Research Institute for Nature and Forest) IPT and check how many publishers are making use of this IPT instance
 > 5. Navigate to [www.biodiversity.be](www.biodioversity.be) and find GBIF info
-> <img src="{{ 'assets/img/extra/bbpf.PNG' | relative_url }}" alt="bbpf" width="400">{: .image-with-shadow }
+> <img src="{{ 'fig/extra/bbpf.PNG' | relative_url }}" alt="bbpf" width="400">{: .image-with-shadow }
 >
 > > ## SOLUTION
 > > 1. 27
@@ -116,5 +116,5 @@ By Lena Thöle & Dimitri Brosens
 ### Presentation : Engaging research communities for data mobilization and use: The GBIF node in Belgium
 
 <a href="https://docs.google.com/presentation/d/1o6RZPVvMhMwqApIN5UYfCDgqMC-yi33bqMHTXXZNXk0/edit?usp=sharing">
-    <img src="{{ '/assets/img/gbif_belgium2.PNG' | relative_url }}">
+    <img src="{{ '/fig/gbif_belgium2.PNG' | relative_url }}">
   </a>

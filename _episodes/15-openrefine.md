@@ -1,4 +1,4 @@
----
+﻿---
 title: "Introduction to GBIF data cubes (SQL option)"
 start: true
 teaching: 90
@@ -40,7 +40,7 @@ FAIR Data: Each cube gets its own DOI, making your summarized analysis fully cit
 | **Read-Only** | You can only use `SELECT` commands. You cannot `INSERT`, `UPDATE`, or `DELETE` anything. |
 
 <a href="https://docs.google.com/presentation/d/1gSXkpcZthO6EDHNWfVOsiNSugpjuo5DPOLzHUIkKhvQ/edit?usp=sharing">
-    <img src="{{ '/assets/img/cubes2.png' | relative_url }}">
+    <img src="{{ '/fig/cubes2.png' | relative_url }}">
   </a>
 
 
@@ -260,14 +260,14 @@ In short, GBIF SQL strips away the relational complexity of normal SQL (no joins
 ----------------
 
 
-<img src="{{ '/assets/img/session_over4.png' | relative_url }}">
+<img src="{{ '/fig/session_over4.png' | relative_url }}">
 
 
 
 ## Presentation Open Refine (optional)
 
 <a href="https://docs.google.com/presentation/d/1wtvqjm8XxbfYOzmkE03yTux42KmN2c-sDyK-EgH_q5M/edit?usp=sharing">
-    <img src="{{ '/assets/img/openrefine.PNG' | relative_url }}">
+    <img src="{{ '/fig/openrefine.PNG' | relative_url }}">
   </a>
 
 You can find the complete user manual [here](https://openrefine.org/docs/manual/starting)
@@ -284,6 +284,6 @@ You can find the complete user manual [here](https://openrefine.org/docs/manual/
 {: .challenge}
 
 <a href="https://drive.google.com/file/d/1KKkqfjAtkaV80Xs1vd0ycTeaJwztxU3b/view?usp=drive_link">
-    <img src="{{ '/assets/img/openrefine_tutorial.PNG' | relative_url }}">
+    <img src="{{ '/fig/openrefine_tutorial.PNG' | relative_url }}">
   </a>
 

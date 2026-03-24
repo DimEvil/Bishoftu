@@ -1,4 +1,4 @@
----
+﻿---
 title: "Intro to R & GBIF-Related R packages ((rgbif, finch,..)"
 start: true
 teaching: 45
@@ -16,7 +16,7 @@ keypoints:
 By Lena Thöle
 
 <a href="https://docs.google.com/presentation/d/1fJCqzndVCB2RLgglIKrb0QsEBecNrI1h/edit?usp=sharing&ouid=106540432290122943029&rtpof=true&sd=true">
-    <img src="{{ '/assets/img/Session3_introR.png' | relative_url }}">
+    <img src="{{ '/fig/Session3_introR.png' | relative_url }}">
   </a>
 
 ## R Biodiversity Cheat Sheet
@@ -171,7 +171,7 @@ coffee_final <- coffee_df[cleaned_coffee$.summary, ]
 ```
 
 
-<img src="{{ '/assets/img/session_over2.png' | relative_url }}">
+<img src="{{ '/fig/session_over2.png' | relative_url }}">
 
 
 
@@ -181,7 +181,7 @@ coffee_final <- coffee_df[cleaned_coffee$.summary, ]
 ### Presentation (optional Extra informatio)
 
 <a href="https://docs.google.com/presentation/d/1HR6RyRdKEuOZoGXaUw193Ka6oxsSYWv6e3Mjqvwa7X8/edit?usp=sharing">
-    <img src="{{ '/assets/img/openscience.PNG' | relative_url }}">
+    <img src="{{ '/fig/openscience.PNG' | relative_url }}">
   </a>
 
 > ## Excercise : FAIR data & Open Science
@@ -194,7 +194,7 @@ coffee_final <- coffee_df[cleaned_coffee$.summary, ]
 >    
 > > ## SOLUTION
 > > 1. FAIR data is not always open, FAIR data is findable and good documented. Open data per definition is not always FAIR. (Just an Excel somewhere on a website is considered as open data)
-> > 2. <img src="{{ 'assets/img/extra/fair.PNG' | relative_url }}" alt="fair" width="400">{: .image-with-shadow }
+> > 2. <img src="{{ 'fig/extra/fair.PNG' | relative_url }}" alt="fair" width="400">{: .image-with-shadow }
 > > 3. Publish your data in GBIF or in another open repository like Zenodo 
 > > 3. YES
 > > 4. No, CC-BY-NC is not considered as open data
@@ -205,7 +205,7 @@ coffee_final <- coffee_df[cleaned_coffee$.summary, ]
 ## Presentation
 
 <a href="https://docs.google.com/presentation/d/1aMJSoK26h-RxvYUhMC5m0Q1_0buUu6V4QcnZVLnbjEE/edit?usp=sharing">
-    <img src="{{ '/assets/img/license.PNG' | relative_url }}">
+    <img src="{{ '/fig/license.PNG' | relative_url }}">
   </a>
 
 > ## Excercise : Creative commons license chooser
@@ -216,7 +216,7 @@ coffee_final <- coffee_df[cleaned_coffee$.summary, ]
 > 4. Is CC-BY-NC an open data license?
 >    
 > > ## SOLUTION
-> > 1. <img src="{{ 'assets/img/extra/creativecommons.PNG' | relative_url }}" alt="cc" width="400">{: .image-with-shadow }
+> > 1. <img src="{{ 'fig/extra/creativecommons.PNG' | relative_url }}" alt="cc" width="400">{: .image-with-shadow }
 > > 2. Check the license chooser
 > > 3. The only licenses allowed for GBIF are CC0 ; CC_BY ; and CC_BY_NC
 > > 4. CC-BY-NC is not considered as an open data license 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Mini project"
 start: true
 teaching: 30
@@ -11,7 +11,7 @@ keypoints:
 - "Mini projects are cool""
 ---
 
-<img src="{{ '/assets/img/miniProject.png' | relative_url }}">
+<img src="{{ '/fig/miniProject.png' | relative_url }}">
 
 ## Mini project
 
@@ -80,7 +80,7 @@ Note to Students: In biodiversity informatics, a "small" project that fixes data
 # Presentation: Data Publication workflow 'generic'
 
 <a href="https://docs.google.com/presentation/d/1FPRafCOs8YUawLi3zIUEJ4HHYULgqVZ1KplxUMT9MLM/edit?usp=sharing">
-    <img src="{{ '/assets/img/genericworkflow.PNG' | relative_url }}">
+    <img src="{{ '/fig/genericworkflow.PNG' | relative_url }}">
   </a>
 
 # GBIF supports publication, discovery and use of four classes of data:
@@ -99,7 +99,7 @@ Data publishers are strongly encouraged to share their data using the richest ap
 To give yourself an introduction to how the IPT can be used to publish biodiversity data through GBIF.org, it’s highly recommended watching this concise 25 minute live demo below:
 
 <a href="https://www.youtube.com/watch?v=eDH9IoTrMVE" title="IPT movie">
-<img src="{{ '/assets/img/bbpf-ipt.png' | relative_url }}" alt="Alternate Text" />
+<img src="{{ '/fig/bbpf-ipt.png' | relative_url }}" alt="Alternate Text" />
 </a>
 
 ![Announcement](https://github.com/DimEvil/croment/assets/3965195/7bcb145f-fcb9-4970-ba61-0bb49d8ec9e9){: .image-with-shadow }
@@ -167,7 +167,7 @@ To publish your data, follow the 7 steps below.
 > > 3. create a new dataset `Create new dataset`
 > > 4. provide a new shortname
 > > 5. Choose `Import from an archived resource`
-> >   <img src="{{ 'assets/img/extra/iptimport2.PNG' | relative_url }}" alt="import" width="400">{: .image-with-shadow }
+> >   <img src="{{ 'fig/extra/iptimport2.PNG' | relative_url }}" alt="import" width="400">{: .image-with-shadow }
 > > 6. Choose the Dwc-a file
 > > 7. Click `save`
 > > 8. If everything went correct, your metadata and data is correctly mapped in the IPT and ready to publih.
@@ -239,7 +239,7 @@ To publish your data, follow the 7 steps below.
 > > 3. provide a new shortname
 > > 4. select type `checklist` and push `create`
 > > 5. deal with the `source data` import all files in the IPT. In the IPT, for taxon choose `source data is url` instead of file and use this url [raw Github content](https://raw.githubusercontent.com/trias-project/ad-hoc-checklist/master/data/processed/taxon.csv)
-> >    <img src="{{ 'assets/img/extra/iptsourceurl.PNG' | relative_url }}" alt="import" width="400">{: .image-with-shadow }
+> >    <img src="{{ 'fig/extra/iptsourceurl.PNG' | relative_url }}" alt="import" width="400">{: .image-with-shadow }
 > > 6. deal with `darwin core mappings` for the `distribution` file
 > > 7. deal with `darwin core mappings` for the `distribution` file
 > > 8. deal with `darwin core mappings` for the `profile` file

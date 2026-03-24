@@ -1,4 +1,4 @@
----
+﻿---
 title: "Data Validation & GBIF Validator"
 teaching: 0
 exercises: 30
@@ -26,7 +26,7 @@ Data validation with GBIF data validation tool
 
 ## GBIF data validator
 
-![GBIF Data validator](../assets/img/validator.PNG)
+![GBIF Data validator](../fig/validator.PNG)
 
 One method for data validation is fairly simple. The GBIF data validator
 
@@ -71,7 +71,7 @@ As with all GBIF tools and software, the data validator is an open source projec
 > 4. Is your data ready to be published by GBIF?
 > 
 > > ## Solution
-> > 1. ![screenshot]({{ page.root }}/assets/img/validation.PNG){: .image-with-shadow }
+> > 1. ![screenshot]({{ page.root }}/fig/validation.PNG){: .image-with-shadow }
 > > 2. Check the validation status of your file
 > {: .solution}
 {: .challenge}

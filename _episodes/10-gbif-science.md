@@ -1,4 +1,4 @@
----
+﻿---
 title: "Break Optional reading GBIF Policy & science"
 start: true
 teaching: 30
@@ -23,7 +23,7 @@ keypoints:
 
 ## 1: [GBIF & Science](https://docs.google.com/presentation/d/1JpGe0ZPnt8i2Mdw7un1MgdO8_JhSl6WOQwAClvK5KYE/edit?usp=sharing)
 
-![GBIF Science](../assets/img/gbif_science.PNG)
+![GBIF Science](../fig/gbif_science.PNG)
 
 > ## Exercise 1 : GBIF and Science
 > 
@@ -41,7 +41,7 @@ keypoints:
 
 ## 2: [GBIF & CBD](https://docs.google.com/presentation/d/1aoCRFsrTxIEztXYll_jqpyHY_wcysyTKAwDaa4XcrCI/edit?usp=sharing)
 
-![GBIF & CBD](../assets/img/CBD-COP15.png)
+![GBIF & CBD](../fig/CBD-COP15.png)
 
 > ## Exercise 2 : GBIF and CBD
 > 
@@ -59,7 +59,7 @@ keypoints:
 
 ## 3: [Delivering relevant data](https://drive.google.com/file/d/1xPKQyHeYZdT3OWM9V6KIRxuJgr_H_qSY/view?usp=sharing)
 
-![GBIF & IPBES](../assets/img/gbif_ipbes.jpg)
+![GBIF & IPBES](../fig/gbif_ipbes.jpg)
 
 > ## Exercise 3 : Delivering relevant data
 > 
@@ -74,7 +74,7 @@ keypoints:
 
 ## 4: [Science Policy Interface](https://docs.google.com/presentation/d/1LJPFOVeUz8H1EEZaYfE4sqwpIDHQIx7V_-HYH6hubLk/edit?usp=sharing)
 
-![Supporting SPI](../assets/img/ACBmeetings.png)
+![Supporting SPI](../fig/ACBmeetings.png)
 
 > ## Exercise 4 : Science Policy Interface
 > 

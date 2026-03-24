@@ -1,0 +1,248 @@
+﻿---
+title: "Hands-on: GBIF Data Cubes"
+start: true
+teaching: 0
+exercises: 90
+questions:
+- "GBIF Data Cubes?"
+- "Data cleaning with SQLite"
+
+objectives:
+- "Understand how GBIF data cubes can help you in creating complex downloads"
+- "Understand how SQLite can help cleaning data"
+
+keypoints:
+- GBIF Data Cubes are a poweerful tool
+- SQL can be very useful to clean your data
+- Views are great to filter the records and fields you want to keep without changing your original data
+- SQL statements are easy to understand, sustainable and reusable
+---
+
+
+# Hands-on: SQL queries
+
+## Presentation GBIF Data Cubes Hands on
+
+<a href="https://docs.google.com/presentation/d/1P3Wt1udes5581cH0gcEj2ANpcr0hZcemQQrTCvAizM8/edit?usp=sharing">
+    <img src="{{ '/fig/cubes3.png' | relative_url }}">
+  </a>
+
+
+> ## Extra Exercise 1: The Time-Series Cube (Year & Month)
+>
+> Scenario: You want to track the seasonality of observations. However, you want the year and month combined into a single formatted > string (e.g., 2023-05) so it's easier to plot later.
+>  1. Task: Create a cube that counts species occurrences by year-month for Ethiopia, ensuring you exclude records where the month 
+>  is missing.
+>
+>
+> > ## SOLUTION
+> > ```sql
+> > SELECT
+> > speciesKey,
+> > PRINTF('%04d-%02d', "year", "month") AS yearMonth,
+> > COUNT(*) AS occurrenceCount
+> > FROM occurrence
+> > WHERE
+> > countryCode = 'ET' AND
+> > "year" >= 2000 AND 
+> > "month" IS NOT NULL
+> > GROUP BY
+> > speciesKey,
+> > PRINTF('%04d-%02d', "year", "month")
+> > ```
+> > Why this rocks: We use the PRINTF function to format the output. Notice that we filter out NULL months in the WHERE clause so > > > we don't end up with messy 2023-NULL strings!
+> >
+> {: .solution}
+{: .challenge}
+
+
+
+> ## Extra Exercise 2: The Missing Data Handler (COALESCE)
+>
+> Scenario: You want to group your data by biological dimensions like sex and lifeStage. The problem? A massive amount of GBIF data > leaves these fields completely blank (NULL), which can cause issues when analyzing the final table.
+> 1. Task: Build a cube that categorizes data by species, sex, and life stage, but safely replaces any missing values with the text 
+> 'NOT_SUPPLIED'
+>
+>
+> > ## SOLUTION
+> > ```sql
+> > SELECT
+> > specieskey,
+> > COALESCE(sex.concept, 'NOT_SUPPLIED') sex,
+> > COALESCE(lifestage.concept, 'NOT_SUPPLIED') lifestage,
+> > COUNT(*) occurrencecount
+> > FROM
+> > occurrence
+> > WHERE
+> > occurrence.countrycode = 'ET'
+> > GROUP BY
+> > occurrence.specieskey,
+> > COALESCE(occurrence.sex.concept, 'NOT_SUPPLIED'),
+> > COALESCE(occurrence.lifestage.concept, 'NOT_SUPPLIED')
+> > ```
+> > Why this rocks: COALESCE() is a lifesaver. It looks at the first argument, and if it's empty, it falls back to the second
+> > argument. This keeps your data cube mathematically tidy.
+> >
+> {: .solution}
+{: .challenge}
+
+> ## Extra Exercise 3: The Spatial Grid Cube
+>
+> Scenario: To build distribution models, scientists rarely use exact points; they prefer to count how many occurrences fall into 
+> standardized grid cells (like 1km or 10km squares). GBIF provides custom B-Cubed grid functions specifically for this!
+> Task: Generate a 1-kilometer grid cell code for every observation using the GBIF_EEARGCode function, and count the species per 
+> cell.
+>
+>
+> > ## SOLUTION
+> > ```sql
+> > SELECT
+> > GBIF_EEARGCODE(1000, decimallatitude, decimallongitude, COALESCE(coordinateuncertaintyinmeters, 1000)) eeacellcode,
+> > specieskey,
+> > COUNT(*) occurrencecount
+> > FROM
+> > occurrence
+> > WHERE
+> > occurrence.countrycode = 'ET'
+> > AND occurrence.hascoordinate = TRUE
+> > GROUP BY
+> > GBIF_EEARGCODE(1000, occurrence.decimallatitude, occurrence.decimallongitude, COALESCE(occurrence.coordinateuncertaintyinmeters, > > 1000)),
+> > occurrence.specieskey
+> > ```
+> >
+> > Why this rocks: The custom function takes the grid size (1000m), the coordinates, and the uncertainty. If the coordinate 
+> > uncertainty is missing, we use COALESCE to default it to 1000 meters so the function doesn't fail
+> >
+> {: .solution}
+{: .challenge}
+
+> ## Extra Exercise 4: The Multi-Measure Cube
+>
+> Scenario: A data cube doesn't have to be limited to just counting rows (COUNT(*)). Sometimes you want to extract other summary statistics alongside your counts to assess the quality of the data in that specific bucket.
+> Task: Group occurrences by species and year, count them, but also calculate the minimum coordinate uncertainty for that specific group.
+>
+>
+> > ## SOLUTION
+> > ```sql
+> > SELECT
+> >   specieskey,
+> >   "year",
+> >   COUNT(*) occurrencecount,
+> >   MIN(coordinateuncertaintyinmeters) minuncertainty
+> > FROM
+> >   occurrence
+> > WHERE
+> >   occurrence.countrycode = 'ET'
+> >   AND occurrence."year" >= 2000
+> > GROUP BY
+> >   occurrence.specieskey,
+> >   occurrence."year"
+> > ```
+> >
+> > Why this rocks: You are now pulling multiple "measures" (aggregations) for the exact same set of dimensions. This tells you not only how many records exist, but the "best case scenario" for spatial precision within that year.
+> >
+> {: .solution}
+{: .challenge}
+
+> ## Extra Exercise 5: The Sampling Bias Hunter (Window Functions)
+>
+> Scenario: If you see a spike in a specific bird species count in 2020, did the population actually increase, or were there just more birdwatchers that year? To figure this out, ecologists compare species counts against the total counts of their broader Family.
+> Task: Write an advanced query that counts occurrences per species, but uses an SQL "Window Function" to also calculate the total occurrences for the entire family in that same row.
+>
+>
+> > ## SOLUTION
+> > ```sql
+> > SELECT
+> >   familykey,
+> >   specieskey,
+> >   "year",
+> >   COUNT(*) speciescount,
+> >   SUM(COUNT(*)) OVER (
+> >     PARTITION BY familykey) familytotalcount
+> > FROM
+> >   occurrence
+> > WHERE
+> >   occurrence.countrycode = 'ET'
+> >   AND occurrence.familykey IS NOT NULL
+> > GROUP BY
+> >   occurrence.familykey,
+> >   occurrence.specieskey,
+> >   occurrence."year"
+> > ```
+> >
+> > Why this rocks: Window functions (OVER (PARTITION BY ...)) are absolute magic. They let you perform a massive secondary calculation (like the total sum of the entire family) and tack it onto your grouped rows without needing to write a second, separate SQL query!
+> >
+> {: .solution}
+{: .challenge}
+
+
+<img src="{{ '/fig/session_over5.png' | relative_url }}">
+
+
+## Optional Presentation: [SQLite](https://docs.google.com/presentation/d/1oMPNqm4tU9BwnUo1zJxI0nlXMPfIljYeAqh4vEdJZ_0/edit?usp=sharing)
+
+![SQLite](../fig/SQLite.png)
+
+---
+## Exercise 1 : Download from GBIF.org
+### Instructions
+- Select at least one of the use cases
+- Follow the use case dataset links:
+    - A. [iNaturalist Research-grade Observations](https://www.gbif.org/dataset/50c9509d-22c7-4a22-a47d-8c48425ef4a7)
+    - B.[Italian official Adriatic  landings between 1953 and 2012](https://www.gbif.org/dataset/6e0f65ad-8ffb-4a07-ac53-2efe9153e994)
+    - C.[Naturgucker](https://www.gbif.org/dataset/6ac3f774-d9fb-4796-b3e9-92bf6c81c084)
+    - D.[Trawl survey data from the Jabuka Pit area](https://www.gbif.org/dataset/29719761-2d0e-4fef-bfcb-764b20c07d40)
+- Click on the **occurrences** button
+- On the left panel, filter by **CountryOrArea**
+- How many occurrences to you see for **Croatia**?
+- ⬇️ Download in **simple CSV** format
+- Open the downloaded file with a text editor
+
+## Exercise 2 : Import data
+### Instructions
+- Open the DBrowser application
+- Create a new empty database
+- Import the GBIF downloaded data into an SQL table named ‘occ’
+- How many records do you have?
+- Save your database
+
+## Exercise 3 : Explore data
+### Instructions
+- (Re)Open your database with DBBrowser
+- Do you ALWAYS have **scientificName, date and coordinates**?
+- How complete are the data? (describe)
+- Put special attention to **individualCount, taxonRank, coordinatesUncertainty, license, issues** fields
+- Are all records suitable for your study(**fitness for use**)? Explain why?
+- Would you **filter out** some data? Explain why?
+
+## Exercice 4 : Discard data
+### Instructions
+- Do you have absence data? (see **occurrenceStatus** field)
+- Discard absence data
+- Create a **trusted** view to eliminate **absence data** and data with **taxonRank different from SPECIES**
+- How many records do you have in this trusted view?
+
+
+## Exercice 5 : Filter data
+### Instructions
+- Do you have data without **coordinatesUncertaintyInMeters**?
+- Do you have data with coordinates uncertainty > 10 km?
+- Update your **trusted** view to filter out these **records**
+- Select only these **fields** in your view:
+    - scientificName, Date, coordinates, uncertainty and occurrenceID
+- How many records do you have now?
+
+
+## Exercice 6 : Annotate data
+### Instructions
+- IndividualCound is not a mandatory field, set it to 1 when null
+- Add a **withMedia** field,  set it to True when mediaType is not null
+- Add these two fields to your **trusted** view
+- Export the **trusted** view results in a CSV file
+- (Now you are ready to merge this online data with your own data)
+
+---
+> ## Solutions
+> If needed, see the [solutions page](../20-sqlite/index.html).
+> 
+{: .solution}

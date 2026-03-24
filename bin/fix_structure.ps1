@@ -33,7 +33,8 @@ foreach ($item in $sorted) {
 }
 
 # Pass 2: rename from temporary names to final names
-foreach ($oldName in $renameMap.Keys) {
+$keys = @($renameMap.Keys)
+foreach ($oldName in $keys) {
     $tmpName = $renameMap[$oldName]
     $finalName = $tmpName -replace "^TMP_", ""
     $renameMap[$oldName] = $finalName
@@ -76,8 +77,8 @@ foreach ($f in $allMdFiles) {
     $changed = $false
     
     foreach ($key in $renameMap.Keys) {
-        $oldBase = [regex]::Escape($key -replace "\.md", "")
-        $newBase = $renameMap[$key] -replace "\.md", ""
+        $oldBase = [regex]::Escape( ($key -replace "\.md", "") )
+        $newBase = ($renameMap[$key] -replace "\.md", "")
         if ($content -match "\.\./$oldBase/") {
             $content = $content -replace "\.\./$oldBase/", "../$newBase/"
             $changed = $true
